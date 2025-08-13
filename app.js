@@ -89,7 +89,7 @@ async function loadAllCollections() {
       cardEl.className = 'card';
 
       const img = document.createElement('img');
-      img.src = './assets/card/' + card.images[0];
+      img.src = card.images[0];
       img.alt = card.name;
       cardEl.appendChild(img);
 
