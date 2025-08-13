@@ -1,5 +1,5 @@
 /* =============================== */
-/* 🌈 Variáveis Globais             */
+/* Variáveis Globais               */
 /* =============================== */
 :root {
   /* Cores */
@@ -9,7 +9,7 @@
   --color-brand: rgb(146, 129, 87);
   --color-card: #ffffff;
   --color-footer-online: #8fd14f;
-  --color-footer-offline: rgba(255,255,255,0.3);
+  --color-footer-offline: rgba(255, 255, 255, 0.3);
 
   /* Espaçamentos */
   --space-0: 0px;
@@ -33,7 +33,7 @@
 }
 
 /* =============================== */
-/* 🔄 Reset Global                  */
+/* Reset Global                    */
 /* =============================== */
 * {
   box-sizing: border-box;
@@ -41,12 +41,13 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 /* =============================== */
-/* 🌐 Body e Background             */
+/* Body e Background               */
 /* =============================== */
 body {
   font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
@@ -66,7 +67,7 @@ body {
 }
 
 /* =============================== */
-/* 🏠 Header                        */
+/* Header                          */
 /* =============================== */
 .app-header {
   position: sticky;
@@ -85,7 +86,7 @@ body {
 }
 
 /* =============================== */
-/* 🗂 Main Container                */
+/* Main Container                  */
 /* =============================== */
 main.container {
   flex: 1;
@@ -101,7 +102,7 @@ main.container {
 }
 
 /* =============================== */
-/* 🏁 Footer                        */
+/* Footer                          */
 /* =============================== */
 .app-footer {
   background: var(--color-brand);
@@ -117,7 +118,7 @@ main.container {
 }
 
 /* =============================== */
-/* 🔘 Status Pill                   */
+/* Status Pill                     */
 /* =============================== */
 #status {
   display: inline-block;
@@ -141,7 +142,7 @@ main.container {
 }
 
 /* =============================== */
-/* 🔘 Botões                        */
+/* Botões                          */
 /* =============================== */
 .btn {
   border: 0;
@@ -158,7 +159,7 @@ main.container {
 }
 
 /* =============================== */
-/* 💡 Hint / Dicas                  */
+/* Hint / Dicas                    */
 /* =============================== */
 .hint {
   background: var(--color-card);
@@ -180,7 +181,7 @@ main.container {
 }
 
 /* =============================== */
-/* 🃏 Grid de Cartas                 */
+/* Grid de Cartas                  */
 /* =============================== */
 .cards-grid {
   display: grid;
@@ -210,7 +211,7 @@ main.container {
 }
 
 /* =============================== */
-/* 🃏 Cartas                         */
+/* Cartas                          */
 /* =============================== */
 .card {
   background: var(--color-card);
@@ -219,7 +220,7 @@ main.container {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .card img {
@@ -244,4 +245,48 @@ main.container {
 .card-info .code {
   font-size: var(--font-small);
   color: var(--color-muted);
+}
+
+/* =============================== */
+/* Modal                           */
+/* =============================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  cursor: pointer;
 }

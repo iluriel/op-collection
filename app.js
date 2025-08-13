@@ -1,13 +1,17 @@
-// Atualiza ano do rodapé
+// ===============================
+// Atualização do ano do rodapé
+// ===============================
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ===============================
 // Status online/offline
+// ===============================
 const statusEl = document.getElementById('status');
 
 function updateStatus() {
   const isOnline = navigator.onLine;
   statusEl.textContent = isOnline ? 'Online' : 'Offline';
-  
+
   if (isOnline) {
     statusEl.classList.add('online');
     statusEl.classList.remove('offline');
@@ -17,14 +21,14 @@ function updateStatus() {
   }
 }
 
-// Eventos corretos (minúsculas!)
-window.addEventListener('online',  updateStatus);
+window.addEventListener('online', updateStatus);
 window.addEventListener('offline', updateStatus);
 
-// Chamada inicial
 updateStatus();
 
-// Dica de instalação no iOS (não há beforeinstallprompt no Safari iOS)
+// ===============================
+// Dica de instalação no iOS
+// ===============================
 (function showIosInstallHint() {
   const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
   const isStandalone = (window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone;
@@ -33,7 +37,9 @@ updateStatus();
   }
 })();
 
-// Prompt de instalação no Android/Chrome
+// ===============================
+// Prompt de instalação Android/Chrome
+// ===============================
 let deferredPrompt = null;
 const btnInstall = document.getElementById('btnInstall');
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -50,14 +56,19 @@ btnInstall.addEventListener('click', async () => {
   btnInstall.classList.add('hidden');
 });
 
+// ===============================
 // Registro do Service Worker
+// ===============================
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js').catch(console.error);
   });
 }
 
-// Carregar as cartas
+// ===============================
+// Configuração e carregamento das coleções
+// ===============================
 const collections = [
   'EB01', 'EB02',
   'OP01', 'OP02', 'OP03', 'OP04', 'OP05', 'OP06', 'OP07', 'OP08', 'OP09', 'OP10', 'OP11', 'OP12',
@@ -73,6 +84,39 @@ for (let i = 1; i <= 28; i++) {
 // Ordena alfabeticamente
 collections.sort();
 
+// ===============================
+// Modal de carta
+// ===============================
+const modal = document.createElement('div');
+modal.id = 'cardModal';
+modal.className = 'modal hidden';
+modal.innerHTML = `
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <img id="modalImage" src="" alt="" />
+  </div>
+`;
+document.body.appendChild(modal);
+
+const closeModal = document.getElementById('closeModal');
+
+function openCardModal(card) {
+  document.getElementById('modalTitle').textContent = card.name;
+  document.getElementById('modalImage').src = card.images[0] || './assets/card/bg-caracter.png';
+  modal.classList.remove('hidden');
+}
+
+// Fechar modal
+closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) modal.classList.add('hidden');
+});
+
+
+// ===============================
+// Função para carregar todas as cartas
+// ===============================
 async function loadAllCollections() {
   const container = document.getElementById('cardsGrid');
   container.innerHTML = 'Carregando cartas...';
@@ -102,11 +146,12 @@ async function loadAllCollections() {
       container.innerHTML = '<p style="color:#a5a5a5">Nenhuma carta encontrada. Verifique se os JSONs existem em /data.</p>';
       return;
     }
-    
+
     container.innerHTML = '';
 
     allCards.forEach(card => {
       const cardEl = document.createElement('div');
+      cardEl.addEventListener('click', () => openCardModal(card));
       cardEl.className = 'card';
 
       const img = document.createElement('img');
@@ -143,4 +188,7 @@ async function loadAllCollections() {
   }
 }
 
+// ===============================
+// Inicialização da coleção
+// ===============================
 loadAllCollections();
