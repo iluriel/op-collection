@@ -1,103 +1,213 @@
+/* =============================== */
+/* 🌈 Variáveis Globais             */
+/* =============================== */
 :root {
-  --bg: #0b0b0b;
-  --fg: #efefef;
-  --muted: #a5a5a5;
-  --brand: #4f46e5;
-  --card: #151515;
+  /* Cores */
+  --color-bg: #f8f9fa;
+  --color-fg: #1a1a1a;
+  --color-muted: #6c757d;
+  --color-brand: rgb(146, 129, 87);
+  --color-card: #ffffff;
+  --color-footer-online: #8fd14f;
+  --color-footer-offline: rgba(255,255,255,0.3);
+
+  /* Espaçamentos */
+  --space-0: 0px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-128: 128px;
+
+  /* Outros */
+  --radius-pill: 999px;
+  --radius-card: 12px;
+  --font-base: 14px;
+  --font-small: 12px;
 }
-* { box-sizing: border-box; }
-html, body { 
-    height: 100%; 
-    margin: 0;
-}
-body {
+
+/* =============================== */
+/* 🔄 Reset Global                  */
+/* =============================== */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* =============================== */
+/* 🌐 Body e Background             */
+/* =============================== */
+body {
   font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--color-bg) url("assets/bg-vertical.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--color-fg);
   display: flex;
   flex-direction: column;
 }
 
-main {
+/* Para telas de 600px em diante → horizontal */
+@media (min-width: 600px) {
+  body {
+    background: var(--color-bg) url("assets/bg-horizontal.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+/* =============================== */
+/* 🗂 Main Container                */
+/* =============================== */
+main.container {
   flex: 1;
-}
-
-.app-header {
-  position: sticky;
-  top: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px);
-  padding: 12px 16px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-
-.app-footer { 
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(8px);
-    padding: 12px 16px;
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between;
-
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.container {
-  padding: 24px 16px 64px;
   width: 100%;
   max-width: none;
   margin: 0 auto;
+  padding: var(--space-24);
 }
-.btn { border: 0; padding: 10px 14px; border-radius: 12px; background: var(--brand); color: white; font-weight: 600; cursor: pointer; }
-.btn.hidden { display: none; }
-.hint { background: var(--card); border: 1px solid #222; padding: 12px 14px; border-radius: 12px; margin: 12px 16px; font-size: 14px; }
-.hint .share { border: 1px solid #333; padding: 2px 6px; border-radius: 6px; }
-.hidden { display: none; }
 
+/* =============================== */
+/* 🏠 Header                        */
+/* =============================== */
+.app-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  color: #000;
+  padding: var(--space-16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
+}
 
+/* =============================== */
+/* 🏁 Footer                        */
+/* =============================== */
+.app-footer {
+  background: var(--color-brand);
+  color: #fff;
+  padding: var(--space-16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-small);
+}
+
+/* =============================== */
+/* 🔘 Status Pill                   */
+/* =============================== */
+#status {
+  display: inline-block;
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-small);
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-footer-offline);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#status.online {
+  background-color: var(--color-footer-online);
+  color: #fff;
+}
+
+#status.offline {
+  background-color: var(--color-footer-offline);
+  color: #000;
+}
+
+/* =============================== */
+/* 🔘 Botões                        */
+/* =============================== */
+.btn {
+  border: 0;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-card);
+  background: var(--color-brand);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.hidden {
+  display: none;
+}
+
+/* =============================== */
+/* 💡 Hint / Dicas                  */
+/* =============================== */
+.hint {
+  background: var(--color-card);
+  border: 1px solid #ccc;
+  padding: var(--space-16);
+  border-radius: var(--radius-card);
+  margin: var(--space-16) 0;
+  font-size: var(--font-base);
+}
+
+.hint .share {
+  border: 1px solid #bbb;
+  padding: var(--space-2) var(--space-6);
+  border-radius: 6px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =============================== */
+/* 🃏 Grid de Cartas                 */
+/* =============================== */
 .cards-grid {
   display: grid;
-  gap: 16px;
-  padding: 24px;
+  gap: var(--space-16);
+  padding: var(--space-24) 0;
   width: 100%;
-  max-width: 1920px;
-  margin: 0 auto; 
-  box-sizing: border-box;
+  margin: 0 auto;
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* De 600px até 899.98px → 4 colunas */
 @media (min-width: 600px) and (max-width: 899.98px) {
   .cards-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* De 900px até 1199.98px → 6 colunas */
 @media (min-width: 900px) and (max-width: 1199.98px) {
   .cards-grid {
     grid-template-columns: repeat(6, 1fr);
   }
 }
 
-/* De 1200px em diante → 8 colunas */
 @media (min-width: 1200px) {
   .cards-grid {
     grid-template-columns: repeat(8, 1fr);
   }
 }
 
-
+/* =============================== */
+/* 🃏 Cartas                         */
+/* =============================== */
 .card {
-  background: var(--card);
-  border-radius: 12px;
+  background: var(--color-card);
+  border-radius: var(--radius-card);
   overflow: hidden;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
 .card img {
@@ -108,18 +218,18 @@ main {
 }
 
 .card-info {
-  padding: 12px;
-  color: var(--fg);
-  font-size: 14px;
+  padding: var(--space-16);
+  color: var(--color-fg);
+  font-size: var(--font-base);
   flex-grow: 1;
 }
 
 .card-info .name {
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: var(--space-4);
 }
 
 .card-info .code {
-  font-size: 12px;
-  color: var(--muted);
+  font-size: var(--font-small);
+  color: var(--color-muted);
 }

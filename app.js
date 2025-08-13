@@ -3,9 +3,25 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // Status online/offline
 const statusEl = document.getElementById('status');
-function updateStatus() { statusEl.textContent = navigator.onLine ? 'online' : 'offline'; }
-window.addEventListener('online', updateStatus);
+
+function updateStatus() {
+  const isOnline = navigator.onLine;
+  statusEl.textContent = isOnline ? 'Online' : 'Offline';
+  
+  if (isOnline) {
+    statusEl.classList.add('online');
+    statusEl.classList.remove('offline');
+  } else {
+    statusEl.classList.add('offline');
+    statusEl.classList.remove('online');
+  }
+}
+
+// Eventos corretos (minúsculas!)
+window.addEventListener('online',  updateStatus);
 window.addEventListener('offline', updateStatus);
+
+// Chamada inicial
 updateStatus();
 
 // Dica de instalação no iOS (não há beforeinstallprompt no Safari iOS)
