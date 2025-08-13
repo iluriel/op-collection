@@ -44,7 +44,12 @@ main {
     font-size: 12px;
 }
 
-.container { padding: 24px 16px 64px; max-width: 840px; margin: 0 auto; }
+.container {
+  padding: 24px 16px 64px;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+}
 .btn { border: 0; padding: 10px 14px; border-radius: 12px; background: var(--brand); color: white; font-weight: 600; cursor: pointer; }
 .btn.hidden { display: none; }
 .hint { background: var(--card); border: 1px solid #222; padding: 12px 14px; border-radius: 12px; margin: 12px 16px; font-size: 14px; }
@@ -54,12 +59,36 @@ main {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
   padding: 24px;
   width: 100%;
+  max-width: 1920px;
+  margin: 0 auto; 
   box-sizing: border-box;
+  grid-template-columns: repeat(2, 1fr);
 }
+
+/* De 600px até 899.98px → 4 colunas */
+@media (min-width: 600px) and (max-width: 899.98px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* De 900px até 1199.98px → 6 colunas */
+@media (min-width: 900px) and (max-width: 1199.98px) {
+  .cards-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* De 1200px em diante → 8 colunas */
+@media (min-width: 1200px) {
+  .cards-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
 
 .card {
   background: var(--card);
@@ -73,6 +102,7 @@ main {
 
 .card img {
   width: 100%;
+  height: auto;
   aspect-ratio: 600 / 838;
   object-fit: cover;
 }

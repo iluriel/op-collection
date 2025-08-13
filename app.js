@@ -82,6 +82,11 @@ async function loadAllCollections() {
     // Ordena tudo pelo código da carta
     allCards.sort((a, b) => a.code.localeCompare(b.code));
 
+    if (allCards.length === 0) {
+      container.innerHTML = '<p style="color:#a5a5a5">Nenhuma carta encontrada. Verifique se os JSONs existem em /data.</p>';
+      return;
+    }
+    
     container.innerHTML = '';
 
     allCards.forEach(card => {
@@ -91,6 +96,12 @@ async function loadAllCollections() {
       const img = document.createElement('img');
       img.src = card.images[0];
       img.alt = card.name;
+
+      // Fallback para imagem padrão se não encontrar a original
+      img.onerror = () => {
+        img.src = './assets/card/bg-caracter.png';
+      };
+
       cardEl.appendChild(img);
 
       const info = document.createElement('div');
