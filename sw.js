@@ -1,5 +1,5 @@
 /* Service Worker simples com precache + stale-while-revalidate */
-const CACHE_NAME = 'pwa-cache-v1';
+const CACHE_NAME = 'pwa-cache-v2';
 const ASSETS = [
   './',
   './index.html',

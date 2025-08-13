@@ -1,7 +1,7 @@
 {
-  "name": "MeuApp",
-  "short_name": "MeuApp",
-  "description": "PWA multiplataforma com offline e fullscreen no iOS.",
+  "name": "OP Collection",
+  "short_name": "OP Collection",
+  "description": "Coleção One Piece multiplataforma com offline e fullscreen no iOS.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",

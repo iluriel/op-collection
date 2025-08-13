@@ -8,19 +8,41 @@
   <!-- iOS fullscreen -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="MeuApp" />
-  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="OP Collection" />
+
+  <!-- Favicon / Icons (use caminhos relativos no GitHub Pages) -->
+  <link rel="icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="mask-icon" href="./icons/safari-pinned-tab.svg" color="#0d0d0d">
+  <meta name="msapplication-TileColor" content="#0d0d0d">
 
   <!-- Android/geral -->
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="./manifest.webmanifest" />
 
-  <title>MeuApp (PWA)</title>
+  <!-- Splash iOS (caminhos relativos) -->
+  <link rel="apple-touch-startup-image" href="./splash/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-1242x2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-1284x2778.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-1668x2224.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-1668x2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" />
+  <link rel="apple-touch-startup-image" href="./splash/launch-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" />
+
+  <title>OP Collection</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
   <header class="app-header">
-    <h1>MeuApp</h1>
+    <h1>OP Collection</h1>
     <button id="btnInstall" class="btn hidden">Instalar</button>
   </header>
 
@@ -31,9 +53,10 @@
   <main class="container">
     <p>Olá! Este é o esqueleto do seu PWA. Edite este conteúdo à vontade.</p>
     <p>Status: <span id="status">online</span></p>
+    <div id="cardsGrid" class="cards-grid"></div>
   </main>
 
-  <footer class="app-footer">© <span id="year"></span> MeuApp</footer>
+  <footer class="app-footer">© <span id="year"></span> OP Collection</footer>
 
   <script defer src="./app.js"></script>
 </body>
