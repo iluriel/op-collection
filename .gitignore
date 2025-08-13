@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Node/Build (se usar futuramente)
+node_modules/
+dist/
+build/
+*.log
