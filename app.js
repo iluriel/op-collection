@@ -130,6 +130,56 @@ function setCardQty(cardCode, qty) {
   saveCollection();
 }
 
+// ícones de quantidade
+function createCardIcons(cardCode) {
+  const iconContainer = document.createElement('div');
+  iconContainer.className = 'card-icons';
+
+  // 4 bolinhas
+  for (let i = 0; i < 4; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'icon icon-dot';
+    dot.dataset.index = String(i);
+    iconContainer.appendChild(dot);
+  }
+
+  // "+" (oculto por padrão)
+  const plus = document.createElement('span');
+  plus.className = 'icon icon-plus';
+  plus.style.display = 'none';
+  iconContainer.appendChild(plus);
+
+  // Atualiza conforme a quantidade salva
+  updateCardIcons(cardCode, iconContainer);
+
+  return iconContainer;
+}
+
+function updateCardIcons(cardCode, iconContainer) {
+  if (!iconContainer) return;
+
+  const qty = getCardQty(cardCode);
+
+  // Marca as 0..3 bolinhas
+  const dots = iconContainer.querySelectorAll('.icon-dot');
+  dots.forEach((dot, i) => {
+    if (qty > 0 && i < Math.min(qty, 4)) {
+      dot.classList.add('checked');
+    } else {
+      dot.classList.remove('checked');
+    }
+  });
+
+  // "+" aparece se qty > 4
+  const plus = iconContainer.querySelector('.icon-plus');
+  if (plus) plus.style.display = qty > 4 ? 'inline-block' : 'none';
+}
+
+function refreshCardIcons(cardCode) {
+  const container = document.querySelector(`.card[data-code="${CSS.escape(cardCode)}"] .card-icons`);
+  updateCardIcons(cardCode, container);
+}
+
 const closeModal = document.getElementById('closeModal');
 
 function openCardModal(card) {
@@ -155,7 +205,8 @@ function openCardModal(card) {
     qty = Math.max(0, parseInt(newQty, 10) || 0);
     qtyInput.value = String(qty);
     btnDecrease.disabled = qty <= 0;
-    setCardQty(card.code, qty); // salva imediatamente
+    setCardQty(card.code, qty);      // salva imediatamente
+    refreshCardIcons(card.code);     // atualiza as bolinhas na grid
   }
 
   // Botão de diminuir
@@ -185,9 +236,18 @@ function openCardModal(card) {
 }
 
 // Fechar modal
-closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+closeModal.addEventListener('click', () => {
+  const code = modal.dataset.cardCode;
+  if (code) refreshCardIcons(code);
+  modal.classList.add('hidden');
+});
+
 modal.addEventListener('click', (e) => {
-  if (e.target === modal) modal.classList.add('hidden');
+  if (e.target === modal) {
+    const code = modal.dataset.cardCode;
+    if (code) refreshCardIcons(code);
+    modal.classList.add('hidden');
+  }
 });
 
 // ===============================
@@ -230,6 +290,8 @@ async function loadAllCollections() {
       cardEl.addEventListener('click', () => openCardModal(card));
       cardEl.className = 'card';
 
+      cardEl.dataset.code = card.code; // para facilitar encontrar depois
+
       const img = document.createElement('img');
       img.src = card.images[0];
       img.alt = card.name;
@@ -255,6 +317,9 @@ async function loadAllCollections() {
       info.appendChild(codeEl);
 
       cardEl.appendChild(info);
+
+      const icons = createCardIcons(card.code);
+      cardEl.appendChild(icons);
 
       container.appendChild(cardEl);
     });

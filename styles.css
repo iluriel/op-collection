@@ -8,6 +8,7 @@
   --color-muted: #6c757d;
   --color-brand: rgb(146, 129, 87);
   --color-card: #ffffff;
+  --color-icon-disabled: #d3d3d3;
   --color-footer-online: #8fd14f;
   --color-footer-offline: rgba(255, 255, 255, 0.3);
 
@@ -246,6 +247,59 @@ main.container {
   font-size: var(--font-small);
   color: var(--color-muted);
 }
+
+.card-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 16px;
+}
+
+.card-icons img {
+  width: 16px;
+  height: 16px;
+}
+
+.plus-icon {
+  margin-left: 2px;
+}
+
+/* Base para qualquer ícone (16x16) usando mask (permite colorir via background-color) */
+.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-color: var(--color-icon-disabled);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+/* Bolinha desmarcada: usa o ícone de "unchecked" */
+.icon-dot {
+  -webkit-mask-image: url('./assets/radio_button_unchecked_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg');
+  mask-image: url('./assets/radio_button_unchecked_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg');
+}
+
+/* Bolinha marcada: muda a cor e o desenho para "checked" */
+.icon-dot.checked {
+  background-color: var(--color-brand);
+  -webkit-mask-image: url('./assets/radio_button_checked_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg');
+  mask-image: url('./assets/radio_button_checked_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg');
+}
+
+/* Ícone de "+" (só aparece se qty > 4) */
+.icon-plus {
+  background-color: var(--color-brand);
+  -webkit-mask-image: url('./assets/add_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg');
+  mask-image: url('./assets/add_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg');
+  margin-left: 2px;
+}
+
 
 /* =============================== */
 /* Modal                           */
