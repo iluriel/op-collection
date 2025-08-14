@@ -92,18 +92,95 @@ modal.id = 'cardModal';
 modal.className = 'modal hidden';
 modal.innerHTML = `
   <div class="modal-content">
-    <span id="closeModal" class="close">&times;</span>
+    <span id="closeModal" class="close" aria-label="Fechar">&times;</span>
     <h2 id="modalTitle"></h2>
     <img id="modalImage" src="" alt="" />
+    <div class="card-controls" role="group" aria-label="Controle de quantidade">
+      <button id="btnDecrease" class="qty-btn" type="button" aria-label="Diminuir">-</button>
+      <input
+        id="qtyInput"
+        type="number"
+        inputmode="numeric"
+        pattern="\\d*"
+        min="0"
+        step="1"
+        value="0"
+        aria-label="Quantidade"
+      >
+      <button id="btnIncrease" class="qty-btn" type="button" aria-label="Aumentar">+</button>
+    </div>
   </div>
 `;
 document.body.appendChild(modal);
 
+
+// Estado da coleção salvo no localStorage
+let collection = JSON.parse(localStorage.getItem('collection') || '{}');
+
+function saveCollection() {
+  localStorage.setItem('collection', JSON.stringify(collection));
+}
+
+function getCardQty(cardCode) {
+  return Number.isInteger(collection[cardCode]) ? collection[cardCode] : 0;
+}
+
+function setCardQty(cardCode, qty) {
+  collection[cardCode] = qty;
+  saveCollection();
+}
+
 const closeModal = document.getElementById('closeModal');
 
 function openCardModal(card) {
-  document.getElementById('modalTitle').textContent = card.name;
-  document.getElementById('modalImage').src = card.images[0] || './assets/card/bg-caracter.png';
+  const modalTitle = document.getElementById('modalTitle');
+  const modalImage = document.getElementById('modalImage');
+  const qtyInput = document.getElementById('qtyInput');
+  const btnDecrease = document.getElementById('btnDecrease');
+  const btnIncrease = document.getElementById('btnIncrease');
+
+  // associa o código atual ao modal (útil para debug/segurança)
+  modal.dataset.cardCode = card.code;
+
+  modalTitle.textContent = card.name || card.code;
+  modalImage.src = (card.images && card.images[0]) || './assets/card/bg-caracter.png';
+  modalImage.onerror = () => { modalImage.src = './assets/card/bg-caracter.png'; };
+
+  // Quantidade inicial (por carta)
+  let qty = getCardQty(card.code);
+  applyQty(qty);
+
+  // Helpers
+  function applyQty(newQty) {
+    qty = Math.max(0, parseInt(newQty, 10) || 0);
+    qtyInput.value = String(qty);
+    btnDecrease.disabled = qty <= 0;
+    setCardQty(card.code, qty); // salva imediatamente
+  }
+
+  // Botão de diminuir
+  btnDecrease.onclick = (e) => {
+    e.preventDefault();
+    applyQty(qty - 1);
+  };
+
+  // Botão de aumentar
+  btnIncrease.onclick = (e) => {
+    e.preventDefault();
+    applyQty(qty + 1);
+  };
+
+  // Digitar manualmente (só inteiros)
+  qtyInput.oninput = () => {
+    // remove tudo que não é dígito
+    const cleaned = qtyInput.value.replace(/\D/g, '');
+    // atualiza UI e storage
+    applyQty(cleaned === '' ? 0 : parseInt(cleaned, 10));
+  };
+
+  // Evita scroll do número alterar valor quando o user rola a página
+  qtyInput.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
+
   modal.classList.remove('hidden');
 }
 
@@ -112,7 +189,6 @@ closeModal.addEventListener('click', () => modal.classList.add('hidden'));
 modal.addEventListener('click', (e) => {
   if (e.target === modal) modal.classList.add('hidden');
 });
-
 
 // ===============================
 // Função para carregar todas as cartas
