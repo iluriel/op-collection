@@ -11,6 +11,7 @@
   --color-icon-disabled: #d3d3d3;
   --color-footer-online: #8fd14f;
   --color-footer-offline: rgba(255, 255, 255, 0.3);
+  --color-muted-light: #ccc;
 
   /* Espaçamentos */
   --space-0: 0px;
@@ -222,6 +223,7 @@ main.container {
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .card img {
@@ -236,7 +238,24 @@ main.container {
   color: var(--color-fg);
   font-size: var(--font-base);
   flex-grow: 1;
+  display: none;
 }
+
+.card.no-image .card-info {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
 
 .card-info .name {
   font-weight: 700;
@@ -245,7 +264,7 @@ main.container {
 
 .card-info .code {
   font-size: var(--font-small);
-  color: var(--color-muted);
+  color: inherit;
 }
 
 .card-icons {
@@ -253,12 +272,25 @@ main.container {
   justify-content: center;
   align-items: center;
   gap: 4px;
-  margin: 0 0 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .card-icons img {
   width: 16px;
   height: 16px;
+}
+
+.card-icons img.active {
+  filter: none;
+}
+
+/* wrapper que contém um card + ícones (cada wrapper é uma célula da grid) */
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* card ocupa 100% da largura da célula */
 }
 
 .plus-icon {
@@ -299,6 +331,14 @@ main.container {
   mask-image: url('./assets/add_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg');
   margin-left: 2px;
 }
+
+/* ícone especial (quando o último vira add_circle) */
+.icon-dot.special {
+  background-color: var(--color-brand);
+  -webkit-mask-image: url('./assets/add_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg');
+  mask-image: url('./assets/add_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg');
+}
+
 
 
 /* =============================== */
