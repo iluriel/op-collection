@@ -168,7 +168,7 @@ main.container {
   border: 1px solid #ccc;
   padding: var(--space-16);
   border-radius: var(--radius-card);
-  margin: var(--space-16) 0;
+  margin: var(--space-16);
   font-size: var(--font-base);
 }
 
