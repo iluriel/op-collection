@@ -32,6 +32,22 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.method !== 'GET') return;
 
+  // Cache específico para imagens externas do OP TCG
+  if (request.url.includes('onepiece-cardgame.com/images/cardlist')) {
+    event.respondWith((async () => {
+      const cache = await caches.open('card-images');
+      const cached = await cache.match(request);
+      const fetchPromise = fetch(request).then(response => {
+        if (response && response.status === 200) {
+          cache.put(request, response.clone());
+        }
+        return response;
+      }).catch(() => cached);
+      return cached || fetchPromise;
+    })());
+    return;
+  }
+
   // Navegação: network-first com fallback offline
   if (request.mode === 'navigate') {
     event.respondWith((async () => {
@@ -61,3 +77,4 @@ self.addEventListener('fetch', (event) => {
     return cached || fetchPromise;
   })());
 });
+

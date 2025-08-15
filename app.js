@@ -110,13 +110,40 @@ function setCardQty(cardCode, qty) {
 }
 
 // ===============================
+// Helper para resolver URL da imagem
+// ===============================
+const OP_DOMAIN = 'https://en.onepiece-cardgame.com/';
+
+function getPrimaryImageUrl(card) {
+  // Novo formato
+  if (card && Array.isArray(card.card_image_link) && card.card_image_link[0]) {
+    const raw = String(card.card_image_link[0]);
+    // Remove qualquer coisa após ".png" (query string ou fragmentos)
+    const clean = raw.replace(/\.png.*/i, '.png');
+    // Se não for absoluta, adiciona o domínio oficial
+    const absolute = /^https?:\/\//i.test(clean)
+      ? clean
+      : OP_DOMAIN + clean.replace(/^\/+/, '');
+    return absolute;
+  }
+  // Compatibilidade com o formato antigo
+  if (card && Array.isArray(card.images) && card.images[0]) {
+    return card.images[0];
+  }
+  return '';
+}
+
+// ===============================
 // Helpers relacionados ao tipo (leader)
 // ===============================
 function isLeader(cardCode) {
   if (!allCards || !allCards.length) return false;
+
   const cd = allCards.find(c => c && c.code === cardCode);
-  // Alguns JSONs vêm com "class": "LEADER"
-  const cls = (cd && (cd.class || cd.Class || cd.type)) || '';
+
+  // Agora verifica também "card_type"
+  const cls = (cd && (cd.card_type || cd.class || cd.Class || cd.type)) || '';
+
   return String(cls).toUpperCase() === 'LEADER';
 }
 
@@ -239,9 +266,9 @@ function openCardModal(card) {
   // associa o código atual ao modal (útil para fechar e sync)
   modal.dataset.cardCode = card.code;
 
-  modalTitle.textContent = card.name || card.code;
-  modalImage.src = (card.images && card.images[0]) || './assets/card/bg-caracter.png';
-  modalImage.alt = card.name || card.code;
+  modalTitle.textContent = card.card_name || card.name || card.code;
+  modalImage.src = getPrimaryImageUrl(card) || './assets/card/bg-caracter.png';
+  modalImage.alt = card.card_name || card.name || card.code;
   modalImage.onerror = () => {
     modalImage.src = './assets/card/bg-caracter.png';
   };
@@ -349,9 +376,38 @@ async function loadAllCollections() {
 
       // imagem (ou placeholder)
       const img = document.createElement('img');
-      const hasImage = Boolean(card.images && card.images[0]);
-      img.src = hasImage ? card.images[0] : './assets/card/bg-caracter.png';
+      // Verifica se existe imagem no novo formato
+      const imageUrl = getPrimaryImageUrl(card);
+      // Se não tiver imagem, usa placeholder local
+      const hasImage = Boolean(imageUrl);
+      img.src = hasImage ? imageUrl : './assets/card/bg-caracter.png';
       img.alt = card.name || card.code;
+      // lazy loading nativo
+      img.loading = 'lazy';
+      // Guarda a URL real para carregar quando entrar na tela
+      if (hasImage && imageUrl) {
+        img.dataset.src = imageUrl;
+      } else {
+        // garante que dataset.src nunca seja vazio
+        img.dataset.src = './assets/card/bg-caracter.png';
+      }
+
+
+      // IntersectionObserver para lazy load mais controlado
+      if (hasImage) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const imgEl = entry.target;
+              imgEl.src = imgEl.dataset.src || './assets/card/bg-caracter.png'; // fallback seguro
+              imgEl.onerror = () => { imgEl.src = './assets/card/bg-caracter.png'; };
+              obs.unobserve(imgEl);
+            }
+          });
+        }, { rootMargin: '200px' });
+
+        observer.observe(img);
+      }
 
       // Se a imagem der erro, trocamos para placeholder e marcamos no card
       img.onerror = () => {
@@ -370,7 +426,8 @@ async function loadAllCollections() {
 
       const nameEl = document.createElement('div');
       nameEl.className = 'name';
-      nameEl.textContent = card.name || '';
+      // Primeiro tenta card.card_name, depois card.name (compatibilidade)
+      nameEl.textContent = card.card_name || card.name || '';
 
       const codeEl = document.createElement('div');
       codeEl.className = 'code';
@@ -378,6 +435,7 @@ async function loadAllCollections() {
 
       info.appendChild(nameEl);
       info.appendChild(codeEl);
+
 
       cardEl.appendChild(info);
 

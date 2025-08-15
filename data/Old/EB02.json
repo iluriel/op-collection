@@ -1,0 +1,175 @@
+[
+  {
+    "code": "EB02-001",
+    "rarity": "C",
+    "class": "CHARACTER",
+    "name": "Karoo",
+    "cost": "5",
+    "attribute": "Strike",
+    "power": "7000",
+    "counter": "1000",
+    "color": "Red",
+    "block": "3",
+    "type": "Animal/Alabasta",
+    "effect": "-",
+    "trigger": "-",
+    "cardSet": "-Anime 25th Collection- [EB-02]",
+    "images": [
+      "assets/card/EB02-001.png"
+    ]
+  },
+  {
+    "code": "EB02-002",
+    "rarity": "R",
+    "class": "CHARACTER",
+    "name": "Sabo",
+    "cost": "4",
+    "attribute": "Special",
+    "power": "5000",
+    "counter": "2000",
+    "color": "Red",
+    "block": "3",
+    "type": "Dressrosa/Revolutionary Army",
+    "effect": "[Activate: Main] You may rest this Character: Up to 1 of your {Revolutionary Army} type Characters other than [Sabo] gains +2000 power during this turn.",
+    "trigger": "-",
+    "cardSet": "-Anime 25th Collection- [EB-02]",
+    "images": [
+      "assets/card/EB02-002.png"
+    ]
+  },
+  {
+    "code": "EB02-003",
+    "rarity": "R",
+    "class": "CHARACTER",
+    "name": "Tony Tony.Chopper",
+    "cost": "3",
+    "attribute": "Strike",
+    "power": "3000",
+    "counter": "1000",
+    "color": "Red",
+    "block": "3",
+    "type": "Animal/Drum Kingdom/Straw Hat Crew",
+    "effect": "[DON!! x2] [Opponent's Turn] This Character gains +2000 power. [On Play] If your Leader has the {Straw Hat Crew} type, give up to 1 rested DON!! card to your Leader or 1 of your Characters.",
+    "trigger": "-",
+    "cardSet": "-Anime 25th Collection- [EB-02]",
+    "images": [
+      "assets/card/EB02-003.png",
+      "assets/card/EB02-003_p1.png"
+    ]
+  },
+  {
+    "code": "EB02-004",
+    "rarity": "C",
+    "class": "CHARACTER",
+    "name": "Don Accino",
+    "cost": "8",
+    "attribute": "Special",
+    "power": "10000",
+    "counter": "1000",
+    "color": "Red",
+    "block": "3",
+    "type": "Accino Family",
+    "effect": "-",
+    "trigger": "-",
+    "cardSet": "-Anime 25th Collection- [EB-02]",
+    "images": [
+      "assets/card/EB02-004.png"
+    ]
+  },
+  {
+    "code": "EB02-005",
+    "rarity": "C",
+    "class": "CHARACTER",
+    "name": "Fake Straw Hat Crew",
+    "cost": "2",
+    "attribute": "Ranged",
+    "power": "3000",
+    "counter": "-",
+    "color": "Red",
+    "block": "3",
+    "type": "Fake Straw Hat Crew",
+    "effect": "[Your Turn] This Character gains +2000 power.\n[Opponent's Turn] Give this Character −2000 power.",
+    "trigger": "-",
+    "cardSet": "-Anime 25th Collection- [EB-02]",
+    "images": [
+      "assets/card/EB02-005.png"
+    ]
+  },
+  {
+    "code": "EB02-006",
+    "rarity": "SR",
+    "class": "CHARACTER",
+    "name": "Yamato",
+    "cost": "6",
+    "attribute": "Strike",
+    "power": "7000",
+    "counter": "-",
+    "color": "Red",
+    "block": "3",
+    "type": "Land of Wano",
+    "effect": "[Activate: Main] [Once Per Turn] If your Leader has the {Land of Wano} type or is [Portgas.D.Ace], give up to 1 rested DON!! card to 1 of your Leader. Then, this Character gains [Rush] during this turn.",
+    "trigger": "-",
+    "cardSet": "-Anime 25th Collection- [EB-02]",
+    "images": [
+      "assets/card/EB02-006.png",
+      "assets/card/EB02-006_p1.png"
+    ]
+  },
+  {
+    "code": "EB02-007",
+    "rarity": "C",
+    "class": "EVENT",
+    "name": "Cloven Rose Blizzard",
+    "cost": "3",
+    "attribute": "-",
+    "power": "-",
+    "counter": "-",
+    "color": "Red",
+    "block": "3",
+    "type": "Animal/Water Seven/Straw Hat Crew",
+    "effect": "[Main] Up to a total of 3 of your Leader and Character cards gain +1000 power during this turn. Then, K.O. up to 1 of your opponent's Characters with 3000 power or less.",
+    "trigger": "[Trigger] K.O. up to 1 of your opponent's Characters with 4000 power or less.",
+    "cardSet": "-Anime 25th Collection- [EB-02]",
+    "images": [
+      "assets/card/EB02-007.png"
+    ]
+  },
+  {
+    "code": "EB02-008",
+    "rarity": "R",
+    "class": "EVENT",
+    "name": "The Peak",
+    "cost": "2",
+    "attribute": "-",
+    "power": "-",
+    "counter": "-",
+    "color": "Red",
+    "block": "3",
+    "type": "Music",
+    "effect": "[Main] Look at 4 cards from the top of your deck; reveal up to 1 card with a cost of 4 or more and add it to your hand. Then, place the rest at the bottom of your deck in any order.",
+    "trigger": "[Trigger] Activate this card's [Main] effect.",
+    "cardSet": "-Anime 25th Collection- [EB-02]",
+    "images": [
+      "assets/card/EB02-008.png"
+    ]
+  },
+  {
+    "code": "EB02-009",
+    "rarity": "C",
+    "class": "STAGE",
+    "name": "Thousand Sunny",
+    "cost": "2",
+    "attribute": "-",
+    "power": "-",
+    "counter": "-",
+    "color": "Red",
+    "block": "3",
+    "type": "Straw Hat Crew",
+    "effect": "[Activate: Main] You may rest this Stage: Give up to 1 of your currently given DON!! cards to 1 of your {Straw Hat Crew} type Characters.",
+    "trigger": "-",
+    "cardSet": "-Anime 25th Collection- [EB-02]",
+    "images": [
+      "assets/card/EB02-009.png"
+    ]
+  }
+]

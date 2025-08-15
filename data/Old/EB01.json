@@ -1,0 +1,207 @@
+[
+  {
+    "code": "EB01-001",
+    "rarity": "L",
+    "class": "LEADER",
+    "name": "Kouzuki Oden",
+    "life": "4",
+    "attribute": "Slash",
+    "power": "5000",
+    "counter": "-",
+    "color": "Red/Green",
+    "block": "2",
+    "type": "Land of Wano/Kouzuki Clan",
+    "effect": "All of your {Land of Wano} type Character cards without a Counter have a +1000 Counter, according to the rules. [DON!! x1] [When Attacking] If you have a {Land of Wano} type Character with a cost of 5 or more, this Leader gains +1000 power until the start of your next turn.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-001.png",
+      "assets/card/EB01-001_p1.png",
+      "assets/card/EB01-001_p2.png"
+    ]
+  },
+  {
+    "code": "EB01-002",
+    "rarity": "R",
+    "class": "CHARACTER",
+    "name": "Izo",
+    "cost": "5",
+    "attribute": "Ranged",
+    "power": "7000",
+    "counter": "-",
+    "color": "Red",
+    "block": "2",
+    "type": "Land of Wano/Whitebeard Pirates",
+    "effect": "[On Play] Give up to 1 rested DON!! card to your Leader or 1 of your Characters. [On Your Opponent's Attack] [Once Per Turn] You may trash 1 card from your hand: If your Leader has the {Land of Wano} or {Whitebeard Pirates} type, give up to 1 of your opponent's Leader or Character cards −2000 power during this turn.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-002.png"
+    ]
+  },
+  {
+    "code": "EB01-003",
+    "rarity": "R",
+    "class": "CHARACTER",
+    "name": "Kid & Killer",
+    "cost": "4",
+    "attribute": "Slash/Special",
+    "power": "5000",
+    "counter": "-",
+    "color": "Red",
+    "block": "2",
+    "type": "Supernovas/Kid Pirates",
+    "effect": "[Rush] (This card can attack on the turn in which it is played.) [When Attacking] If your opponent has 2 or less Life cards, this Character gains +2000 power during this turn.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-003.png",
+      "assets/card/EB01-003_p1.png"
+    ]
+  },
+  {
+    "code": "EB01-004",
+    "rarity": "C",
+    "class": "CHARACTER",
+    "name": "Koza",
+    "cost": "2",
+    "attribute": "Ranged",
+    "power": "3000",
+    "counter": "1000",
+    "color": "Red",
+    "block": "2",
+    "type": "Alabasta",
+    "effect": "[When Attacking] You may give your 1 active Leader −5000 power during this turn: Give up to 1 of your opponent's Characters −3000 power during this turn.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-004.png"
+    ]
+  },
+  {
+    "code": "EB01-005",
+    "rarity": "C",
+    "class": "CHARACTER",
+    "name": "Doma",
+    "cost": "1",
+    "attribute": "Slash",
+    "power": "3000",
+    "counter": "1000",
+    "color": "Red",
+    "block": "2",
+    "type": "Whitebeard Pirates Allies",
+    "effect": "-",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-005.png"
+    ]
+  },
+  {
+    "code": "EB01-006",
+    "rarity": "SR",
+    "class": "CHARACTER",
+    "name": "Tony Tony.Chopper",
+    "cost": "3",
+    "attribute": "Strike",
+    "power": "4000",
+    "counter": "1000",
+    "color": "Red",
+    "block": "2",
+    "type": "Animal/Straw Hat Crew",
+    "effect": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)[DON!! x2] [When Attacking] Give up to 1 of your opponent's Characters −3000 power during this turn.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-006.png",
+      "assets/card/EB01-006_p1.png",
+      "assets/card/EB01-006_p2.png",
+      "assets/card/EB01-006_p3.png"
+    ]
+  },
+  {
+    "code": "EB01-007",
+    "rarity": "C",
+    "class": "CHARACTER",
+    "name": "Yamato",
+    "cost": "5",
+    "attribute": "Strike",
+    "power": "5000",
+    "counter": "2000",
+    "color": "Red",
+    "block": "2",
+    "type": "Land of Wano",
+    "effect": "[Activate: Main] [Once Per Turn] Give up to 1 rested DON!! card to your Leader or 1 of your Characters.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-007.png"
+    ]
+  },
+  {
+    "code": "EB01-008",
+    "rarity": "R",
+    "class": "CHARACTER",
+    "name": "LittleOars Jr.",
+    "cost": "6",
+    "attribute": "Strike",
+    "power": "7000",
+    "counter": "1000",
+    "color": "Red",
+    "block": "2",
+    "type": "Giant/Whitebeard Pirates Allies",
+    "effect": "[Once Per Turn] If this Character would be K.O.'d by an effect, you may trash 1 Event or Stage card from your hand instead.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-008.png"
+    ]
+  },
+  {
+    "code": "EB01-009",
+    "rarity": "C",
+    "class": "EVENT",
+    "name": "Just Shut Up and Come with Us!!!!",
+    "cost": "1",
+    "attribute": "-",
+    "power": "-",
+    "counter": "-",
+    "color": "Red",
+    "block": "2",
+    "type": "Drum Kingdom/Straw Hat Crew",
+    "effect": "[Counter] Look at 5 cards from the top of your deck and play up to 1 {Animal} type Character card with a cost of 3 or less. Then, place the rest at the bottom of your deck in any order.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-009.png"
+    ]
+  },
+  {
+    "code": "EB01-010",
+    "rarity": "R",
+    "class": "EVENT",
+    "name": "There's No Way You Could Defeat Me!!",
+    "cost": "3",
+    "attribute": "-",
+    "power": "-",
+    "counter": "-",
+    "color": "Red",
+    "block": "2",
+    "type": "Water Seven/Straw Hat Crew",
+    "effect": "[Counter] K.O. up to 1 of your opponent's Characters with 6000 base power or less.",
+    "trigger": "[Trigger] K.O. up to 1 of your opponent's Characters with 5000 base power or less.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-010.png"
+    ]
+  },
+  {
+    "code": "EB01-011",
+    "rarity": "C",
+    "class": "STAGE",
+    "name": "Mini-Merry",
+    "cost": "1",
+    "attribute": "-",
+    "power": "-",
+    "counter": "-",
+    "color": "Red",
+    "block": "2",
+    "type": "Straw Hat Crew",
+    "effect": "[Activate: Main] You may rest this card and place 1 of your Characters with 1000 base power at the bottom of your deck: Draw 1 card.",
+    "cardSet": "-Memorial Collection- [EB-01]",
+    "images": [
+      "assets/card/EB01-011.png"
+    ]
+  }
+]
