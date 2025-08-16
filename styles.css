@@ -37,15 +37,142 @@
 /* =============================== */
 /* Reset Global                    */
 /* =============================== */
-* {
-  box-sizing: border-box;
+/* CSS Reset Básico */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-html,
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
 body {
-  height: 100%;
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 /* =============================== */
@@ -86,11 +213,6 @@ body {
   /* Safe area topo para PWA iOS/Android */
   padding-top: calc(var(--space-16) + env(safe-area-inset-top));
 }
-
-/* =============================== */
-/* Filtros                         */
-/* =============================== */
-
 
 /* =============================== */
 /* Main Container                  */
@@ -295,7 +417,6 @@ main.container {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  /* card ocupa 100% da largura da célula */
 }
 
 .plus-icon {
@@ -390,7 +511,6 @@ main.container {
   cursor: pointer;
 }
 
-/* Alinhamento dos controles */
 .card-controls {
   display: flex;
   align-items: center;
@@ -399,7 +519,6 @@ main.container {
   margin-top: var(--space-12, 12px);
 }
 
-/* Botões: largura = --space-24 */
 .qty-btn {
   width: var(--space-24);
   min-width: var(--space-24);
@@ -414,7 +533,6 @@ main.container {
   user-select: none;
 }
 
-/* Input: largura = --space-48 */
 #qtyInput {
   width: var(--space-48);
   min-width: var(--space-48);

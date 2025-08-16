@@ -11,7 +11,6 @@ const statusEl = document.getElementById('status');
 function updateStatus() {
   const isOnline = navigator.onLine;
   statusEl.textContent = isOnline ? 'Online' : 'Offline';
-
   if (isOnline) {
     statusEl.classList.add('online');
     statusEl.classList.remove('offline');
@@ -23,7 +22,6 @@ function updateStatus() {
 
 window.addEventListener('online', updateStatus);
 window.addEventListener('offline', updateStatus);
-
 updateStatus();
 
 // ===============================
@@ -43,11 +41,13 @@ updateStatus();
 // ===============================
 let deferredPrompt = null;
 const btnInstall = document.getElementById('btnInstall');
+
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
   if (btnInstall) btnInstall.classList.remove('hidden');
 });
+
 if (btnInstall) {
   btnInstall.addEventListener('click', async () => {
     if (!deferredPrompt) return;
@@ -147,8 +147,6 @@ function isLeader(cardCode) {
   if (!allCards || !allCards.length) return false;
 
   const cd = allCards.find(c => c && c.code === cardCode);
-
-  // Agora verifica também "card_type"
   const cls = (cd && (cd.card_type || cd.class || cd.Class || cd.type)) || '';
 
   return String(cls).toUpperCase() === 'LEADER';
@@ -182,7 +180,6 @@ modal.innerHTML = `
   </div>
 `;
 document.body.appendChild(modal);
-
 const closeModal = document.getElementById('closeModal');
 
 // ===============================
@@ -192,7 +189,6 @@ function createCardIcons(card) {
   const iconContainer = document.createElement('div');
   iconContainer.className = 'card-icons';
   iconContainer.dataset.key = getCardKey(card);
-
   const dotCount = isLeader(card.code) ? 1 : 4;
 
   for (let i = 0; i < dotCount; i++) {
@@ -245,7 +241,6 @@ function refreshCardIcons(card) {
 
 function updateAllCardIcons() {
   if (!allCards || !allCards.length) return;
-
   allCards.forEach(card => {
     const key = getCardKey(card);
 
