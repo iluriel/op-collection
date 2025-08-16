@@ -68,6 +68,99 @@
 
   <!-- Conteúdo principal -->
   <main class="container" id="mainContent">
+    <div class="filter-container">
+      <div class="filter-header">
+        <h3>Filtros</h3>
+        <div class="search-and-filter">
+          <input type="text" class="search-input" placeholder="Digite aqui...">
+          <button class="filter-icon-btn">
+            <span class="icon filter-icon"></span>
+          </button>
+        </div>
+      </div>
+      <div class="filter-content">
+        <div class="filter-group">
+          <h4>Cores</h4>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="all"> All
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="red"> Red
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="blue"> Blue
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="green"> Green
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="black"> Black
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="purple"> Purple
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="yellow"> Yellow
+          </label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Possuo</h4>
+          <label class="filter-option">
+            <input type="checkbox" name="possess" value="all"> All
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="possess" value="full-set"> Set completo
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="possess" value="partial"> Parcial
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="possess" value="none"> Nenhuma
+          </label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Cores 2</h4>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="all"> All
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="red"> Red
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="blue"> Blue
+          </label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Possuo 2</h4>
+          <label class="filter-option">
+            <input type="checkbox" name="possess" value="all"> All
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="possess" value="full-set"> Set completo
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="possess" value="partial"> Parcial
+          </label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Cores 3</h4>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="all"> All
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="red"> Red
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="cores" value="blue"> Blue
+          </label>
+        </div>
+      </div>
+    </div>
+
     <div id="cardsGrid" class="cards-grid" role="list"></div>
   </main>
 
