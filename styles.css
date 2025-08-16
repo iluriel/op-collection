@@ -304,6 +304,7 @@ main.container {
   border-radius: var(--radius-card);
   margin: var(--space-16);
   font-size: var(--font-base);
+  line-height: 150%;
 }
 
 .hint .share {
