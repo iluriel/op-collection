@@ -98,16 +98,19 @@ function saveCollection() {
   localStorage.setItem('collection', JSON.stringify(collection));
 }
 
-function getCardQty(cardCode) {
-  const v = collection[cardCode];
+function getCardQty(card) {
+  const key = getCardKey(card);
+  const v = collection[key];
   const n = parseInt(v, 10);
   return Number.isInteger(n) ? n : 0;
 }
 
-function setCardQty(cardCode, qty) {
-  collection[cardCode] = Number.isInteger(qty) ? qty : parseInt(qty, 10) || 0;
+function setCardQty(card, qty) {
+  const key = getCardKey(card);
+  collection[key] = Number.isInteger(qty) ? qty : parseInt(qty, 10) || 0;
   saveCollection();
 }
+
 
 // ===============================
 // Helper para resolver URL da imagem
@@ -131,6 +134,10 @@ function getPrimaryImageUrl(card) {
     return card.images[0];
   }
   return '';
+}
+
+function getCardKey(card) {
+  return `${card.code}__${getPrimaryImageUrl(card)}`;
 }
 
 // ===============================
@@ -181,12 +188,12 @@ const closeModal = document.getElementById('closeModal');
 // ===============================
 // Ícones de quantidade (cria e atualiza)
 // ===============================
-function createCardIcons(cardCode) {
+function createCardIcons(card) {
   const iconContainer = document.createElement('div');
   iconContainer.className = 'card-icons';
-  iconContainer.dataset.code = cardCode; // importante para atualizar quando estiver fora da .card
+  iconContainer.dataset.key = getCardKey(card);
 
-  const dotCount = isLeader(cardCode) ? 1 : 4;
+  const dotCount = isLeader(card.code) ? 1 : 4;
 
   for (let i = 0; i < dotCount; i++) {
     const dot = document.createElement('span');
@@ -196,58 +203,59 @@ function createCardIcons(cardCode) {
   }
 
   // estado inicial
-  updateCardIcons(cardCode, iconContainer);
+  updateCardIcons(card, iconContainer);
   return iconContainer;
 }
 
 // Atualiza visual das bolinhas conforme a quantidade
-function updateCardIcons(cardCode, iconContainer) {
+function updateCardIcons(card, iconContainer) {
   if (!iconContainer) return;
 
-  const qty = getCardQty(cardCode);
-  const leader = isLeader(cardCode);
+  const qty = getCardQty(card);
+  const leader = isLeader(card.code);
   const dots = iconContainer.querySelectorAll('.icon-dot');
 
-  // limpa estado
   dots.forEach(dot => {
-    dot.classList.remove('checked');
-    dot.classList.remove('special');
+    dot.classList.remove('checked', 'special');
   });
 
   if (leader) {
-    // 1 bolinha só
     if (qty >= 2) {
-      // 2+ líderes: usa ícone especial (sem checked)
       dots[0].classList.add('special');
     } else if (qty === 1) {
       dots[0].classList.add('checked');
     }
-    // qty 0 => todas vazias (unchecked)
     return;
   }
 
-  // Cartas normais (até 4 bolinhas)
-  const last = dots.length - 1; // índice 3
+  const last = dots.length - 1;
   if (qty >= 5) {
-    // 5+: primeiras 3 marcadas e a 4ª vira especial
     for (let i = 0; i < last; i++) dots[i].classList.add('checked');
-    dots[last].classList.add('special'); // garante que substitui a 4ª
+    dots[last].classList.add('special');
   } else {
-    // 0..4: marca i < qty
     for (let i = 0; i < qty; i++) dots[i].classList.add('checked');
   }
 }
 
-function refreshCardIcons(cardCode) {
-  const container = document.querySelector(`.card-icons[data-code="${CSS.escape(cardCode)}"]`);
-  updateCardIcons(cardCode, container);
+function refreshCardIcons(card) {
+  const key = getCardKey(card);
+  const container = document.querySelector(`.card-icons[data-key="${CSS.escape(key)}"]`);
+  updateCardIcons(card, container);
 }
 
 function updateAllCardIcons() {
   if (!allCards || !allCards.length) return;
-  allCards.forEach(c => {
-    if (!c || !c.code) return;
-    refreshCardIcons(c.code);
+
+  allCards.forEach(card => {
+    const key = getCardKey(card);
+
+    refreshCardIcons(card);
+
+    const cardEl = document.querySelector(`.card[data-key="${CSS.escape(key)}"]`);
+    if (cardEl) {
+      const qty = getCardQty(card);
+      cardEl.style.opacity = qty === 0 ? '0.5' : '1';
+    }
   });
 }
 
@@ -265,6 +273,7 @@ function openCardModal(card) {
 
   // associa o código atual ao modal (útil para fechar e sync)
   modal.dataset.cardCode = card.code;
+  modal.dataset.cardImage = getPrimaryImageUrl(card);
 
   modalTitle.textContent = card.card_name || card.name || card.code;
   modalImage.src = getPrimaryImageUrl(card) || './assets/card/bg-caracter.png';
@@ -274,7 +283,7 @@ function openCardModal(card) {
   };
 
   // Quantidade inicial (por carta)
-  let qty = getCardQty(card.code);
+  let qty = getCardQty(card);
   applyQty(qty);
 
   // helper centralizado que atualiza UI, storage e ícones
@@ -282,9 +291,16 @@ function openCardModal(card) {
     qty = Math.max(0, parseInt(newQty, 10) || 0);
     qtyInput.value = String(qty);
     btnDecrease.disabled = qty <= 0;
-    setCardQty(card.code, qty);      // salva imediatamente
-    refreshCardIcons(card.code);     // atualiza as bolinhas na grid
+
+    setCardQty(card, qty);       // chave única agora
+    refreshCardIcons(card);
+
+    const cardEl = document.querySelector(`.card[data-key="${CSS.escape(getCardKey(card))}"]`);
+    if (cardEl) {
+      cardEl.style.opacity = qty === 0 ? '0.5' : '1';
+    }
   }
+
 
   // sobrescreve (safe) os handlers do modal para evitar empilhar listeners
   btnDecrease.onclick = (e) => {
@@ -313,17 +329,22 @@ function openCardModal(card) {
 if (closeModal) {
   closeModal.addEventListener('click', () => {
     const code = modal.dataset.cardCode;
-    if (code) refreshCardIcons(code);
+    const img = modal.dataset.cardImage;
+    if (code && img) {
+      refreshCardIcons({ code, card_image_link: [img] });
+    }
     modal.classList.add('hidden');
   });
-
 }
 
 // clicar fora do conteúdo fecha e sincroniza
 modal.addEventListener('click', (e) => {
   if (e.target === modal) {
     const code = modal.dataset.cardCode;
-    if (code) refreshCardIcons(code);
+    const img = modal.dataset.cardImage;
+    if (code && img) {
+      refreshCardIcons({ code, card_image_link: [img] });
+    }
     modal.classList.add('hidden');
   }
 });
@@ -440,7 +461,11 @@ async function loadAllCollections() {
       cardEl.appendChild(info);
 
       // ícones de quantidade (FORA da .card mas DENTRO do wrapper, logo abaixo)
-      const icons = createCardIcons(card.code);
+      const icons = createCardIcons(card); // passa o card inteiro
+      icons.dataset.key = getCardKey(card); // (opcional, a função já define)
+
+      // card visual
+      cardEl.dataset.key = getCardKey(card);
 
       // clique abre o modal com os controles
       cardEl.addEventListener('click', () => openCardModal(card));
