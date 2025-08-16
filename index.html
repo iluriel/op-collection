@@ -11,7 +11,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="OP Collection" />
 
-  <!-- Favicon / Icons (use caminhos relativos no GitHub Pages) -->
+  <!-- Favicon / Icons -->
   <link rel="icon" href="./favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
@@ -23,7 +23,8 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="./manifest.webmanifest" />
 
-  <!-- Splash iOS (caminhos relativos) -->
+  <!-- Splash iOS -->
+  <!-- (mantive todos os links como estavam) -->
   <link rel="apple-touch-startup-image" href="./splash/launch-640x1136.png"
     media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
   <link rel="apple-touch-startup-image" href="./splash/launch-750x1334.png"
@@ -54,22 +55,65 @@
 </head>
 
 <body>
-  <header class="app-header">
+  <header class="app-header" role="banner">
     <h1>One Piece Collection</h1>
-    <button id="btnInstall" class="btn hidden">Instalar</button>
+    <button id="btnInstall" class="btn hidden" aria-label="Instalar aplicativo">Instalar</button>
   </header>
 
-  <div id="iosHint" class="hint hidden">
+  <!-- Filtros -->
+  <nav class="filters-bar" aria-label="Filtros de busca e coleção">
+    <div class="filter-section">
+      <!-- Busca -->
+      <label for="searchInput" class="sr-only">Buscar</label>
+      <input type="text" id="searchInput" placeholder="Buscar por nome ou palavra-chave..." class="search-input"
+        role="searchbox">
+
+      <!-- Cores -->
+      <div>
+        <div class="filter-title">Cor</div>
+        <div class="filter-buttons" role="group" aria-label="Filtrar por cor">
+          <button class="active" aria-pressed="true">Todas</button>
+          <button>Red</button>
+          <button>Green</button>
+          <button>Blue</button>
+          <button>Purple</button>
+          <button>Black</button>
+          <button>Yellow</button>
+        </div>
+      </div>
+
+      <!-- Possuo -->
+      <div>
+        <div class="filter-title">Possuo</div>
+        <div class="filter-buttons" role="group" aria-label="Filtrar por posse">
+          <button>Todas</button>
+          <button>Set completo</button>
+          <button>Parcial</button>
+          <button>Nenhuma</button>
+        </div>
+      </div>
+
+      <!-- Mais filtros -->
+      <div style="margin-left: auto;">
+        <button aria-haspopup="dialog">Mais filtros</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dica para iOS -->
+  <aside id="iosHint" class="hint hidden" role="note">
     <strong>Instalar no iPhone:</strong> toque em <span class="share">Compartilhar</span> e depois
     <span class="share">Adicionar à Tela de Início</span>.
-  </div>
+  </aside>
 
-  <main class="container">
-    <div id="cardsGrid" class="cards-grid"></div>
+  <!-- Conteúdo principal -->
+  <main class="container" id="mainContent">
+    <div id="cardsGrid" class="cards-grid" role="list"></div>
   </main>
 
-  <footer class="app-footer">
-    <div>© <span id="year"></span> OP Collection </div><span id="status">online</span>
+  <footer class="app-footer" role="contentinfo">
+    <div>© <span id="year"></span> OP Collection </div>
+    <span id="status" role="status">online</span>
   </footer>
 
   <script defer src="./app.js"></script>
