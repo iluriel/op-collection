@@ -214,6 +214,13 @@ body {
   padding-top: calc(var(--space-16) + env(safe-area-inset-top));
 }
 
+h1 {
+  font-weight: bold;
+  font-size: var(--space-32);
+  line-height: var(--space-48);
+  letter-spacing: -0.04em;
+}
+
 /* =============================== */
 /* Main Container                  */
 /* =============================== */
