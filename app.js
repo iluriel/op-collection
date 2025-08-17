@@ -481,6 +481,31 @@ async function loadAllCollections() {
   }
 }
 
+// ===============================
+// Abre e fecha filtros
+// ===============================
+document.addEventListener('DOMContentLoaded', () => {
+  const filterContainer = document.querySelector('.filter-container');
+  const openFilterBtn = document.querySelector('.filter-icon-btn');
+  const closeFilterBtn = document.getElementById('closeFilterBtn');
+
+  if (filterContainer && openFilterBtn && closeFilterBtn) {
+
+    // Alterna a classe 'expanded' no contêiner do filtro
+    function toggleFilter() {
+      // Usamos matchMedia para garantir que a funcionalidade só se aplica em mobile
+      if (window.matchMedia('(max-width: 599.98px)').matches) {
+        filterContainer.classList.toggle('expanded');
+      }
+    }
+
+    // Adiciona o evento de clique para abrir o filtro
+    openFilterBtn.addEventListener('click', toggleFilter);
+
+    // Adiciona o evento de clique para fechar o filtro
+    closeFilterBtn.addEventListener('click', toggleFilter);
+  }
+});
 
 // ===============================
 // Inicialização

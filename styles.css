@@ -569,7 +569,7 @@ main.container {
 /* =============================== */
 .filter-container {
   position: fixed;
-  top: calc(96px + env(safe-area-inset-bottom));
+  /*top: calc(96px + env(safe-area-inset-bottom));*/
   bottom: calc(var(--space-16) + env(safe-area-inset-bottom));
   left: calc(var(--space-16) + env(safe-area-inset-left));
   right: calc(var(--space-16) + env(safe-area-inset-right));
@@ -581,19 +581,21 @@ main.container {
   display: flex;
   flex-direction: column;
   z-index: 50;
-  max-height: calc(100vh - var(--space-16) - var(--space-16) - 16px);
+  height: auto;
+  max-height: none;
   transition: all 0.3s ease-in-out;
 }
 
 @media (min-width: 600px) {
   .filter-container {
     width: 240px;
+    top: calc(96px + env(safe-area-inset-bottom));
   }
-}
 
-.filter-container.expanded {
-  top: calc(var(--space-16) + env(safe-area-inset-top));
-  max-height: calc(100vh - var(--space-16) - var(--space-16));
+  .filter-container .close-btn,
+  .filter-container .filter-icon-btn {
+    display: none !important;
+  }
 }
 
 /* =============================== */
@@ -642,7 +644,6 @@ main.container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: var(--space-16);
   padding-top: calc(0px + env(safe-area-inset-top));
   /*Remover padding se não for necessário*/
 }
@@ -696,6 +697,7 @@ main.container {
   flex-direction: column;
   gap: var(--space-24);
   overflow-y: auto;
+  margin-top: var(--space-16);
   padding-right: var(--space-8);
 }
 
@@ -765,4 +767,29 @@ main.container {
   background-color: var(--color-muted);
   border-radius: 20px;
   border: 2px solid transparent;
+}
+
+@media (max-width: 599.98px) {
+
+  /* Oculta a barra de título e o conteúdo do filtro por padrão */
+  .filter-container .filter-title-bar,
+  .filter-container .filter-content {
+    display: none;
+
+  }
+
+  /* Quando o contêiner tiver a classe 'expanded', mostra a barra de título e o conteúdo */
+  .filter-container.expanded .filter-title-bar,
+  .filter-container.expanded .filter-content {
+    display: flex;
+  }
+
+  .filter-container.expanded {
+    top: calc(96px + env(safe-area-inset-bottom));
+  }
+
+  /* Quando o contêiner tiver a classe 'expanded', esconde o botão de filtro */
+  .filter-container.expanded .filter-icon-btn {
+    display: none;
+  }
 }
