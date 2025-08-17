@@ -332,18 +332,21 @@ main.container {
 @media (min-width: 600px) and (max-width: 899.98px) {
   .cards-grid {
     grid-template-columns: repeat(4, 1fr);
+    padding-left: 264px;
   }
 }
 
 @media (min-width: 900px) and (max-width: 1199.98px) {
   .cards-grid {
     grid-template-columns: repeat(6, 1fr);
+    padding-left: 264px;
   }
 }
 
 @media (min-width: 1200px) {
   .cards-grid {
     grid-template-columns: repeat(8, 1fr);
+    padding-left: 264px;
   }
 }
 
@@ -566,11 +569,11 @@ main.container {
 /* =============================== */
 .filter-container {
   position: fixed;
+  top: calc(96px + env(safe-area-inset-bottom));
   bottom: calc(var(--space-16) + env(safe-area-inset-bottom));
   left: calc(var(--space-16) + env(safe-area-inset-left));
   right: calc(var(--space-16) + env(safe-area-inset-right));
   width: auto;
-  margin-top: auto;
   background-color: var(--color-card);
   border-radius: 24px;
   padding: var(--space-16);
@@ -580,6 +583,12 @@ main.container {
   z-index: 50;
   max-height: calc(100vh - var(--space-16) - var(--space-16) - 16px);
   transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 600px) {
+  .filter-container {
+    width: 240px;
+  }
 }
 
 .filter-container.expanded {
@@ -667,7 +676,6 @@ main.container {
   border: 0;
   border-radius: var(--radius-card);
   padding: var(--space-8);
-  margin-left: var(--space-16);
   display: flex;
   align-items: center;
   justify-content: center;
