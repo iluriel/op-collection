@@ -384,11 +384,15 @@ async function loadAllCollections() {
       // wrapper que será o filho da grid (um elemento por célula)
       const wrapper = document.createElement('div');
       wrapper.className = 'card-wrapper';
+      wrapper.dataset.key = getCardKey(card);
+
 
       // DOM card (visual)
       const cardEl = document.createElement('div');
       cardEl.className = 'card';
       cardEl.dataset.code = card.code || '';
+      cardEl.dataset.key = getCardKey(card);
+
 
       // imagem (ou placeholder)
       const img = document.createElement('img');
@@ -459,9 +463,6 @@ async function loadAllCollections() {
       const icons = createCardIcons(card); // passa o card inteiro
       icons.dataset.key = getCardKey(card); // (opcional, a função já define)
 
-      // card visual
-      cardEl.dataset.key = getCardKey(card);
-
       // clique abre o modal com os controles
       cardEl.addEventListener('click', () => openCardModal(card));
 
@@ -480,6 +481,74 @@ async function loadAllCollections() {
     container.innerHTML = `<p style="color: red;">Erro geral: ${error.message}</p>`;
   }
 }
+
+// ===============================
+// Lógica de Busca por Texto
+// ===============================
+const searchInput = document.querySelector('.search-input');
+
+// Helper para encontrar a carta no array allCards
+function getCardByDataKey(dataKey) {
+  return allCards.find(card => getCardKey(card) === dataKey);
+}
+
+// Função para filtrar os elementos na tela
+function filterCardsInGrid() {
+  const searchTerm = searchInput.value.toLowerCase().trim();
+
+  // Condição para iniciar a busca a partir da terceira letra
+  if (searchTerm.length > 0 && searchTerm.length < 3) {
+    const allCardWrappers = document.querySelectorAll('.card-wrapper');
+    allCardWrappers.forEach(wrapper => {
+      wrapper.style.display = '';
+    });
+    return;
+  }
+
+  const allCardWrappers = document.querySelectorAll('.card-wrapper');
+
+  allCardWrappers.forEach(wrapper => {
+    const dataKey = wrapper.dataset.key;
+    const card = getCardByDataKey(dataKey);
+
+    if (card) {
+      const searchableFields = [
+        card.code,
+        card.card_name,
+        card.text,
+        card.trigger,
+        card.card_sets
+      ];
+      if (Array.isArray(card.feature)) {
+        searchableFields.push(card.feature.join(' '));
+      }
+
+      const isMatch = searchableFields.some(field => {
+        // Normaliza o campo da carta: substitui o caractere Unicode pelo hífen padrão
+        const normalizedField = String(field).replace(/\u2212/g, '-');
+        // Converte para minúsculas e verifica se o termo de busca está incluído
+        return normalizedField.toLowerCase().includes(searchTerm);
+      });
+
+      // Se o termo de busca estiver vazio, mostre tudo. Caso contrário, aplique a regra.
+      wrapper.style.display = (searchTerm === '' || isMatch) ? '' : 'none';
+    }
+  });
+}
+
+// **NOVO: Adiciona a função de debounce**
+const debounce = (func, delay) => {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+};
+
+// **ALTERAÇÃO AQUI:** Adiciona um listener para o evento 'input' na barra de busca, com debounce
+searchInput.addEventListener('input', debounce(filterCardsInGrid, 300));
 
 // ===============================
 // Abre e fecha filtros
