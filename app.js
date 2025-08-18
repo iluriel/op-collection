@@ -577,6 +577,102 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===============================
+// Filtros (checkboxes)
+// ===============================
+let activeFilters = JSON.parse(localStorage.getItem('activeFilters') || '{}');
+
+// Atualiza estado e salva
+function updateActiveFilters() {
+  activeFilters = {};
+  document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => {
+    if (cb.checked && cb.value !== 'all') {
+      if (!activeFilters[cb.name]) {
+        activeFilters[cb.name] = [];
+      }
+      // normaliza sempre em lowercase
+      activeFilters[cb.name].push(cb.value.toLowerCase());
+    }
+  });
+  localStorage.setItem('activeFilters', JSON.stringify(activeFilters));
+  filterCardsInGrid(); // re-filtra sempre que mudar
+}
+
+// Restaura estado salvo dos filtros
+function restoreFiltersFromStorage() {
+  Object.entries(activeFilters).forEach(([name, values]) => {
+    values.forEach(value => {
+      const cb = document.querySelector(`.filter-group input[name="${name}"][value="${value}"]`);
+      if (cb) cb.checked = true;
+    });
+  });
+}
+
+// Ajusta lógica de filtragem para considerar busca + filtros
+function filterCardsInGrid() {
+  const searchTerm = searchInput.value.toLowerCase().trim();
+  const allCardWrappers = document.querySelectorAll('.card-wrapper');
+
+  allCardWrappers.forEach(wrapper => {
+    const card = getCardByDataKey(wrapper.dataset.key);
+    if (!card) return;
+
+    // --- FILTRO DE BUSCA ---
+    let matchesSearch = true;
+    if (searchTerm.length >= 3 || searchTerm.length === 0) {
+      const searchableFields = [
+        card.code,
+        card.card_name,
+        card.text,
+        card.trigger,
+        card.card_sets
+      ];
+      if (Array.isArray(card.feature)) {
+        searchableFields.push(card.feature.join(' '));
+      }
+
+      matchesSearch = searchableFields.some(field =>
+        String(field).replace(/\u2212/g, '-').toLowerCase().includes(searchTerm)
+      );
+    }
+
+    // --- FILTRO DE CHECKBOXES ---
+    let matchesFilters = true;
+    for (const [filterName, filterValues] of Object.entries(activeFilters)) {
+      if (filterValues.length === 0) continue;
+
+      if (filterName === 'cores' || filterName === 'color') {
+        // card.color é array → comparar em lowercase
+        const cardColors = (card.color || []).map(c => c.toLowerCase());
+        if (!cardColors.some(c => filterValues.includes(c))) {
+          matchesFilters = false;
+          break;
+        }
+      } else {
+        const cardValue = (card[filterName] ?? '').toString().toLowerCase();
+        if (!filterValues.includes(cardValue)) {
+          matchesFilters = false;
+          break;
+        }
+      }
+    }
+
+    // --- APLICA EXIBIÇÃO ---
+    wrapper.style.display = (matchesSearch && matchesFilters) ? '' : 'none';
+  });
+}
+
+// Listeners para checkboxes
+document.addEventListener('DOMContentLoaded', () => {
+  restoreFiltersFromStorage();
+  document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', updateActiveFilters);
+  });
+
+  // aplica filtro logo após restaurar
+  filterCardsInGrid();
+});
+
+// ===============================
 // Inicialização
 // ===============================
 loadAllCollections();
