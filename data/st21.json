@@ -1,1 +1,754 @@
-[{"code": "ST21-001", "rarity": "L", "card_type": "LEADER", "card_name": "Monkey.D.Luffy", "cost": null, "life": 5, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["The Four Emperors", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-001.png?250701"], "text": "[DON!! x1] [Activate: Main] [Once Per Turn] Give up to 2 rested DON!! cards to 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-001", "rarity": "L", "card_type": "LEADER", "card_name": "Monkey.D.Luffy", "cost": null, "life": 5, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["The Four Emperors", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-001_p1.png?250701"], "text": "[DON!! x1] [Activate: Main] [Once Per Turn] Give up to 2 rested DON!! cards to 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-002", "rarity": "C", "card_type": "CHARACTER", "card_name": "Usopp", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Ranged", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-002.png?250701"], "text": "[DON!! x2] [Opponent's Turn] This Character gains +2000 power.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-002", "rarity": "C", "card_type": "CHARACTER", "card_name": "Usopp", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Ranged", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-002_p1.png?250701"], "text": "[DON!! x2] [Opponent's Turn] This Character gains +2000 power.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-003", "rarity": "C", "card_type": "CHARACTER", "card_name": "Sanji", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-003.png?250701"], "text": "[On Play] Select up to 1 of your {Straw Hat Crew} type Characters with 6000 power or more. If the selected Character attacks during this turn, your opponent cannot activate [Blocker].", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-003", "rarity": "C", "card_type": "CHARACTER", "card_name": "Sanji", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-003_p1.png?250701"], "text": "[On Play] Select up to 1 of your {Straw Hat Crew} type Characters with 6000 power or more. If the selected Character attacks during this turn, your opponent cannot activate [Blocker].", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-004", "rarity": "C", "card_type": "CHARACTER", "card_name": "Jewelry Bonney", "cost": 1, "life": null, "power": 3000, "counter": null, "color": ["Red"], "attribute": "Special", "feature": ["Egghead", "Bonney Pirates"], "card_image_link": ["images/cardlist/card/ST21-004.png?250701"], "text": "[DON!! x2] [On K.O.] Draw 1 card.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-004", "rarity": "C", "card_type": "CHARACTER", "card_name": "Jewelry Bonney", "cost": 1, "life": null, "power": 3000, "counter": null, "color": ["Red"], "attribute": "Special", "feature": ["Egghead", "Bonney Pirates"], "card_image_link": ["images/cardlist/card/ST21-004_p1.png?250701"], "text": "[DON!! x2] [On K.O.] Draw 1 card.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-005", "rarity": "C", "card_type": "CHARACTER", "card_name": "Jinbe", "cost": 2, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Fish-Man", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-005.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-005", "rarity": "C", "card_type": "CHARACTER", "card_name": "Jinbe", "cost": 2, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Fish-Man", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-005_p1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-006", "rarity": "C", "card_type": "CHARACTER", "card_name": "Stussy", "cost": 3, "life": null, "power": 5000, "counter": 1000, "color": ["Red"], "attribute": "Special", "feature": ["Egghead"], "card_image_link": ["images/cardlist/card/ST21-006.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-006", "rarity": "C", "card_type": "CHARACTER", "card_name": "Stussy", "cost": 3, "life": null, "power": 5000, "counter": 1000, "color": ["Red"], "attribute": "Special", "feature": ["Egghead"], "card_image_link": ["images/cardlist/card/ST21-006_p1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-007", "rarity": "C", "card_type": "CHARACTER", "card_name": "Sentomaru", "cost": 2, "life": null, "power": 2000, "counter": 1000, "color": ["Red"], "attribute": "Slash", "feature": ["Egghead", "Navy"], "card_image_link": ["images/cardlist/card/ST21-007.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-007", "rarity": "C", "card_type": "CHARACTER", "card_name": "Sentomaru", "cost": 2, "life": null, "power": 2000, "counter": 1000, "color": ["Red"], "attribute": "Slash", "feature": ["Egghead", "Navy"], "card_image_link": ["images/cardlist/card/ST21-007_p1.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-008", "rarity": "C", "card_type": "CHARACTER", "card_name": "Tony Tony.Chopper", "cost": 4, "life": null, "power": 6000, "counter": 1000, "color": ["Red"], "attribute": "Wisdom", "feature": ["Animal", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-008.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-008", "rarity": "C", "card_type": "CHARACTER", "card_name": "Tony Tony.Chopper", "cost": 4, "life": null, "power": 6000, "counter": 1000, "color": ["Red"], "attribute": "Wisdom", "feature": ["Animal", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-008_p1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-009", "rarity": "C", "card_type": "CHARACTER", "card_name": "Nami", "cost": 3, "life": null, "power": 1000, "counter": 1000, "color": ["Red"], "attribute": "Special", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-009.png?250701"], "text": "[Activate: Main] [Once Per Turn] Give up to 2 rested DON!! cards to 1 of your {Straw Hat Crew} type Leader or Character cards.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-009", "rarity": "C", "card_type": "CHARACTER", "card_name": "Nami", "cost": 3, "life": null, "power": 1000, "counter": 1000, "color": ["Red"], "attribute": "Special", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-009_p1.png?250701"], "text": "[Activate: Main] [Once Per Turn] Give up to 2 rested DON!! cards to 1 of your {Straw Hat Crew} type Leader or Character cards.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-010", "rarity": "C", "card_type": "CHARACTER", "card_name": "Nico Robin", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-010.png?250701"], "text": "[DON!! x2] [When Attacking] K.O. up to 1 of your opponent's Characters with 4000 power or less.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-010", "rarity": "C", "card_type": "CHARACTER", "card_name": "Nico Robin", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-010_p1.png?250701"], "text": "[DON!! x2] [When Attacking] K.O. up to 1 of your opponent's Characters with 4000 power or less.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-011", "rarity": "C", "card_type": "CHARACTER", "card_name": "Franky", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-011.png?250701"], "text": "[DON!! x2] [Opponent's Turn] All of your {Straw Hat Crew} type Characters with 4000 base power or less gain +1000 power.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-011", "rarity": "C", "card_type": "CHARACTER", "card_name": "Franky", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-011_p1.png?250701"], "text": "[DON!! x2] [Opponent's Turn] All of your {Straw Hat Crew} type Characters with 4000 base power or less gain +1000 power.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-012", "rarity": "C", "card_type": "CHARACTER", "card_name": "Brook", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Slash", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-012.png?250701"], "text": "[When Attacking] Give up to 2 rested DON!! cards to your Leader or 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-012", "rarity": "C", "card_type": "CHARACTER", "card_name": "Brook", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Slash", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-012_p1.png?250701"], "text": "[When Attacking] Give up to 2 rested DON!! cards to your Leader or 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-013", "rarity": "C", "card_type": "CHARACTER", "card_name": "Vegapunk", "cost": 1, "life": null, "power": 3000, "counter": 1000, "color": ["Red"], "attribute": "Wisdom", "feature": ["Scientist", "Egghead"], "card_image_link": ["images/cardlist/card/ST21-013.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-013", "rarity": "C", "card_type": "CHARACTER", "card_name": "Vegapunk", "cost": 1, "life": null, "power": 3000, "counter": 1000, "color": ["Red"], "attribute": "Wisdom", "feature": ["Scientist", "Egghead"], "card_image_link": ["images/cardlist/card/ST21-013_p1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-014", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Monkey.D.Luffy", "cost": 5, "life": null, "power": 6000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["The Four Emperors", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-014.png?250701"], "text": "[Rush] (This card can attack on the turn in which it is played.)[When Attacking] Give up to 1 rested DON!! card to your Leader or 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-014", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Monkey.D.Luffy", "cost": 5, "life": null, "power": 6000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["The Four Emperors", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-014_p1.png?250701"], "text": "[Rush] (This card can attack on the turn in which it is played.)[When Attacking] Give up to 1 rested DON!! card to your Leader or 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-015", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Roronoa Zoro", "cost": 4, "life": null, "power": 5000, "counter": 1000, "color": ["Red"], "attribute": "Slash", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-015.png?250701"], "text": "[DON!! x2] This Character gains [Rush].[On K.O.] Play up to 1 red Character card with 6000 power or less other than [Roronoa Zoro] from your hand.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-015", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Roronoa Zoro", "cost": 4, "life": null, "power": 5000, "counter": 1000, "color": ["Red"], "attribute": "Slash", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-015_p1.png?250701"], "text": "[DON!! x2] This Character gains [Rush].[On K.O.] Play up to 1 red Character card with 6000 power or less other than [Roronoa Zoro] from your hand.", "trigger": null, "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-016", "rarity": "C", "card_type": "EVENT", "card_name": "Gum-Gum Dawn Whip", "cost": 2, "life": null, "power": null, "counter": null, "color": ["Red"], "attribute": null, "feature": ["The Four Emperors", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-016.png?250701"], "text": "[Main] Up to 1 of your Leader or Character cards gains +1000 power during this turn. Then, up to 1 of your opponent's Characters with 4000 power or less cannot activate [Blocker] during this turn.", "trigger": "[Trigger] K.O. up to 1 of your opponent's Characters with 4000 power or less.", "card_sets": "Card Set(s)-GEAR5- [ST-21]"}, {"code": "ST21-017", "rarity": "C", "card_type": "EVENT", "card_name": "Gum-Gum Mole Pistol", "cost": 4, "life": null, "power": null, "counter": null, "color": ["Red"], "attribute": null, "feature": ["The Four Emperors", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST21-017.png?250701"], "text": "[Main] Give up to 1 of your opponent's Characters \u22125000 power during this turn. Then, if you have a Character with 6000 power or more, K.O. up to 1 of your opponent's Characters with 2000 power or less.", "trigger": "[Trigger] Activate this card's [Main] effect.", "card_sets": "Card Set(s)-GEAR5- [ST-21]"}]
+[
+    {
+        "code": "ST21-001",
+        "rarity": "L",
+        "card_type": "LEADER",
+        "card_name": "Monkey.D.Luffy",
+        "cost": null,
+        "life": 5,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "The Four Emperors",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-001.png?250701"
+        ],
+        "text": "[DON!! x1] [Activate: Main] [Once Per Turn] Give up to 2 rested DON!! cards to 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-001",
+        "rarity": "L",
+        "card_type": "LEADER",
+        "card_name": "Monkey.D.Luffy",
+        "cost": null,
+        "life": 5,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "The Four Emperors",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-001_p1.png?250701"
+        ],
+        "text": "[DON!! x1] [Activate: Main] [Once Per Turn] Give up to 2 rested DON!! cards to 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-002",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Usopp",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Ranged",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-002.png?250701"
+        ],
+        "text": "[DON!! x2] [Opponent's Turn] This Character gains +2000 power.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-002",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Usopp",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Ranged",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-002_p1.png?250701"
+        ],
+        "text": "[DON!! x2] [Opponent's Turn] This Character gains +2000 power.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-003",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Sanji",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-003.png?250701"
+        ],
+        "text": "[On Play] Select up to 1 of your {Straw Hat Crew} type Characters with 6000 power or more. If the selected Character attacks during this turn, your opponent cannot activate [Blocker].",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-003",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Sanji",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-003_p1.png?250701"
+        ],
+        "text": "[On Play] Select up to 1 of your {Straw Hat Crew} type Characters with 6000 power or more. If the selected Character attacks during this turn, your opponent cannot activate [Blocker].",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-004",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Jewelry Bonney",
+        "cost": 1,
+        "life": null,
+        "power": 3000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Egghead",
+            "Bonney Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-004.png?250701"
+        ],
+        "text": "[DON!! x2] [On K.O.] Draw 1 card.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-004",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Jewelry Bonney",
+        "cost": 1,
+        "life": null,
+        "power": 3000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Egghead",
+            "Bonney Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-004_p1.png?250701"
+        ],
+        "text": "[DON!! x2] [On K.O.] Draw 1 card.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-005",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Jinbe",
+        "cost": 2,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Fish-Man",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-005.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-005",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Jinbe",
+        "cost": 2,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Fish-Man",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-005_p1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-006",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Stussy",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Egghead"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-006.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-006",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Stussy",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Egghead"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-006_p1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-007",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Sentomaru",
+        "cost": 2,
+        "life": null,
+        "power": 2000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Egghead",
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-007.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-007",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Sentomaru",
+        "cost": 2,
+        "life": null,
+        "power": 2000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Egghead",
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-007_p1.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-008",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Tony Tony.Chopper",
+        "cost": 4,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Animal",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-008.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-008",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Tony Tony.Chopper",
+        "cost": 4,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Animal",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-008_p1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-009",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Nami",
+        "cost": 3,
+        "life": null,
+        "power": 1000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-009.png?250701"
+        ],
+        "text": "[Activate: Main] [Once Per Turn] Give up to 2 rested DON!! cards to 1 of your {Straw Hat Crew} type Leader or Character cards.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-009",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Nami",
+        "cost": 3,
+        "life": null,
+        "power": 1000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-009_p1.png?250701"
+        ],
+        "text": "[Activate: Main] [Once Per Turn] Give up to 2 rested DON!! cards to 1 of your {Straw Hat Crew} type Leader or Character cards.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-010",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Nico Robin",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-010.png?250701"
+        ],
+        "text": "[DON!! x2] [When Attacking] K.O. up to 1 of your opponent's Characters with 4000 power or less.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-010",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Nico Robin",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-010_p1.png?250701"
+        ],
+        "text": "[DON!! x2] [When Attacking] K.O. up to 1 of your opponent's Characters with 4000 power or less.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-011",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Franky",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-011.png?250701"
+        ],
+        "text": "[DON!! x2] [Opponent's Turn] All of your {Straw Hat Crew} type Characters with 4000 base power or less gain +1000 power.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-011",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Franky",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-011_p1.png?250701"
+        ],
+        "text": "[DON!! x2] [Opponent's Turn] All of your {Straw Hat Crew} type Characters with 4000 base power or less gain +1000 power.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-012",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Brook",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-012.png?250701"
+        ],
+        "text": "[When Attacking] Give up to 2 rested DON!! cards to your Leader or 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-012",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Brook",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-012_p1.png?250701"
+        ],
+        "text": "[When Attacking] Give up to 2 rested DON!! cards to your Leader or 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-013",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Vegapunk",
+        "cost": 1,
+        "life": null,
+        "power": 3000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Scientist",
+            "Egghead"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-013.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-013",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Vegapunk",
+        "cost": 1,
+        "life": null,
+        "power": 3000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Scientist",
+            "Egghead"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-013_p1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-014",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Monkey.D.Luffy",
+        "cost": 5,
+        "life": null,
+        "power": 6000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "The Four Emperors",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-014.png?250701"
+        ],
+        "text": "[Rush] (This card can attack on the turn in which it is played.)[When Attacking] Give up to 1 rested DON!! card to your Leader or 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-014",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Monkey.D.Luffy",
+        "cost": 5,
+        "life": null,
+        "power": 6000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "The Four Emperors",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-014_p1.png?250701"
+        ],
+        "text": "[Rush] (This card can attack on the turn in which it is played.)[When Attacking] Give up to 1 rested DON!! card to your Leader or 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-015",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Roronoa Zoro",
+        "cost": 4,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-015.png?250701"
+        ],
+        "text": "[DON!! x2] This Character gains [Rush].[On K.O.] Play up to 1 red Character card with 6000 power or less other than [Roronoa Zoro] from your hand.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-015",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Roronoa Zoro",
+        "cost": 4,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-015_p1.png?250701"
+        ],
+        "text": "[DON!! x2] This Character gains [Rush].[On K.O.] Play up to 1 red Character card with 6000 power or less other than [Roronoa Zoro] from your hand.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-016",
+        "rarity": "C",
+        "card_type": "EVENT",
+        "card_name": "Gum-Gum Dawn Whip",
+        "cost": 2,
+        "life": null,
+        "power": null,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": null,
+        "feature": [
+            "The Four Emperors",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-016.png?250701"
+        ],
+        "text": "[Main] Up to 1 of your Leader or Character cards gains +1000 power during this turn. Then, up to 1 of your opponent's Characters with 4000 power or less cannot activate [Blocker] during this turn.",
+        "trigger": "[Trigger] K.O. up to 1 of your opponent's Characters with 4000 power or less.",
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    },
+    {
+        "code": "ST21-017",
+        "rarity": "C",
+        "card_type": "EVENT",
+        "card_name": "Gum-Gum Mole Pistol",
+        "cost": 4,
+        "life": null,
+        "power": null,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": null,
+        "feature": [
+            "The Four Emperors",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST21-017.png?250701"
+        ],
+        "text": "[Main] Give up to 1 of your opponent's Characters \u22125000 power during this turn. Then, if you have a Character with 6000 power or more, K.O. up to 1 of your opponent's Characters with 2000 power or less.",
+        "trigger": "[Trigger] Activate this card's [Main] effect.",
+        "card_sets": "Card Set(s)-GEAR5- [ST-21]"
+    }
+]

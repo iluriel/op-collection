@@ -1,1 +1,350 @@
-[{"code": "OP02-093", "rarity": "L", "card_type": "LEADER", "card_name": "Smoker", "cost": null, "life": 5, "power": 5000, "counter": null, "color": ["Black"], "attribute": "Special", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/OP02-093_p2.png?250701"], "text": "[DON!! x1] [Activate: Main] [Once Per Turn] Give up to 1 of your opponent's Characters \u22121 cost during this turn. Then, if there is a Character with a cost of 0, this Leader gains +1000 power during this turn.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "OP02-098", "rarity": "R", "card_type": "CHARACTER", "card_name": "Koby", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Black"], "attribute": "Strike", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/OP02-098_r1.png?250701"], "text": "[On Play] You may trash 1 card from your hand: K.O. up to 1 of your opponent's Characters with a cost of 3 or less.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "OP02-106", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Tsuru", "cost": 1, "life": null, "power": null, "counter": 2000, "color": ["Black"], "attribute": "Wisdom", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/OP02-106_r1.png?250701"], "text": "[On Play] Give up to 1 of your opponent's Characters \u22122 cost during this turn.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "OP02-108", "rarity": "C", "card_type": "CHARACTER", "card_name": "Donquixote Rosinante", "cost": 2, "life": null, "power": 2000, "counter": 1000, "color": ["Black"], "attribute": "Special", "feature": ["Navy", "Donquixote Pirates"], "card_image_link": ["images/cardlist/card/OP02-108_r1.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "OP02-109", "rarity": "C", "card_type": "CHARACTER", "card_name": "Jaguar.D.Saul", "cost": 4, "life": null, "power": 6000, "counter": 1000, "color": ["Black"], "attribute": "Strike", "feature": ["Giant", "Navy"], "card_image_link": ["images/cardlist/card/OP02-109_r1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "OP02-113", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Helmeppo", "cost": 3, "life": null, "power": 3000, "counter": 1000, "color": ["Black"], "attribute": "Slash", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/OP02-113_r1.png?250701"], "text": "[When Attacking] Give up to 1 of your opponent's Characters \u22122 cost during this turn. Then, if there is a Character with a cost of 0, this Character gains +2000 power during this battle.", "trigger": "[Trigger] Play this card.", "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "OP02-116", "rarity": "C", "card_type": "CHARACTER", "card_name": "Yamakaji", "cost": 3, "life": null, "power": 5000, "counter": 1000, "color": ["Black"], "attribute": "Slash", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/OP02-116_r1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "OP02-117", "rarity": "UC", "card_type": "EVENT", "card_name": "Ice Age", "cost": 1, "life": null, "power": null, "counter": null, "color": ["Black"], "attribute": null, "feature": ["Navy"], "card_image_link": ["images/cardlist/card/OP02-117_r1.png?250701"], "text": "[Main] Give up to 1 of your opponent's Characters \u22125 cost during this turn.", "trigger": "[Trigger] K.O. up to 1 of your opponent's Characters with a cost of 3 or less.", "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "OP03-079", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Vergo", "cost": 5, "life": null, "power": 5000, "counter": 2000, "color": ["Black"], "attribute": "Strike", "feature": ["Navy", "Donquixote Pirates"], "card_image_link": ["images/cardlist/card/OP03-079_r1.png?250701"], "text": "[DON!! x1] This Character cannot be K.O.'d in battle.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "OP03-089", "rarity": "R", "card_type": "CHARACTER", "card_name": "Brannew", "cost": 2, "life": null, "power": 3000, "counter": 1000, "color": ["Black"], "attribute": "Wisdom", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/OP03-089_r1.png?250701"], "text": "[On Play] Look at 3 cards from the top of your deck; reveal up to 1 {Navy} type card other than [Brannew] and add it to your hand. Then, trash the rest.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "ST19-001", "rarity": "C", "card_type": "CHARACTER", "card_name": "Smoker", "cost": 6, "life": null, "power": 8000, "counter": null, "color": ["Black"], "attribute": "Special", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/ST19-001.png?250701"], "text": "[On Play] You may trash 1 black {Navy} type card from your hand: Up to 2 of your opponent's Characters with a cost of 4 or less cannot attack until the end of your opponent's next turn.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "ST19-002", "rarity": "C", "card_type": "CHARACTER", "card_name": "Sengoku", "cost": 1, "life": null, "power": 1000, "counter": 1000, "color": ["Black"], "attribute": "Wisdom", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/ST19-002.png?250701"], "text": "[On Play] You may trash 2 black {Navy} type cards from your hand: If your Leader has the {Navy} type, draw 3 cards.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "ST19-003", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Tashigi", "cost": 5, "life": null, "power": 6000, "counter": 1000, "color": ["Black"], "attribute": "Slash", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/ST19-003.png?250701"], "text": "[On Play] If your Leader is [Smoker], give up to 1 of your opponent's Characters \u22124 cost during this turn.[Activate: Main] [Once Per Turn] If this Character was played on this turn, trash up to 1 of your opponent's Characters with a cost of 0.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "ST19-004", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Hina", "cost": 4, "life": null, "power": 6000, "counter": null, "color": ["Black"], "attribute": "Special", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/ST19-004.png?250701"], "text": "[DON!! x1] [Opponent's Turn] This Character gains +4 cost.[Activate: Main] [Once Per Turn] You may place 1 card from your trash at the bottom of your deck: Give up to 1 rested DON!! card to your Leader or 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}, {"code": "ST19-005", "rarity": "C", "card_type": "CHARACTER", "card_name": "Monkey.D.Garp", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Black"], "attribute": "Strike", "feature": ["Navy"], "card_image_link": ["images/cardlist/card/ST19-005.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)[Activate: Main] [Once Per Turn] You may place 1 card from your trash at the bottom of your deck: Give up to 1 of your opponent's Characters \u22121 cost during this turn.", "trigger": null, "card_sets": "Card Set(s)-Black Smoker- [ST-19]"}]
+[
+    {
+        "code": "OP02-093",
+        "rarity": "L",
+        "card_type": "LEADER",
+        "card_name": "Smoker",
+        "cost": null,
+        "life": 5,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-093_p2.png?250701"
+        ],
+        "text": "[DON!! x1] [Activate: Main] [Once Per Turn] Give up to 1 of your opponent's Characters \u22121 cost during this turn. Then, if there is a Character with a cost of 0, this Leader gains +1000 power during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "OP02-098",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Koby",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-098_r1.png?250701"
+        ],
+        "text": "[On Play] You may trash 1 card from your hand: K.O. up to 1 of your opponent's Characters with a cost of 3 or less.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "OP02-106",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Tsuru",
+        "cost": 1,
+        "life": null,
+        "power": null,
+        "counter": 2000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-106_r1.png?250701"
+        ],
+        "text": "[On Play] Give up to 1 of your opponent's Characters \u22122 cost during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "OP02-108",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Donquixote Rosinante",
+        "cost": 2,
+        "life": null,
+        "power": 2000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Navy",
+            "Donquixote Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-108_r1.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "OP02-109",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Jaguar.D.Saul",
+        "cost": 4,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Giant",
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-109_r1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "OP02-113",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Helmeppo",
+        "cost": 3,
+        "life": null,
+        "power": 3000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-113_r1.png?250701"
+        ],
+        "text": "[When Attacking] Give up to 1 of your opponent's Characters \u22122 cost during this turn. Then, if there is a Character with a cost of 0, this Character gains +2000 power during this battle.",
+        "trigger": "[Trigger] Play this card.",
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "OP02-116",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Yamakaji",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-116_r1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "OP02-117",
+        "rarity": "UC",
+        "card_type": "EVENT",
+        "card_name": "Ice Age",
+        "cost": 1,
+        "life": null,
+        "power": null,
+        "counter": null,
+        "color": [
+            "Black"
+        ],
+        "attribute": null,
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-117_r1.png?250701"
+        ],
+        "text": "[Main] Give up to 1 of your opponent's Characters \u22125 cost during this turn.",
+        "trigger": "[Trigger] K.O. up to 1 of your opponent's Characters with a cost of 3 or less.",
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "OP03-079",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Vergo",
+        "cost": 5,
+        "life": null,
+        "power": 5000,
+        "counter": 2000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Navy",
+            "Donquixote Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP03-079_r1.png?250701"
+        ],
+        "text": "[DON!! x1] This Character cannot be K.O.'d in battle.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "OP03-089",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Brannew",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP03-089_r1.png?250701"
+        ],
+        "text": "[On Play] Look at 3 cards from the top of your deck; reveal up to 1 {Navy} type card other than [Brannew] and add it to your hand. Then, trash the rest.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "ST19-001",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Smoker",
+        "cost": 6,
+        "life": null,
+        "power": 8000,
+        "counter": null,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST19-001.png?250701"
+        ],
+        "text": "[On Play] You may trash 1 black {Navy} type card from your hand: Up to 2 of your opponent's Characters with a cost of 4 or less cannot attack until the end of your opponent's next turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "ST19-002",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Sengoku",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST19-002.png?250701"
+        ],
+        "text": "[On Play] You may trash 2 black {Navy} type cards from your hand: If your Leader has the {Navy} type, draw 3 cards.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "ST19-003",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Tashigi",
+        "cost": 5,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST19-003.png?250701"
+        ],
+        "text": "[On Play] If your Leader is [Smoker], give up to 1 of your opponent's Characters \u22124 cost during this turn.[Activate: Main] [Once Per Turn] If this Character was played on this turn, trash up to 1 of your opponent's Characters with a cost of 0.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "ST19-004",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Hina",
+        "cost": 4,
+        "life": null,
+        "power": 6000,
+        "counter": null,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST19-004.png?250701"
+        ],
+        "text": "[DON!! x1] [Opponent's Turn] This Character gains +4 cost.[Activate: Main] [Once Per Turn] You may place 1 card from your trash at the bottom of your deck: Give up to 1 rested DON!! card to your Leader or 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    },
+    {
+        "code": "ST19-005",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Monkey.D.Garp",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST19-005.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)[Activate: Main] [Once Per Turn] You may place 1 card from your trash at the bottom of your deck: Give up to 1 of your opponent's Characters \u22121 cost during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-Black Smoker- [ST-19]"
+    }
+]

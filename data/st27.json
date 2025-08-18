@@ -1,1 +1,353 @@
-[{"code": "OP09-081", "rarity": "L", "card_type": "LEADER", "card_name": "Marshall.D.Teach", "cost": null, "life": 5, "power": 5000, "counter": null, "color": ["Black"], "attribute": "Special", "feature": ["The Four Emperors", "Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP09-081_p2.png?250701"], "text": "Your [On Play] effects are negated.[Activate: Main] You may trash 1 card from your hand: Your opponent's [On Play] effects are negated until the end of your opponent's next turn.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "OP09-083", "rarity": "R", "card_type": "CHARACTER", "card_name": "Van Augur", "cost": 5, "life": null, "power": 6000, "counter": 1000, "color": ["Black"], "attribute": "Ranged", "feature": ["Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP09-083_r1.png?250701"], "text": "[Activate: Main] You may rest this Character: If your Leader has the {Blackbeard Pirates} type, give up to 1 of your opponent's Characters \u22123 cost during this turn.[On K.O.] Draw 1 card.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "OP09-086", "rarity": "R", "card_type": "CHARACTER", "card_name": "Jesus Burgess", "cost": 4, "life": null, "power": 5000, "counter": 1000, "color": ["Black"], "attribute": "Strike", "feature": ["Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP09-086_r1.png?250701"], "text": "This Character cannot be K.O.'d by your opponent's effects.If your Leader has the {Blackbeard Pirates} type, this Character gains +1000 power for every 4 cards in your trash.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "OP09-088", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Shiryu", "cost": 3, "life": null, "power": 4000, "counter": 2000, "color": ["Black"], "attribute": "Slash", "feature": ["Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP09-088_r1.png?250701"], "text": "[DON!! x1] [When Attacking] You may trash 2 cards from your hand: Draw 2 cards.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "OP09-089", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Stronger", "cost": 1, "life": null, "power": null, "counter": 2000, "color": ["Black"], "attribute": "Wisdom", "feature": ["Animal", "Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP09-089_r1.png?250701"], "text": "[Activate: Main] You may trash 1 card from your hand and trash this Character: If your Leader has the {Blackbeard Pirates} type, draw 1 card. Then, give up to 1 of your opponent's Characters \u22122 cost during this turn.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "OP09-090", "rarity": "R", "card_type": "CHARACTER", "card_name": "Doc Q", "cost": 2, "life": null, "power": null, "counter": 1000, "color": ["Black"], "attribute": "Special", "feature": ["Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP09-090_r1.png?250701"], "text": "[Activate: Main] You may rest this Character: If your Leader has the {Blackbeard Pirates} type, K.O. up to 1 of your opponent's Characters with a cost of 1 or less.[On K.O.] Draw 1 card.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "OP09-091", "rarity": "C", "card_type": "CHARACTER", "card_name": "Vasco Shot", "cost": 2, "life": null, "power": 2000, "counter": 1000, "color": ["Black"], "attribute": "Special", "feature": ["Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP09-091_r1.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "OP09-095", "rarity": "R", "card_type": "CHARACTER", "card_name": "Laffitte", "cost": 1, "life": null, "power": 1000, "counter": 1000, "color": ["Black"], "attribute": "Strike", "feature": ["Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP09-095_r1.png?250701"], "text": "[Activate: Main] You may rest 1 of your DON!! cards and this Character: Look at 5 cards from the top of your deck; reveal up to 1 {Blackbeard Pirates} type card and add it to your hand. Then, place the rest at the bottom of your deck in any order.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "OP09-099", "rarity": "C", "card_type": "STAGE", "card_name": "Fullalead", "cost": 1, "life": null, "power": null, "counter": null, "color": ["Black"], "attribute": null, "feature": ["Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP09-099_r1.png?250701"], "text": "[Activate: Main] You may trash 1 card from your hand and rest this Stage: Look at 3 cards from the top of your deck; reveal up to 1 {Blackbeard Pirates} type card and add it to your hand. Then, place the rest at the bottom of your deck in any order.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "OP10-084", "rarity": "C", "card_type": "CHARACTER", "card_name": "Sanjuan.Wolf", "cost": 5, "life": null, "power": 7000, "counter": 1000, "color": ["Black"], "attribute": "Special", "feature": ["Giant", "Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/OP10-084_r1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "ST27-001", "rarity": "C", "card_type": "CHARACTER", "card_name": "Avalo Pizarro", "cost": 1, "life": null, "power": 1000, "counter": 1000, "color": ["Black"], "attribute": "Special", "feature": ["Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/ST27-001.png?250701"], "text": "[Activate: Main] [Once Per Turn] You may rest 1 of your [Fullalead] cards: If your Leader has the {Blackbeard Pirates} type, this Character gains +4000 power during this turn.[On K.O.] Draw 1 card.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "ST27-002", "rarity": "C", "card_type": "CHARACTER", "card_name": "Catarina Devon", "cost": 1, "life": null, "power": 1000, "counter": 2000, "color": ["Black"], "attribute": "Special", "feature": ["Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/ST27-002.png?250701"], "text": "[Activate: Main] You may trash this Character: If your Leader has the {Blackbeard Pirates} type, give up to 1 of your opponent's Characters \u22121 cost during this turn.[On K.O.] Draw 1 card.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "ST27-003", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Kuzan", "cost": 6, "life": null, "power": 6000, "counter": 1000, "color": ["Black"], "attribute": "Special", "feature": ["Blackbeard Pirates", "Former Navy"], "card_image_link": ["images/cardlist/card/ST27-003.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)[On K.O.] Play up to 1 {Blackbeard Pirates} type Character card with a cost of 5 or less from your trash rested.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "ST27-004", "rarity": "C", "card_type": "CHARACTER", "card_name": "Sanjuan.Wolf", "cost": 4, "life": null, "power": 6000, "counter": 1000, "color": ["Black"], "attribute": "Strike", "feature": ["Giant", "Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/ST27-004.png?250701"], "text": "If your Leader has the {Blackbeard Pirates} type, this Character gains [Blocker] and +1 cost for every 4 cards in your trash.(After your opponent declares an attack, you may rest this card to make it the new target of the attack.)[On Play] Trash 1 card from your hand.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}, {"code": "ST27-005", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Marshall.D.Teach", "cost": 7, "life": null, "power": 8000, "counter": null, "color": ["Black"], "attribute": "Special", "feature": ["The Four Emperors", "Blackbeard Pirates"], "card_image_link": ["images/cardlist/card/ST27-005.png?250701"], "text": "[Activate: Main] You may rest this Character: K.O. up to 1 Character with a cost of 3 or less.[On K.O.] Add up to 1 black card from your trash to your hand.", "trigger": null, "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"}]
+[
+    {
+        "code": "OP09-081",
+        "rarity": "L",
+        "card_type": "LEADER",
+        "card_name": "Marshall.D.Teach",
+        "cost": null,
+        "life": 5,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "The Four Emperors",
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP09-081_p2.png?250701"
+        ],
+        "text": "Your [On Play] effects are negated.[Activate: Main] You may trash 1 card from your hand: Your opponent's [On Play] effects are negated until the end of your opponent's next turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "OP09-083",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Van Augur",
+        "cost": 5,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Ranged",
+        "feature": [
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP09-083_r1.png?250701"
+        ],
+        "text": "[Activate: Main] You may rest this Character: If your Leader has the {Blackbeard Pirates} type, give up to 1 of your opponent's Characters \u22123 cost during this turn.[On K.O.] Draw 1 card.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "OP09-086",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Jesus Burgess",
+        "cost": 4,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP09-086_r1.png?250701"
+        ],
+        "text": "This Character cannot be K.O.'d by your opponent's effects.If your Leader has the {Blackbeard Pirates} type, this Character gains +1000 power for every 4 cards in your trash.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "OP09-088",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Shiryu",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 2000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP09-088_r1.png?250701"
+        ],
+        "text": "[DON!! x1] [When Attacking] You may trash 2 cards from your hand: Draw 2 cards.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "OP09-089",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Stronger",
+        "cost": 1,
+        "life": null,
+        "power": null,
+        "counter": 2000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Animal",
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP09-089_r1.png?250701"
+        ],
+        "text": "[Activate: Main] You may trash 1 card from your hand and trash this Character: If your Leader has the {Blackbeard Pirates} type, draw 1 card. Then, give up to 1 of your opponent's Characters \u22122 cost during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "OP09-090",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Doc Q",
+        "cost": 2,
+        "life": null,
+        "power": null,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP09-090_r1.png?250701"
+        ],
+        "text": "[Activate: Main] You may rest this Character: If your Leader has the {Blackbeard Pirates} type, K.O. up to 1 of your opponent's Characters with a cost of 1 or less.[On K.O.] Draw 1 card.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "OP09-091",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Vasco Shot",
+        "cost": 2,
+        "life": null,
+        "power": 2000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP09-091_r1.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "OP09-095",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Laffitte",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP09-095_r1.png?250701"
+        ],
+        "text": "[Activate: Main] You may rest 1 of your DON!! cards and this Character: Look at 5 cards from the top of your deck; reveal up to 1 {Blackbeard Pirates} type card and add it to your hand. Then, place the rest at the bottom of your deck in any order.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "OP09-099",
+        "rarity": "C",
+        "card_type": "STAGE",
+        "card_name": "Fullalead",
+        "cost": 1,
+        "life": null,
+        "power": null,
+        "counter": null,
+        "color": [
+            "Black"
+        ],
+        "attribute": null,
+        "feature": [
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP09-099_r1.png?250701"
+        ],
+        "text": "[Activate: Main] You may trash 1 card from your hand and rest this Stage: Look at 3 cards from the top of your deck; reveal up to 1 {Blackbeard Pirates} type card and add it to your hand. Then, place the rest at the bottom of your deck in any order.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "OP10-084",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Sanjuan.Wolf",
+        "cost": 5,
+        "life": null,
+        "power": 7000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Giant",
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP10-084_r1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "ST27-001",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Avalo Pizarro",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST27-001.png?250701"
+        ],
+        "text": "[Activate: Main] [Once Per Turn] You may rest 1 of your [Fullalead] cards: If your Leader has the {Blackbeard Pirates} type, this Character gains +4000 power during this turn.[On K.O.] Draw 1 card.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "ST27-002",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Catarina Devon",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": 2000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST27-002.png?250701"
+        ],
+        "text": "[Activate: Main] You may trash this Character: If your Leader has the {Blackbeard Pirates} type, give up to 1 of your opponent's Characters \u22121 cost during this turn.[On K.O.] Draw 1 card.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "ST27-003",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Kuzan",
+        "cost": 6,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Blackbeard Pirates",
+            "Former Navy"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST27-003.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)[On K.O.] Play up to 1 {Blackbeard Pirates} type Character card with a cost of 5 or less from your trash rested.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "ST27-004",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Sanjuan.Wolf",
+        "cost": 4,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Giant",
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST27-004.png?250701"
+        ],
+        "text": "If your Leader has the {Blackbeard Pirates} type, this Character gains [Blocker] and +1 cost for every 4 cards in your trash.(After your opponent declares an attack, you may rest this card to make it the new target of the attack.)[On Play] Trash 1 card from your hand.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    },
+    {
+        "code": "ST27-005",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Marshall.D.Teach",
+        "cost": 7,
+        "life": null,
+        "power": 8000,
+        "counter": null,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "The Four Emperors",
+            "Blackbeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST27-005.png?250701"
+        ],
+        "text": "[Activate: Main] You may rest this Character: K.O. up to 1 Character with a cost of 3 or less.[On K.O.] Add up to 1 black card from your trash to your hand.",
+        "trigger": null,
+        "card_sets": "Card Set(s)-BLACK Marshall.D.Teach- [ST-27]"
+    }
+]

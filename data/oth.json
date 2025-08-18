@@ -1,1 +1,1173 @@
-[{"code": "OP01-001", "rarity": "L", "card_type": "LEADER", "card_name": "Roronoa Zoro", "cost": null, "life": 5, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Slash", "feature": ["Supernovas", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-001_p2.png?250701"], "text": "[DON!! x1] [Your Turn] All of your Characters gain +1000 power.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "OP01-004", "rarity": "R", "card_type": "CHARACTER", "card_name": "Usopp", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Ranged", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-004_p1.png?250701"], "text": "[DON!! x1] [Your Turn] [Once Per Turn] Draw 1 card when your opponent activates an Event.", "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}, {"code": "OP01-005", "rarity": "R", "card_type": "CHARACTER", "card_name": "Uta", "cost": 4, "life": null, "power": 4000, "counter": null, "color": ["Red"], "attribute": "Special", "feature": ["FILM"], "card_image_link": ["images/cardlist/card/OP01-005_p1.png?250701"], "text": "[On Play] Add up to 1 red Character card other than [Uta] with a cost of 3 or less from your trash to your hand.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "OP01-005", "rarity": "R", "card_type": "CHARACTER", "card_name": "Uta", "cost": 4, "life": null, "power": 4000, "counter": null, "color": ["Red"], "attribute": "Special", "feature": ["FILM"], "card_image_link": ["images/cardlist/card/OP01-005_p2.png?250701"], "text": "[On Play] Add up to 1 red Character card other than [Uta] with a cost of 3 or less from your trash to your hand.", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "OP01-006", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Otama", "cost": 1, "life": null, "power": null, "counter": 2000, "color": ["Red"], "attribute": "Special", "feature": ["Land of Wano"], "card_image_link": ["images/cardlist/card/OP01-006_p1.png?250701"], "text": "[On Play] Give up to 1 of your opponent's Characters \u22122000 power during this turn.", "trigger": null, "card_sets": "Card Set(s)Japanese 1st Anniversary Set"}, {"code": "OP01-013", "rarity": "R", "card_type": "CHARACTER", "card_name": "Sanji", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-013_p2.png?250701"], "text": "[Activate: Main] [Once Per Turn] You may add 1 card from the top of your Life cards to your hand: This Character gains +2000 power during this turn. Then, give this Character up to 2 rested DON!! cards.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "OP01-013", "rarity": "R", "card_type": "CHARACTER", "card_name": "Sanji", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-013_p3.png?250701"], "text": "[Activate: Main] [Once Per Turn] You may add 1 card from the top of your Life cards to your hand: This Character gains +2000 power during this turn. Then, give this Character up to 2 rested DON!! cards.", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "OP01-013", "rarity": "R", "card_type": "CHARACTER", "card_name": "Sanji", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-013_p4.png?250701"], "text": "[Activate: Main] [Once Per Turn] You may add 1 card from your Life area to your hand: This Character gains +2000 power during this turn. Then, give this Character up to 2 rested DON!! cards.", "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}, {"code": "OP01-014", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Jinbe", "cost": 4, "life": null, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Fish-Man", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-014_p1.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)[DON!! x1] [On Block] Play up to 1 red Character card with a cost of 2 or less from your hand.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "OP01-016", "rarity": "R", "card_type": "CHARACTER", "card_name": "Nami", "cost": 1, "life": null, "power": 2000, "counter": 1000, "color": ["Red"], "attribute": "Special", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-016_p2.png?250701"], "text": "[On Play] Look at 5 cards from the top of your deck; reveal up to 1 {Straw Hat Crew} type card other than [Nami] and add it to your hand. Then, place the rest at the bottom of your deck in any order.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "OP01-016", "rarity": "R", "card_type": "CHARACTER", "card_name": "Nami", "cost": 1, "life": null, "power": 2000, "counter": 1000, "color": ["Red"], "attribute": "Special", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-016_p5.png?250701"], "text": "[On Play] Look at 5 cards from the top of your deck; reveal up to 1 {Straw Hat Crew} type card other than [Nami] and add it to your hand. Then, place the rest at the bottom of your deck in any order.", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "OP01-016", "rarity": "R", "card_type": "CHARACTER", "card_name": "Nami", "cost": 1, "life": null, "power": 2000, "counter": 1000, "color": ["Red"], "attribute": "Special", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-016_p7.png?250701"], "text": "[On Play] Look at 5 cards from the top of your deck; reveal up to 1 {Straw Hat Crew} type card other than [Nami] and add it to your hand. Then, place the rest at the bottom of your deck in any order.", "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}, {"code": "OP01-017", "rarity": "R", "card_type": "CHARACTER", "card_name": "Nico Robin", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-017_p1.png?250701"], "text": "[DON!! x1] [When Attacking] K.O. up to 1 of your opponent's Characters with 3000 power or less.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "OP01-017", "rarity": "R", "card_type": "CHARACTER", "card_name": "Nico Robin", "cost": 3, "life": null, "power": 4000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-017_p2.png?250701"], "text": "[DON!! x1] [When Attacking] K.O. up to 1 of your opponent's Characters with 3000 power or less.", "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}, {"code": "OP01-021", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Franky", "cost": 3, "life": null, "power": 4000, "counter": null, "color": ["Red"], "attribute": "Ranged", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-021_p1.png?250701"], "text": "[DON!! x1] This Character can also attack your opponent's active Characters.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "OP01-021", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Franky", "cost": 3, "life": null, "power": 4000, "counter": null, "color": ["Red"], "attribute": "Ranged", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-021_p3.png?250701"], "text": "[DON!! x1] This Character can also attack your opponent's active Characters.", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "OP01-022", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Brook", "cost": 4, "life": null, "power": 5000, "counter": 1000, "color": ["Red"], "attribute": "Slash", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-022_p1.png?250701"], "text": "[DON!! x1] [When Attacking] Give up to 2 of your opponent's Characters \uff0d2000 power during this turn.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "OP01-025", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Roronoa Zoro", "cost": 3, "life": null, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Slash", "feature": ["Supernovas", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP01-025_p3.png?250701"], "text": "[Rush] (This card can attack on the turn in which it is played.)", "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}, {"code": "OP02-015", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Makino", "cost": 1, "life": null, "power": null, "counter": 2000, "color": ["Red"], "attribute": "Wisdom", "feature": ["Windmill Village"], "card_image_link": ["images/cardlist/card/OP02-015_p1.png?250701"], "text": "[Activate: Main] You may rest this Character: Up to 1 of your red Characters with a cost of 1 gains +3000 power during this turn.", "trigger": null, "card_sets": "Card Set(s)Japanese 1st Anniversary Set"}, {"code": "OP02-059", "rarity": "UC", "card_type": "CHARACTER", "card_name": "Boa Hancock", "cost": 4, "life": null, "power": 5000, "counter": 1000, "color": ["Blue"], "attribute": "Special", "feature": ["Impel Down", "The Seven Warlords of the Sea", "Kuja Pirates"], "card_image_link": ["images/cardlist/card/OP02-059_p2.png?250701"], "text": "[When Attacking] Draw 1 card and trash 1 card from your hand. Then, trash up to 3 cards from your hand.", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "OP03-001", "rarity": "L", "card_type": "LEADER", "card_name": "Portgas.D.Ace", "cost": null, "life": 5, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Special", "feature": ["Whitebeard Pirates"], "card_image_link": ["images/cardlist/card/OP03-001_p2.png?250701"], "text": "When this Leader attacks or is attacked, you may trash any number of Event or Stage cards from your hand. This Leader gains +1000 power during this battle for every card trashed.", "trigger": null, "card_sets": "Card Set(s)Special Goods Set -Ace/Sabo/Luffy-"}, {"code": "OP03-013", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Marco", "cost": 5, "life": null, "power": 6000, "counter": 1000, "color": ["Red"], "attribute": "Special", "feature": ["Whitebeard Pirates"], "card_image_link": ["images/cardlist/card/OP03-013_p2.png?250701"], "text": "[Your Turn] [On Play] K.O. up to 1 of your opponent's Characters with 3000 power or less.[On K.O.] You may trash 1 Event from your hand: You may play this Character card from your trash rested.", "trigger": null, "card_sets": "Card Set(s)Japanese 1st Anniversary Set"}, {"code": "OP07-091", "rarity": "R", "card_type": "CHARACTER", "card_name": "Monkey.D.Luffy", "cost": 5, "life": null, "power": 6000, "counter": 1000, "color": ["Black"], "attribute": "Special", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/OP07-091_p1.png?250701"], "text": "[When Attacking] Trash up to 1 of your opponent's Characters with a cost of 2 or less. Then, place any number of Character cards with a cost of 4 or more from your trash at the bottom of your deck in any order. This Character gains +1000 power during this turn for every 3 cards placed at the bottom of your deck.", "trigger": null, "card_sets": "Card Set(s)Offline Regional Finalist Card Set 2024 Vol. 3"}, {"code": "P-001", "rarity": "P", "card_type": "CHARACTER", "card_name": "Monkey.D.Luffy", "cost": 6, "life": null, "power": 7000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Supernovas", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/P-001_p3.png?250701"], "text": "[DON!! x2] This Character gains [Rush].(This card can attack on the turn in which it is played.)", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "P-001", "rarity": "P", "card_type": "CHARACTER", "card_name": "Monkey.D.Luffy", "cost": 6, "life": null, "power": 7000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Supernovas", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/P-001_p4.png?250701"], "text": "[DON!! x2] This Character gains [Rush].(This card can attack on the turn in which it is played.)", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "P-016", "rarity": "P", "card_type": "CHARACTER", "card_name": "Shanks", "cost": 8, "life": null, "power": 10000, "counter": 1000, "color": ["Red"], "attribute": "Slash", "feature": ["FILM", "The Four Emperors", "Red-Haired Pirates"], "card_image_link": ["images/cardlist/card/P-016_p1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "P-022", "rarity": "P", "card_type": "CHARACTER", "card_name": "Monkey.D.Luffy", "cost": 4, "life": null, "power": 6000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["FILM", "Supernovas", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/P-022_p1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "P-028", "rarity": "P", "card_type": "CHARACTER", "card_name": "Portgas.D.Ace", "cost": 5, "life": null, "power": 6000, "counter": null, "color": ["Red"], "attribute": "Special", "feature": ["Whitebeard Pirates"], "card_image_link": ["images/cardlist/card/P-028_p1.png?250701"], "text": "[Double Attack] (This card deals 2 damage.)", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "ST01-002", "rarity": "C", "card_type": "CHARACTER", "card_name": "Usopp", "cost": 2, "life": null, "power": 2000, "counter": 1000, "color": ["Red"], "attribute": "Ranged", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-002_p1.png?250701"], "text": "[DON!! x2] [When Attacking] Your opponent cannot activate a [Blocker] Character that has 5000 or more power during this battle.", "trigger": "[Trigger] Play this card.", "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "ST01-002", "rarity": "C", "card_type": "CHARACTER", "card_name": "Usopp", "cost": 2, "life": null, "power": 2000, "counter": 1000, "color": ["Red"], "attribute": "Ranged", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-002_p2.png?250701"], "text": "[DON!! x2] [When Attacking] Your opponent cannot activate a [Blocker] Character that has 5000 or more power during this battle.", "trigger": "[Trigger] Play this card.", "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "ST01-004", "rarity": "C", "card_type": "CHARACTER", "card_name": "Sanji", "cost": 2, "life": null, "power": 4000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-004_p2.png?250701"], "text": "[DON!! x2] This Character gains [Rush].(This card can attack on the turn in which it is played.)", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "ST01-005", "rarity": "C", "card_type": "CHARACTER", "card_name": "Jinbe", "cost": 3, "life": null, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Fish-Man", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-005_p1.png?250701"], "text": "[DON!! x1] [When Attacking] Up to 1 of your Leader or Character cards other than this card gains +1000 power during this turn.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "ST01-005", "rarity": "C", "card_type": "CHARACTER", "card_name": "Jinbe", "cost": 3, "life": null, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Fish-Man", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-005_p2.png?250701"], "text": "[DON!! x1] [When Attacking] Up to 1 of your Leader or Character cards other than this card gains +1000 power during this turn.", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "ST01-006", "rarity": "C", "card_type": "CHARACTER", "card_name": "Tony Tony.Chopper", "cost": 1, "life": null, "power": 1000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Animal", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-006_p1.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "ST01-006", "rarity": "C", "card_type": "CHARACTER", "card_name": "Tony Tony.Chopper", "cost": 1, "life": null, "power": 1000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Animal", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-006_p2.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "ST01-006", "rarity": "C", "card_type": "CHARACTER", "card_name": "Tony Tony.Chopper", "cost": 1, "life": null, "power": 1000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Animal", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-006_p3.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "ST01-006", "rarity": "C", "card_type": "CHARACTER", "card_name": "Tony Tony.Chopper", "cost": 1, "life": null, "power": 1000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Animal", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-006_p4.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)", "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}, {"code": "ST01-007", "rarity": "C", "card_type": "CHARACTER", "card_name": "Nami", "cost": 1, "life": null, "power": 1000, "counter": 1000, "color": ["Red"], "attribute": "Special", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-007_p1.png?250701"], "text": "[Activate: Main] [Once Per Turn] Give up to 1 rested DON!! card to your Leader or 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "ST01-008", "rarity": "C", "card_type": "CHARACTER", "card_name": "Nico Robin", "cost": 3, "life": null, "power": 5000, "counter": 1000, "color": ["Red"], "attribute": "Wisdom", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-008_p1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "ST01-008", "rarity": "C", "card_type": "CHARACTER", "card_name": "Nico Robin", "cost": 3, "life": null, "power": 5000, "counter": 1000, "color": ["Red"], "attribute": "Wisdom", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-008_p2.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "ST01-010", "rarity": "C", "card_type": "CHARACTER", "card_name": "Franky", "cost": 4, "life": null, "power": 6000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-010_p1.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"}, {"code": "ST01-010", "rarity": "C", "card_type": "CHARACTER", "card_name": "Franky", "cost": 4, "life": null, "power": 6000, "counter": 1000, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-010_p2.png?250701"], "text": null, "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}, {"code": "ST01-011", "rarity": "C", "card_type": "CHARACTER", "card_name": "Brook", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Slash", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-011_p1.png?250701"], "text": "[On Play] Give up to 2 rested DON!! cards to your Leader or 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "ST01-011", "rarity": "C", "card_type": "CHARACTER", "card_name": "Brook", "cost": 2, "life": null, "power": 3000, "counter": 2000, "color": ["Red"], "attribute": "Slash", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-011_p3.png?250701"], "text": "[On Play] Give up to 2 rested DON!! cards to your Leader or 1 of your Characters.", "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}, {"code": "ST01-013", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Roronoa Zoro", "cost": 3, "life": null, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Slash", "feature": ["Supernovas", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-013_p1.png?250701"], "text": "[DON!! x1] This Character gains +1000 power.", "trigger": null, "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"}, {"code": "ST01-013", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Roronoa Zoro", "cost": 3, "life": null, "power": 5000, "counter": null, "color": ["Red"], "attribute": "Slash", "feature": ["Supernovas", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST01-013_p2.png?250701"], "text": "[DON!! x1] This Character gains +1000 power.", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "ST03-008", "rarity": "C", "card_type": "CHARACTER", "card_name": "Trafalgar Law", "cost": 1, "life": null, "power": 1000, "counter": null, "color": ["Blue"], "attribute": "Slash", "feature": ["The Seven Warlords of the Sea", "Heart Pirates"], "card_image_link": ["images/cardlist/card/ST03-008_p1.png?250701"], "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "ST09-012", "rarity": "C", "card_type": "CHARACTER", "card_name": "Yamato", "cost": 3, "life": null, "power": 3000, "counter": 2000, "color": ["Yellow"], "attribute": "Strike", "feature": ["Land of Wano"], "card_image_link": ["images/cardlist/card/ST09-012_p1.png?250701"], "text": "[When Attacking] You may add 1 card from the top or bottom of your Life cards to your hand: This Character gains +2000 power until the start of your next turn.", "trigger": null, "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"}, {"code": "ST10-005", "rarity": "C", "card_type": "CHARACTER", "card_name": "Jinbe", "cost": 2, "life": null, "power": 2000, "counter": 2000, "color": ["Red"], "attribute": "Strike", "feature": ["Fish-Man", "Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST10-005_p1.png?250701"], "text": "[DON!! x1] [When Attacking] Give up to 1 of your opponent's Characters \u22122000 power during this turn.", "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}, {"code": "ST10-006", "rarity": "SR", "card_type": "CHARACTER", "card_name": "Monkey.D.Luffy", "cost": 10, "life": null, "power": 11000, "counter": null, "color": ["Red"], "attribute": "Strike", "feature": ["Straw Hat Crew"], "card_image_link": ["images/cardlist/card/ST10-006_p2.png?250701"], "text": "[Rush] (This card can attack on the turn in which it is played.)[Once Per Turn] When your opponent activates a [Blocker], K.O. up to 1 of your opponent's Characters with 8000 power or less.", "trigger": null, "card_sets": "Card Set(s)English Version 1st Anniversary Set"}]
+[
+    {
+        "code": "OP01-001",
+        "rarity": "L",
+        "card_type": "LEADER",
+        "card_name": "Roronoa Zoro",
+        "cost": null,
+        "life": 5,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Supernovas",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-001_p2.png?250701"
+        ],
+        "text": "[DON!! x1] [Your Turn] All of your Characters gain +1000 power.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "OP01-004",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Usopp",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Ranged",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-004_p1.png?250701"
+        ],
+        "text": "[DON!! x1] [Your Turn] [Once Per Turn] Draw 1 card when your opponent activates an Event.",
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    },
+    {
+        "code": "OP01-005",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Uta",
+        "cost": 4,
+        "life": null,
+        "power": 4000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "FILM"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-005_p1.png?250701"
+        ],
+        "text": "[On Play] Add up to 1 red Character card other than [Uta] with a cost of 3 or less from your trash to your hand.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "OP01-005",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Uta",
+        "cost": 4,
+        "life": null,
+        "power": 4000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "FILM"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-005_p2.png?250701"
+        ],
+        "text": "[On Play] Add up to 1 red Character card other than [Uta] with a cost of 3 or less from your trash to your hand.",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "OP01-006",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Otama",
+        "cost": 1,
+        "life": null,
+        "power": null,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Land of Wano"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-006_p1.png?250701"
+        ],
+        "text": "[On Play] Give up to 1 of your opponent's Characters \u22122000 power during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Japanese 1st Anniversary Set"
+    },
+    {
+        "code": "OP01-013",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Sanji",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-013_p2.png?250701"
+        ],
+        "text": "[Activate: Main] [Once Per Turn] You may add 1 card from the top of your Life cards to your hand: This Character gains +2000 power during this turn. Then, give this Character up to 2 rested DON!! cards.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "OP01-013",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Sanji",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-013_p3.png?250701"
+        ],
+        "text": "[Activate: Main] [Once Per Turn] You may add 1 card from the top of your Life cards to your hand: This Character gains +2000 power during this turn. Then, give this Character up to 2 rested DON!! cards.",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "OP01-013",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Sanji",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-013_p4.png?250701"
+        ],
+        "text": "[Activate: Main] [Once Per Turn] You may add 1 card from your Life area to your hand: This Character gains +2000 power during this turn. Then, give this Character up to 2 rested DON!! cards.",
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    },
+    {
+        "code": "OP01-014",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Jinbe",
+        "cost": 4,
+        "life": null,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Fish-Man",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-014_p1.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)[DON!! x1] [On Block] Play up to 1 red Character card with a cost of 2 or less from your hand.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "OP01-016",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Nami",
+        "cost": 1,
+        "life": null,
+        "power": 2000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-016_p2.png?250701"
+        ],
+        "text": "[On Play] Look at 5 cards from the top of your deck; reveal up to 1 {Straw Hat Crew} type card other than [Nami] and add it to your hand. Then, place the rest at the bottom of your deck in any order.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "OP01-016",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Nami",
+        "cost": 1,
+        "life": null,
+        "power": 2000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-016_p5.png?250701"
+        ],
+        "text": "[On Play] Look at 5 cards from the top of your deck; reveal up to 1 {Straw Hat Crew} type card other than [Nami] and add it to your hand. Then, place the rest at the bottom of your deck in any order.",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "OP01-016",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Nami",
+        "cost": 1,
+        "life": null,
+        "power": 2000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-016_p7.png?250701"
+        ],
+        "text": "[On Play] Look at 5 cards from the top of your deck; reveal up to 1 {Straw Hat Crew} type card other than [Nami] and add it to your hand. Then, place the rest at the bottom of your deck in any order.",
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    },
+    {
+        "code": "OP01-017",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Nico Robin",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-017_p1.png?250701"
+        ],
+        "text": "[DON!! x1] [When Attacking] K.O. up to 1 of your opponent's Characters with 3000 power or less.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "OP01-017",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Nico Robin",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-017_p2.png?250701"
+        ],
+        "text": "[DON!! x1] [When Attacking] K.O. up to 1 of your opponent's Characters with 3000 power or less.",
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    },
+    {
+        "code": "OP01-021",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Franky",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Ranged",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-021_p1.png?250701"
+        ],
+        "text": "[DON!! x1] This Character can also attack your opponent's active Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "OP01-021",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Franky",
+        "cost": 3,
+        "life": null,
+        "power": 4000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Ranged",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-021_p3.png?250701"
+        ],
+        "text": "[DON!! x1] This Character can also attack your opponent's active Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "OP01-022",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Brook",
+        "cost": 4,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-022_p1.png?250701"
+        ],
+        "text": "[DON!! x1] [When Attacking] Give up to 2 of your opponent's Characters \uff0d2000 power during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "OP01-025",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Roronoa Zoro",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Supernovas",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP01-025_p3.png?250701"
+        ],
+        "text": "[Rush] (This card can attack on the turn in which it is played.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    },
+    {
+        "code": "OP02-015",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Makino",
+        "cost": 1,
+        "life": null,
+        "power": null,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Windmill Village"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-015_p1.png?250701"
+        ],
+        "text": "[Activate: Main] You may rest this Character: Up to 1 of your red Characters with a cost of 1 gains +3000 power during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Japanese 1st Anniversary Set"
+    },
+    {
+        "code": "OP02-059",
+        "rarity": "UC",
+        "card_type": "CHARACTER",
+        "card_name": "Boa Hancock",
+        "cost": 4,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Blue"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Impel Down",
+            "The Seven Warlords of the Sea",
+            "Kuja Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP02-059_p2.png?250701"
+        ],
+        "text": "[When Attacking] Draw 1 card and trash 1 card from your hand. Then, trash up to 3 cards from your hand.",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "OP03-001",
+        "rarity": "L",
+        "card_type": "LEADER",
+        "card_name": "Portgas.D.Ace",
+        "cost": null,
+        "life": 5,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Whitebeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP03-001_p2.png?250701"
+        ],
+        "text": "When this Leader attacks or is attacked, you may trash any number of Event or Stage cards from your hand. This Leader gains +1000 power during this battle for every card trashed.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Special Goods Set -Ace/Sabo/Luffy-"
+    },
+    {
+        "code": "OP03-013",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Marco",
+        "cost": 5,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Whitebeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP03-013_p2.png?250701"
+        ],
+        "text": "[Your Turn] [On Play] K.O. up to 1 of your opponent's Characters with 3000 power or less.[On K.O.] You may trash 1 Event from your hand: You may play this Character card from your trash rested.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Japanese 1st Anniversary Set"
+    },
+    {
+        "code": "OP07-091",
+        "rarity": "R",
+        "card_type": "CHARACTER",
+        "card_name": "Monkey.D.Luffy",
+        "cost": 5,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Black"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/OP07-091_p1.png?250701"
+        ],
+        "text": "[When Attacking] Trash up to 1 of your opponent's Characters with a cost of 2 or less. Then, place any number of Character cards with a cost of 4 or more from your trash at the bottom of your deck in any order. This Character gains +1000 power during this turn for every 3 cards placed at the bottom of your deck.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Offline Regional Finalist Card Set 2024 Vol. 3"
+    },
+    {
+        "code": "P-001",
+        "rarity": "P",
+        "card_type": "CHARACTER",
+        "card_name": "Monkey.D.Luffy",
+        "cost": 6,
+        "life": null,
+        "power": 7000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Supernovas",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/P-001_p3.png?250701"
+        ],
+        "text": "[DON!! x2] This Character gains [Rush].(This card can attack on the turn in which it is played.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "P-001",
+        "rarity": "P",
+        "card_type": "CHARACTER",
+        "card_name": "Monkey.D.Luffy",
+        "cost": 6,
+        "life": null,
+        "power": 7000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Supernovas",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/P-001_p4.png?250701"
+        ],
+        "text": "[DON!! x2] This Character gains [Rush].(This card can attack on the turn in which it is played.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "P-016",
+        "rarity": "P",
+        "card_type": "CHARACTER",
+        "card_name": "Shanks",
+        "cost": 8,
+        "life": null,
+        "power": 10000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "FILM",
+            "The Four Emperors",
+            "Red-Haired Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/P-016_p1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "P-022",
+        "rarity": "P",
+        "card_type": "CHARACTER",
+        "card_name": "Monkey.D.Luffy",
+        "cost": 4,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "FILM",
+            "Supernovas",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/P-022_p1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "P-028",
+        "rarity": "P",
+        "card_type": "CHARACTER",
+        "card_name": "Portgas.D.Ace",
+        "cost": 5,
+        "life": null,
+        "power": 6000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Whitebeard Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/P-028_p1.png?250701"
+        ],
+        "text": "[Double Attack] (This card deals 2 damage.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "ST01-002",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Usopp",
+        "cost": 2,
+        "life": null,
+        "power": 2000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Ranged",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-002_p1.png?250701"
+        ],
+        "text": "[DON!! x2] [When Attacking] Your opponent cannot activate a [Blocker] Character that has 5000 or more power during this battle.",
+        "trigger": "[Trigger] Play this card.",
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "ST01-002",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Usopp",
+        "cost": 2,
+        "life": null,
+        "power": 2000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Ranged",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-002_p2.png?250701"
+        ],
+        "text": "[DON!! x2] [When Attacking] Your opponent cannot activate a [Blocker] Character that has 5000 or more power during this battle.",
+        "trigger": "[Trigger] Play this card.",
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "ST01-004",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Sanji",
+        "cost": 2,
+        "life": null,
+        "power": 4000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-004_p2.png?250701"
+        ],
+        "text": "[DON!! x2] This Character gains [Rush].(This card can attack on the turn in which it is played.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "ST01-005",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Jinbe",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Fish-Man",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-005_p1.png?250701"
+        ],
+        "text": "[DON!! x1] [When Attacking] Up to 1 of your Leader or Character cards other than this card gains +1000 power during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "ST01-005",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Jinbe",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Fish-Man",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-005_p2.png?250701"
+        ],
+        "text": "[DON!! x1] [When Attacking] Up to 1 of your Leader or Character cards other than this card gains +1000 power during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "ST01-006",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Tony Tony.Chopper",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Animal",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-006_p1.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "ST01-006",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Tony Tony.Chopper",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Animal",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-006_p2.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "ST01-006",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Tony Tony.Chopper",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Animal",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-006_p3.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "ST01-006",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Tony Tony.Chopper",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Animal",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-006_p4.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    },
+    {
+        "code": "ST01-007",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Nami",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Special",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-007_p1.png?250701"
+        ],
+        "text": "[Activate: Main] [Once Per Turn] Give up to 1 rested DON!! card to your Leader or 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "ST01-008",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Nico Robin",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-008_p1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "ST01-008",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Nico Robin",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Wisdom",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-008_p2.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "ST01-010",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Franky",
+        "cost": 4,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-010_p1.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -25th Edition-"
+    },
+    {
+        "code": "ST01-010",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Franky",
+        "cost": 4,
+        "life": null,
+        "power": 6000,
+        "counter": 1000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-010_p2.png?250701"
+        ],
+        "text": null,
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    },
+    {
+        "code": "ST01-011",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Brook",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-011_p1.png?250701"
+        ],
+        "text": "[On Play] Give up to 2 rested DON!! cards to your Leader or 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "ST01-011",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Brook",
+        "cost": 2,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-011_p3.png?250701"
+        ],
+        "text": "[On Play] Give up to 2 rested DON!! cards to your Leader or 1 of your Characters.",
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    },
+    {
+        "code": "ST01-013",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Roronoa Zoro",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Supernovas",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-013_p1.png?250701"
+        ],
+        "text": "[DON!! x1] This Character gains +1000 power.",
+        "trigger": null,
+        "card_sets": "Card Set(s)Premium Card Collection -FILM RED Edition-"
+    },
+    {
+        "code": "ST01-013",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Roronoa Zoro",
+        "cost": 3,
+        "life": null,
+        "power": 5000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "Supernovas",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST01-013_p2.png?250701"
+        ],
+        "text": "[DON!! x1] This Character gains +1000 power.",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "ST03-008",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Trafalgar Law",
+        "cost": 1,
+        "life": null,
+        "power": 1000,
+        "counter": null,
+        "color": [
+            "Blue"
+        ],
+        "attribute": "Slash",
+        "feature": [
+            "The Seven Warlords of the Sea",
+            "Heart Pirates"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST03-008_p1.png?250701"
+        ],
+        "text": "[Blocker] (After your opponent declares an attack, you may rest this card to make it the new target of the attack.)",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "ST09-012",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Yamato",
+        "cost": 3,
+        "life": null,
+        "power": 3000,
+        "counter": 2000,
+        "color": [
+            "Yellow"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Land of Wano"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST09-012_p1.png?250701"
+        ],
+        "text": "[When Attacking] You may add 1 card from the top or bottom of your Life cards to your hand: This Character gains +2000 power until the start of your next turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)GIFT COLLECTION 2023 [GC-01]"
+    },
+    {
+        "code": "ST10-005",
+        "rarity": "C",
+        "card_type": "CHARACTER",
+        "card_name": "Jinbe",
+        "cost": 2,
+        "life": null,
+        "power": 2000,
+        "counter": 2000,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Fish-Man",
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST10-005_p1.png?250701"
+        ],
+        "text": "[DON!! x1] [When Attacking] Give up to 1 of your opponent's Characters \u22122000 power during this turn.",
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    },
+    {
+        "code": "ST10-006",
+        "rarity": "SR",
+        "card_type": "CHARACTER",
+        "card_name": "Monkey.D.Luffy",
+        "cost": 10,
+        "life": null,
+        "power": 11000,
+        "counter": null,
+        "color": [
+            "Red"
+        ],
+        "attribute": "Strike",
+        "feature": [
+            "Straw Hat Crew"
+        ],
+        "card_image_link": [
+            "images/cardlist/card/ST10-006_p2.png?250701"
+        ],
+        "text": "[Rush] (This card can attack on the turn in which it is played.)[Once Per Turn] When your opponent activates a [Blocker], K.O. up to 1 of your opponent's Characters with 8000 power or less.",
+        "trigger": null,
+        "card_sets": "Card Set(s)English Version 1st Anniversary Set"
+    }
+]
