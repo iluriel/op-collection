@@ -503,78 +503,6 @@ function getCardByDataKey(dataKey) {
   return allCards.find(card => getCardKey(card) === dataKey);
 }
 
-// Função para filtrar os elementos na tela
-function filterCardsInGrid() {
-  const searchTerm = (searchInput?.value || '').toLowerCase().trim();
-  const gridContainer = document.getElementById('cardsGrid');
-  const allCardWrappers = document.querySelectorAll('.card-wrapper');
-
-  const { allCb, colorCbs } = getColorCheckboxes();
-  const selectedColors = colorCbs
-    .filter(c => c.checked)
-    .map(c => c.value.toLowerCase());
-  const isAllChecked = !!(allCb && allCb.checked);
-
-  let visibleCount = 0;
-
-  allCardWrappers.forEach(wrapper => {
-    const card = getCardByDataKey(wrapper.dataset.key);
-    if (!card) return;
-
-    // ----- BUSCA -----
-    let matchesSearch = true;
-    if (searchTerm.length >= 3 || searchTerm.length === 0) {
-      const searchable = [
-        card.code,
-        card.card_name,
-        card.text,
-        card.trigger,
-        card.card_sets
-      ];
-      if (Array.isArray(card.feature)) searchable.push(card.feature.join(' '));
-
-      matchesSearch = searchable.some(field =>
-        String(field).replace(/\u2212/g, '-').toLowerCase().includes(searchTerm)
-      );
-    }
-
-    // ----- FILTROS -----
-    let matchesFilters = true;
-
-    // 1) Filtro de cores
-    const cardColors = Array.isArray(card.color) ? card.color.map(c => String(c).toLowerCase()) : [];
-    if (isAllChecked) {
-      // sem restrição
-    } else if (selectedColors.length > 0) {
-      const hasMatch = cardColors.some(c => selectedColors.includes(c));
-      if (!hasMatch) matchesFilters = false;
-    } else {
-      // nenhum marcado + All desmarcado => só cartas sem cor
-      const isColorless = !card.color || cardColors.length === 0;
-      if (!isColorless) matchesFilters = false;
-    }
-
-    // 2) Outros filtros
-    if (matchesFilters) {
-      for (const [filterName, filterValues] of Object.entries(activeFilters)) {
-        if (filterName === 'cores' || filterName === 'cores_all') continue;
-        if (!Array.isArray(filterValues) || filterValues.length === 0) continue;
-
-        const cardValue = (card[filterName] ?? '').toString().toLowerCase();
-        if (!filterValues.includes(cardValue)) {
-          matchesFilters = false;
-          break;
-        }
-      }
-    }
-
-    const visible = (matchesSearch && matchesFilters);
-    wrapper.style.display = visible ? '' : 'none';
-    if (visible) visibleCount++;
-  });
-
-}
-
 // **NOVO: Adiciona a função de debounce**
 const debounce = (func, delay) => {
   let timeoutId;
@@ -585,6 +513,12 @@ const debounce = (func, delay) => {
     }, delay);
   };
 };
+
+if (searchInput) {
+  searchInput.addEventListener('input', debounce(() => {
+    filterCardsInGrid();
+  }, 200));
+}
 
 // ===============================
 // Abre e fecha filtros
@@ -623,164 +557,173 @@ function getColorCheckboxes() {
   return { allCb, colorCbs };
 }
 
+// Helper genérico para qualquer grupo com opção "All"
+function getGroupCheckboxes(name) {
+  const allCb = document.querySelector(`.filter-group input[name="${name}"][value="all"]`);
+  const itemCbs = Array.from(document.querySelectorAll(`.filter-group input[name="${name}"]:not([value="all"])`));
+  return { allCb, itemCbs };
+}
+
+// Lê o estado atual do DOM para um grupo com "All"
+function getSelectedFromDOM(name) {
+  const { allCb, itemCbs } = getGroupCheckboxes(name);
+  const values = itemCbs.filter(c => c.checked).map(c => c.value.toLowerCase());
+  const isAll = !!(allCb && allCb.checked);
+  return { values, isAll };
+}
+
+
 // Atualiza estado e salva (garante que 'cores' exista mesmo que vazio)
 function updateActiveFilters() {
   const inputs = Array.from(document.querySelectorAll('.filter-group input[type="checkbox"]'));
   const groups = {};
 
+  // Coleta genérica (sem "all"); depois sobrescrevemos os grupos que possuem "All"
   inputs.forEach(cb => {
-    // pulamos os "all" aqui; cores serão tratadas explicitamente abaixo
     if (cb.value === 'all') return;
     const name = cb.name;
     if (!groups[name]) groups[name] = [];
     if (cb.checked) groups[name].push(cb.value.toLowerCase());
   });
 
-  // garante presença de 'cores' e flag 'cores_all' (mesmo que vazio)
-  const { allCb, colorCbs } = getColorCheckboxes();
-  groups.cores = colorCbs.filter(c => c.checked).map(c => c.value.toLowerCase());
-  groups.cores_all = !!(allCb && allCb.checked);
+  // Grupos com "All" que queremos controlar/persistir
+  const withAll = ['cores', 'rarity', 'card_type', 'counter', 'attribute'];
+
+  withAll.forEach(name => {
+    const { allCb, itemCbs } = getGroupCheckboxes(name);
+    groups[name] = itemCbs.filter(c => c.checked).map(c => c.value.toLowerCase());
+    groups[`${name}_all`] = !!(allCb && allCb.checked);
+  });
 
   activeFilters = groups;
   localStorage.setItem('activeFilters', JSON.stringify(activeFilters));
   filterCardsInGrid();
 }
 
-// Restaura filtros do storage (marca exatamente o que foi salvo)
 function restoreFiltersFromStorage() {
-  // 1) limpa tudo primeiro
-  document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => cb.checked = false);
+  // 1) Limpa tudo primeiro
+  document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => (cb.checked = false));
 
-  // 2) aplica os arrays salvos (exceto cores_all)
+  // 2) Restaura arrays salvos (case-insensitive), ignorando flags *_all
   Object.entries(activeFilters).forEach(([name, values]) => {
-    if (name === 'cores_all') return;
+    if (name.endsWith('_all')) return;
     if (!Array.isArray(values)) return;
-    values.forEach(value => {
-      const cb = document.querySelector(`.filter-group input[name="${name}"][value="${value}"]`);
-      if (cb) cb.checked = true;
+
+    const groupCbs = Array.from(document.querySelectorAll(`.filter-group input[name="${name}"]`));
+    values.forEach(vLower => {
+      const target = groupCbs.find(cb => cb.value.toLowerCase() === vLower);
+      if (target) target.checked = true;
     });
   });
 
-  // 3) sincroniza o All de cores de forma determinística
-  const { allCb, colorCbs } = getColorCheckboxes();
+  // 3) Sincroniza/força "All" de cada grupo com "All"
+  const withAll = ['cores', 'rarity', 'card_type', 'counter', 'attribute'];
+  withAll.forEach(name => {
+    const { allCb, itemCbs } = getGroupCheckboxes(name);
+    if (!allCb && itemCbs.length === 0) return;
 
-  if ('cores_all' in activeFilters) {
-    // se cores_all estava salvo, respeita a flag
-    if (allCb) allCb.checked = !!activeFilters.cores_all;
-    if (allCb && allCb.checked) {
-      // se All salvo como true, garante todas marcadas
-      colorCbs.forEach(c => c.checked = true);
+    const flag = activeFilters[`${name}_all`];
+
+    if (typeof flag === 'boolean') {
+      if (flag) {
+        // All salvo como ligado => marca tudo
+        if (allCb) allCb.checked = true;
+        itemCbs.forEach(c => (c.checked = true));
+      } else {
+        // All salvo como desligado => mantém o que já foi marcado pelo array, apenas desmarca o All
+        if (allCb) allCb.checked = false;
+      }
     } else {
-      // se All salvo como false, garante que as cores específicas (se existirem) permaneçam como marcadas (já aplicadas acima)
-      // (se o array cores estava vazio, então todas ficarão desmarcadas)
+      // Sem flag salvo: apenas sincroniza o All com “todos marcados?”
+      const todos = itemCbs.length > 0 && itemCbs.every(c => c.checked);
+      if (allCb) allCb.checked = todos;
     }
-    return;
-  }
+  });
 
-  // 4) Caso não exista nenhum registro de cores (primeiro uso): marca tudo
+  // 4) Regra especial de primeiro uso para CORES: se nada salvo de cores, marcar tudo
+  const { allCb, colorCbs } = getColorCheckboxes();
   const nuncaSalvouCores = !('cores' in activeFilters) && !('cores_all' in activeFilters);
   if (nuncaSalvouCores && colorCbs.length) {
     colorCbs.forEach(c => (c.checked = true));
     if (allCb) allCb.checked = true;
-    return;
   }
-
-  // 5) Caso tenha 'cores' salvo (mesmo que vazio) e não tenha cores_all:
-  const nenhumaSelecionada =
-    (!activeFilters.cores || activeFilters.cores.length === 0);
-
-  if (nenhumaSelecionada) {
-    // Se não havia nenhuma seleção em nenhum filtro, volta ao padrão: tudo marcado
-    const outrosGruposVazios = Object.entries(activeFilters).every(([k, v]) => {
-      if (k === 'cores' || k === 'cores_all') return true;
-      return !Array.isArray(v) || v.length === 0;
-    });
-
-    if (outrosGruposVazios && colorCbs.length) {
-      colorCbs.forEach(c => (c.checked = true));
-      if (allCb) allCb.checked = true;
-      updateActiveFilters();
-      return;
-    }
-  }
-
-  // caso contrário, apenas sincroniza o All conforme as cores já marcadas
-  const todasMarcadas = colorCbs.length > 0 && colorCbs.every(c => c.checked);
-  if (allCb) allCb.checked = todasMarcadas;
 }
 
-// Função principal de filtragem (busca + filtros) — não apaga o grid; só esconde células
 function filterCardsInGrid() {
   const searchTerm = (searchInput?.value || '').toLowerCase().trim();
   const gridContainer = document.getElementById('cardsGrid');
   if (!gridContainer) return;
   const allCardWrappers = Array.from(document.querySelectorAll('.card-wrapper'));
 
+  // ----- CORES -----
   const { allCb, colorCbs } = getColorCheckboxes();
   const selectedColors = colorCbs.filter(c => c.checked).map(c => c.value.toLowerCase());
-  const isAllChecked = !!(allCb && allCb.checked);
+  const isAllColors = !!(allCb && allCb.checked);
 
   let visibleCount = 0;
 
   allCardWrappers.forEach(wrapper => {
     const card = getCardByDataKey(wrapper.dataset.key);
     if (!card) {
-      // se por algum motivo o wrapper não bate com um card, esconde por segurança
       wrapper.style.display = 'none';
       return;
     }
 
     // ----- BUSCA -----
-    let matchesSearch = true;
-    if (searchTerm.length >= 3 || searchTerm.length === 0) {
-      const searchable = [
-        card.code,
-        card.card_name,
-        card.text,
-        card.trigger,
-        card.card_sets
-      ];
-      if (Array.isArray(card.feature)) searchable.push(card.feature.join(' '));
-
-      matchesSearch = searchable.some(field =>
-        String(field).replace(/\u2212/g, '-').toLowerCase().includes(searchTerm)
-      );
-    }
+    const name = (card.card_name || '').toLowerCase();
+    const code = (card.code || '').toLowerCase();
+    const text = (card.text || '').toLowerCase();
+    const matchSearch =
+      !searchTerm ||
+      name.includes(searchTerm) ||
+      code.includes(searchTerm) ||
+      text.includes(searchTerm);
 
     // ----- FILTROS -----
-    let matchesFilters = true;
+    let matchFilters = true;
 
-    // 1) Cores — três casos:
-    // a) All marcado => sem restrição por cor
-    // b) Algumas cores marcadas => requer interseção
-    // c) Nenhuma cor marcada (e All desmarcado) => mostra SOMENTE cartas sem cor
+    // 1) Cores
     const cardColors = Array.isArray(card.color) ? card.color.map(c => String(c).toLowerCase()) : [];
-    if (isAllChecked) {
-      // sem restrição
+    if (isAllColors) {
+      // sem restrição por cor
     } else if (selectedColors.length > 0) {
       const hasMatch = cardColors.some(c => selectedColors.includes(c));
-      if (!hasMatch) matchesFilters = false;
+      if (!hasMatch) matchFilters = false;
     } else {
-      // nenhum marcado + All desmarcado => só cartas sem cor
+      // nenhum marcado + All desmarcado => apenas cartas sem cor
       const isColorless = !card.color || cardColors.length === 0;
-      if (!isColorless) matchesFilters = false;
+      if (!isColorless) matchFilters = false;
     }
 
-    // 2) Demais filtros salvos em activeFilters
-    if (matchesFilters) {
-      for (const [filterName, filterValues] of Object.entries(activeFilters)) {
-        if (filterName === 'cores' || filterName === 'cores_all') continue; // já tratados
-        if (!Array.isArray(filterValues) || filterValues.length === 0) continue;
+    // 2) Demais filtros com base no DOM atual (rarity, card_type, counter, attribute)
+    if (matchFilters) {
+      const groupsToCheck = ['rarity', 'card_type', 'counter', 'attribute'];
 
-        const cardValue = (card[filterName] ?? '').toString().toLowerCase();
-        if (!filterValues.includes(cardValue)) {
-          matchesFilters = false;
+      for (const filterName of groupsToCheck) {
+        const { values, isAll } = getSelectedFromDOM(filterName);
+        // Se "All" está marcado ou não há itens marcados, não restringe por este grupo
+        if (isAll || values.length === 0) continue;
+
+        let cardValue = '';
+        if (filterName === 'counter') {
+          // null -> 'null', número -> '1000'/'2000'
+          cardValue = (card.counter == null ? 'null' : String(card.counter)).toLowerCase();
+        } else if (filterName === 'attribute') {
+          // null -> 'null', string -> valor
+          cardValue = (card.attribute == null ? 'null' : String(card.attribute)).toLowerCase();
+        } else {
+          // igualdade simples para rarity, card_type, etc.
+          cardValue = String(card[filterName] ?? '').toLowerCase();
+        }
+
+        if (!values.includes(cardValue)) {
+          matchFilters = false;
           break;
         }
       }
     }
 
-    const visible = (matchesSearch && matchesFilters);
+    const visible = matchSearch && matchFilters;
     wrapper.style.display = visible ? '' : 'none';
     if (visible) visibleCount++;
   });
@@ -790,15 +733,10 @@ function filterCardsInGrid() {
   if (!noResultEl) {
     noResultEl = document.createElement('p');
     noResultEl.id = 'noResultMessage';
-    noResultEl.style.cssText = 'color:#a5a5a5; text-align:center; margin:1em 0';
+    noResultEl.style.cssText = 'color: var(--text-muted,#888); text-align:center; margin:1em 0';
     noResultEl.textContent = 'Nenhuma carta encontrada.';
     gridContainer.appendChild(noResultEl);
   }
-  // Busca: listener com debounce usando a função FINAL de filtragem
-  searchInput.addEventListener('input', debounce(() => {
-    filterCardsInGrid();
-  }, 300));
-
 
   // mostramos a mensagem SÓ se as cartas já tiverem sido renderizadas ao menos uma vez
   if (!cardsRendered) {
@@ -832,10 +770,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Demais filtros (genérico)
-  document.querySelectorAll('.filter-group input[type="checkbox"]:not([name="cores"])').forEach(cb => {
-    cb.addEventListener('change', updateActiveFilters);
+  // Demais filtros (com lógica de "All")
+  (['rarity', 'card_type', 'counter', 'attribute']).forEach(name => {
+    const { allCb, itemCbs } = getGroupCheckboxes(name);
+    if (!allCb && itemCbs.length === 0) return;
+
+    const handle = (changed) => {
+      if (changed.value === 'all') {
+        const checked = changed.checked;
+        itemCbs.forEach(cb => (cb.checked = checked));
+      } else {
+        if (allCb) allCb.checked = itemCbs.length > 0 && itemCbs.every(c => c.checked);
+      }
+      updateActiveFilters();
+    };
+
+    if (allCb) allCb.addEventListener('change', () => handle(allCb));
+    itemCbs.forEach(cb => cb.addEventListener('change', () => handle(cb)));
   });
+
 });
 
 

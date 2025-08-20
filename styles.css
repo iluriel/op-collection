@@ -644,7 +644,7 @@ main.container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: calc(0px + env(safe-area-inset-top));
+  /*padding-top: calc(0px + env(safe-area-inset-top));*/
   /*Remover padding se não for necessário*/
 }
 
