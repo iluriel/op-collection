@@ -478,15 +478,15 @@ async function loadAllCollections() {
     // Atualiza ícones (garantia)
     updateAllCardIcons();
 
+    // Marque como renderizado ANTES de restaurar/aplicar filtros
+    cardsRendered = true;
+
     // Restaura filtros salvos (após o grid ter sido renderizado) e aplica filtragem
     restoreFiltersFromStorage();
     // garante que o estado salvo seja refletido em activeFilters (mesmo que vazio)
     updateActiveFilters();
     // aplica os filtros/busca
     filterCardsInGrid();
-
-    // sinaliza que o grid já foi renderizado (usado para mostrar "Nenhuma carta encontrada.")
-    cardsRendered = true;
 
   } catch (error) {
     container.innerHTML = `<p style="color: red;">Erro geral: ${error.message}</p>`;
@@ -573,10 +573,6 @@ function filterCardsInGrid() {
     if (visible) visibleCount++;
   });
 
-  // ----- Mensagem "Nenhuma carta encontrada." -----
-  if (visibleCount === 0) {
-    gridContainer.innerHTML = '<p style="color:#a5a5a5; text-align:center; margin:1em 0">Nenhuma carta encontrada.</p>';
-  }
 }
 
 // **NOVO: Adiciona a função de debounce**
@@ -589,9 +585,6 @@ const debounce = (func, delay) => {
     }, delay);
   };
 };
-
-// **ALTERAÇÃO AQUI:** Adiciona um listener para o evento 'input' na barra de busca, com debounce
-searchInput.addEventListener('input', debounce(filterCardsInGrid, 300));
 
 // ===============================
 // Abre e fecha filtros
@@ -693,7 +686,25 @@ function restoreFiltersFromStorage() {
   }
 
   // 5) Caso tenha 'cores' salvo (mesmo que vazio) e não tenha cores_all:
-  //    se o array estava vazio => todas desmarcadas; se tinha itens => só esses marcados.
+  const nenhumaSelecionada =
+    (!activeFilters.cores || activeFilters.cores.length === 0);
+
+  if (nenhumaSelecionada) {
+    // Se não havia nenhuma seleção em nenhum filtro, volta ao padrão: tudo marcado
+    const outrosGruposVazios = Object.entries(activeFilters).every(([k, v]) => {
+      if (k === 'cores' || k === 'cores_all') return true;
+      return !Array.isArray(v) || v.length === 0;
+    });
+
+    if (outrosGruposVazios && colorCbs.length) {
+      colorCbs.forEach(c => (c.checked = true));
+      if (allCb) allCb.checked = true;
+      updateActiveFilters();
+      return;
+    }
+  }
+
+  // caso contrário, apenas sincroniza o All conforme as cores já marcadas
   const todasMarcadas = colorCbs.length > 0 && colorCbs.every(c => c.checked);
   if (allCb) allCb.checked = todasMarcadas;
 }
@@ -783,6 +794,11 @@ function filterCardsInGrid() {
     noResultEl.textContent = 'Nenhuma carta encontrada.';
     gridContainer.appendChild(noResultEl);
   }
+  // Busca: listener com debounce usando a função FINAL de filtragem
+  searchInput.addEventListener('input', debounce(() => {
+    filterCardsInGrid();
+  }, 300));
+
 
   // mostramos a mensagem SÓ se as cartas já tiverem sido renderizadas ao menos uma vez
   if (!cardsRendered) {
