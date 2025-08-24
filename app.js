@@ -587,7 +587,7 @@ function updateActiveFilters() {
   });
 
   // Grupos com "All" que queremos controlar/persistir
-  const withAll = ['cores', 'rarity', 'card_type', 'counter', 'attribute'];
+  const withAll = ['cores', 'rarity', 'card_type', 'counter', 'attribute', 'trigger'];
 
   withAll.forEach(name => {
     const { allCb, itemCbs } = getGroupCheckboxes(name);
@@ -617,7 +617,7 @@ function restoreFiltersFromStorage() {
   });
 
   // 3) Sincroniza/força "All" de cada grupo com "All"
-  const withAll = ['cores', 'rarity', 'card_type', 'counter', 'attribute'];
+  const withAll = ['cores', 'rarity', 'card_type', 'counter', 'attribute', 'trigger'];
   withAll.forEach(name => {
     const { allCb, itemCbs } = getGroupCheckboxes(name);
     if (!allCb && itemCbs.length === 0) return;
@@ -648,6 +648,19 @@ function restoreFiltersFromStorage() {
     if (allCb) allCb.checked = true;
   }
 }
+
+// 5) Regra especial de primeiro uso para TRIGGER: se nada salvo, marcar WITH e WITHOUT e o All
+{
+  const firstUseTrigger = !('trigger' in activeFilters) && !('trigger_all' in activeFilters);
+  if (firstUseTrigger) {
+    const { allCb: trigAll, itemCbs: trigItems } = getGroupCheckboxes('trigger');
+    if (trigItems.length) {
+      trigItems.forEach(c => (c.checked = true)); // marca "with" e "without"
+      if (trigAll) trigAll.checked = true;
+    }
+  }
+}
+
 
 function filterCardsInGrid() {
   const searchTerm = (searchInput?.value || '').toLowerCase().trim();
@@ -697,22 +710,22 @@ function filterCardsInGrid() {
 
     // 2) Demais filtros com base no DOM atual (rarity, card_type, counter, attribute)
     if (matchFilters) {
-      const groupsToCheck = ['rarity', 'card_type', 'counter', 'attribute'];
+      const groupsToCheck = ['rarity', 'card_type', 'counter', 'attribute', 'trigger'];
 
       for (const filterName of groupsToCheck) {
         const { values, isAll } = getSelectedFromDOM(filterName);
-        // Se "All" está marcado ou não há itens marcados, não restringe por este grupo
         if (isAll || values.length === 0) continue;
 
         let cardValue = '';
+
         if (filterName === 'counter') {
-          // null -> 'null', número -> '1000'/'2000'
           cardValue = (card.counter == null ? 'null' : String(card.counter)).toLowerCase();
         } else if (filterName === 'attribute') {
-          // null -> 'null', string -> valor
           cardValue = (card.attribute == null ? 'null' : String(card.attribute)).toLowerCase();
+        } else if (filterName === 'trigger') {
+          const hasTrigger = card.trigger != null && String(card.trigger).trim() !== '';
+          cardValue = hasTrigger ? 'with' : 'without';
         } else {
-          // igualdade simples para rarity, card_type, etc.
           cardValue = String(card[filterName] ?? '').toLowerCase();
         }
 
@@ -721,6 +734,7 @@ function filterCardsInGrid() {
           break;
         }
       }
+
     }
 
     const visible = matchSearch && matchFilters;
@@ -771,7 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Demais filtros (com lógica de "All")
-  (['rarity', 'card_type', 'counter', 'attribute']).forEach(name => {
+  (['rarity', 'card_type', 'counter', 'attribute', 'trigger']).forEach(name => {
     const { allCb, itemCbs } = getGroupCheckboxes(name);
     if (!allCb && itemCbs.length === 0) return;
 
