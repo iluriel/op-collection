@@ -485,6 +485,7 @@ async function loadAllCollections() {
     restoreFiltersFromStorage();
     // garante que o estado salvo seja refletido em activeFilters (mesmo que vazio)
     updateActiveFilters();
+
     // aplica os filtros/busca
     filterCardsInGrid();
 
@@ -550,6 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Filtros (checkboxes)
 // ===============================
 let activeFilters = JSON.parse(localStorage.getItem('activeFilters') || '{}');
+const clearFiltersBtn = document.getElementById('clearFiltersBtn');
 
 function getColorCheckboxes() {
   const allCb = document.querySelector('.filter-group input[name="cores"][value="all"]');
@@ -805,6 +807,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// ===============================
+// Botão "Limpar filtros"
+// ===============================
+document.addEventListener('DOMContentLoaded', () => {
+  const clearBtn = document.getElementById('clearFiltersBtn');
+  if (!clearBtn) return;
+
+  function updateClearBtnState() {
+    const searchEmpty = !searchInput || searchInput.value.trim() === '';
+
+    // verifica se todos os grupos estão em "All"
+    const groups = ['cores', 'rarity', 'card_type', 'counter', 'attribute', 'trigger'];
+    let allAtAll = true;
+
+    for (const name of groups) {
+      const { allCb } = getGroupCheckboxes(name);
+      if (allCb && !allCb.checked) {
+        allAtAll = false;
+        break;
+      }
+    }
+
+    clearBtn.disabled = (searchEmpty && allAtAll);
+  }
+
+  clearBtn.addEventListener('click', () => {
+    // Zera campo de busca
+    if (searchInput) searchInput.value = '';
+
+    // Marca todos os grupos em All
+    const groups = ['cores', 'rarity', 'card_type', 'counter', 'attribute', 'trigger'];
+    groups.forEach(name => {
+      const { allCb, itemCbs } = getGroupCheckboxes(name);
+      if (allCb) allCb.checked = true;
+      itemCbs.forEach(cb => (cb.checked = true));
+    });
+
+    updateActiveFilters();
+    updateClearBtnState();
+    filterCardsInGrid();
+  });
+
+  // Atualiza estado do botão sempre que filtros mudarem
+  document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', updateClearBtnState);
+  });
+  if (searchInput) {
+    searchInput.addEventListener('input', updateClearBtnState);
+  }
+
+  // Estado inicial
+  updateClearBtnState();
+});
 
 // ===============================
 // Inicialização

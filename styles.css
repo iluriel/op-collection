@@ -294,6 +294,31 @@ main.container {
   display: none;
 }
 
+.clear-filters-btn {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding: var(--space-8) var(--space-16);
+  background: var(--color-brand);
+  color: var(--color-card);
+  font-weight: bold;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.clear-filters-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 599.98px) {
+  .clear-filters-btn {
+    display: none;
+  }
+}
+
 /* =============================== */
 /* Hint / Dicas                    */
 /* =============================== */
@@ -698,7 +723,23 @@ main.container {
   gap: var(--space-24);
   overflow-y: auto;
   margin-top: var(--space-16);
+  margin-bottom: var(--space-16);
   padding-right: var(--space-8);
+}
+
+.filter-footer {
+  flex: 0 0 auto;
+}
+
+.btn-primary {
+  width: 100%;
+  border-radius: 0;
+}
+
+@media (max-width: 599.98px) {
+  .filter-footer {
+    display: none;
+  }
 }
 
 .filter-group {
