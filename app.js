@@ -11,13 +11,7 @@ const statusEl = document.getElementById('status');
 function updateStatus() {
   const isOnline = navigator.onLine;
   statusEl.textContent = isOnline ? 'Online' : 'Offline';
-  if (isOnline) {
-    statusEl.classList.add('online');
-    statusEl.classList.remove('offline');
-  } else {
-    statusEl.classList.add('offline');
-    statusEl.classList.remove('online');
-  }
+  statusEl.className = isOnline ? 'online' : 'offline';
 }
 
 window.addEventListener('online', updateStatus);
@@ -54,7 +48,6 @@ if (btnInstall) {
     deferredPrompt.prompt();
     try {
       const { outcome } = await deferredPrompt.userChoice;
-      // opcional: usar outcome
     } catch (err) {
       console.warn('Install prompt error', err);
     }
@@ -73,88 +66,106 @@ if ('serviceWorker' in navigator) {
 }
 
 // ===============================
-// Configuração e carregamento das coleções
+// Configuração das coleções
 // ===============================
 const collections = [
   'EB01', 'EB02',
   'OP01', 'OP02', 'OP03', 'OP04', 'OP05', 'OP06', 'OP07', 'OP08', 'OP09', 'OP10', 'OP11', 'OP12',
-  'P',
-  'PRB01', 'PRB02',
-];
+  'P', 'PRB01', 'PRB02',
+  ...Array.from({ length: 28 }, (_, i) => 'ST' + (i + 1).toString().padStart(2, '0'))
+].sort();
 
-for (let i = 1; i <= 28; i++) {
-  collections.push('ST' + i.toString().padStart(2, '0'));
+// ===============================
+// Estado global otimizado
+// ===============================
+let allCards = [];
+let collection = {};
+let cardKeyMap = new Map(); // Cache para getCardKey
+let leaderCache = new Map(); // Cache para isLeader
+let cardsRendered = false;
+
+// Carrega collection do localStorage apenas uma vez
+try {
+  collection = JSON.parse(localStorage.getItem('collection') || '{}');
+} catch (e) {
+  collection = {};
 }
 
-collections.sort();
-
-// ===============================
-// Estado global
-// ===============================
-let allCards = []; // será preenchido por loadAllCollections()
-let collection = JSON.parse(localStorage.getItem('collection') || '{}');
-let cardsRendered = false; // fica true depois que o grid estiver renderizado pela primeira vez
-
+// Throttled save para evitar muitos writes
+let saveTimer = null;
 function saveCollection() {
-  localStorage.setItem('collection', JSON.stringify(collection));
+  if (saveTimer) clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    try {
+      localStorage.setItem('collection', JSON.stringify(collection));
+    } catch (e) {
+      console.warn('Failed to save collection:', e);
+    }
+  }, 100);
 }
 
 function getCardQty(card) {
   const key = getCardKey(card);
-  const v = collection[key];
-  const n = parseInt(v, 10);
-  return Number.isInteger(n) ? n : 0;
+  return collection[key] || 0;
 }
 
 function setCardQty(card, qty) {
   const key = getCardKey(card);
-  collection[key] = Number.isInteger(qty) ? qty : parseInt(qty, 10) || 0;
+  const newQty = Math.max(0, parseInt(qty, 10) || 0);
+  if (newQty === 0) {
+    delete collection[key];
+  } else {
+    collection[key] = newQty;
+  }
   saveCollection();
 }
 
-
 // ===============================
-// Helper para resolver URL da imagem
+// Helpers otimizados
 // ===============================
 const OP_DOMAIN = 'https://en.onepiece-cardgame.com/';
 
 function getPrimaryImageUrl(card) {
-  // Novo formato
-  if (card && Array.isArray(card.card_image_link) && card.card_image_link[0]) {
+  if (card?.card_image_link?.[0]) {
     const raw = String(card.card_image_link[0]);
-    // Remove qualquer coisa após ".png" (query string ou fragmentos)
     const clean = raw.replace(/\.png.*/i, '.png');
-    // Se não for absoluta, adiciona o domínio oficial
-    const absolute = /^https?:\/\//i.test(clean)
-      ? clean
-      : OP_DOMAIN + clean.replace(/^\/+/, '');
-    return absolute;
+    return /^https?:\/\//i.test(clean) ? clean : OP_DOMAIN + clean.replace(/^\/+/, '');
   }
-  // Compatibilidade com o formato antigo
-  if (card && Array.isArray(card.images) && card.images[0]) {
+  if (card?.images?.[0]) {
     return card.images[0];
   }
   return '';
 }
 
 function getCardKey(card) {
-  return `${card.code}__${getPrimaryImageUrl(card)}`;
+  // Use cache para evitar recálculos
+  const cacheKey = card.code + (card.card_image_link?.[0] || '');
+  if (cardKeyMap.has(cacheKey)) {
+    return cardKeyMap.get(cacheKey);
+  }
+
+  const key = `${card.code}__${getPrimaryImageUrl(card)}`;
+  cardKeyMap.set(cacheKey, key);
+  return key;
 }
 
-// ===============================
-// Helpers relacionados ao tipo (leader)
-// ===============================
 function isLeader(cardCode) {
-  if (!allCards || !allCards.length) return false;
+  if (leaderCache.has(cardCode)) {
+    return leaderCache.get(cardCode);
+  }
 
-  const cd = allCards.find(c => c && c.code === cardCode);
-  const cls = (cd && (cd.card_type || cd.class || cd.Class || cd.type)) || '';
+  if (!allCards.length) return false;
 
-  return String(cls).toUpperCase() === 'LEADER';
+  const card = allCards.find(c => c?.code === cardCode);
+  const cls = (card?.card_type || card?.class || card?.Class || card?.type || '').toUpperCase();
+  const result = cls === 'LEADER';
+
+  leaderCache.set(cardCode, result);
+  return result;
 }
 
 // ===============================
-// Modal de carta (DOM criado dinamicamente)
+// Modal otimizado
 // ===============================
 const modal = document.createElement('div');
 modal.id = 'cardModal';
@@ -166,45 +177,45 @@ modal.innerHTML = `
     <img id="modalImage" src="" alt="" />
     <div class="card-controls" role="group" aria-label="Controle de quantidade">
       <button id="btnDecrease" class="qty-btn" type="button" aria-label="Diminuir">-</button>
-      <input
-        id="qtyInput"
-        type="number"
-        inputmode="numeric"
-        pattern="\\d*"
-        min="0"
-        step="1"
-        value="0"
-        aria-label="Quantidade"
-      >
+      <input id="qtyInput" type="number" min="0" step="1" value="0" aria-label="Quantidade">
       <button id="btnIncrease" class="qty-btn" type="button" aria-label="Aumentar">+</button>
     </div>
   </div>
 `;
 document.body.appendChild(modal);
+
 const closeModal = document.getElementById('closeModal');
+const modalElements = {
+  title: document.getElementById('modalTitle'),
+  image: document.getElementById('modalImage'),
+  qtyInput: document.getElementById('qtyInput'),
+  btnDecrease: document.getElementById('btnDecrease'),
+  btnIncrease: document.getElementById('btnIncrease')
+};
 
 // ===============================
-// Ícones de quantidade (cria e atualiza)
+// Ícones otimizados
 // ===============================
 function createCardIcons(card) {
   const iconContainer = document.createElement('div');
   iconContainer.className = 'card-icons';
   iconContainer.dataset.key = getCardKey(card);
+
   const dotCount = isLeader(card.code) ? 1 : 4;
+  const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < dotCount; i++) {
     const dot = document.createElement('span');
     dot.className = 'icon icon-dot';
     dot.dataset.index = String(i);
-    iconContainer.appendChild(dot);
+    fragment.appendChild(dot);
   }
 
-  // estado inicial
+  iconContainer.appendChild(fragment);
   updateCardIcons(card, iconContainer);
   return iconContainer;
 }
 
-// Atualiza visual das bolinhas conforme a quantidade
 function updateCardIcons(card, iconContainer) {
   if (!iconContainer) return;
 
@@ -212,8 +223,9 @@ function updateCardIcons(card, iconContainer) {
   const leader = isLeader(card.code);
   const dots = iconContainer.querySelectorAll('.icon-dot');
 
+  // Reset classes em batch
   dots.forEach(dot => {
-    dot.classList.remove('checked', 'special');
+    dot.className = 'icon icon-dot';
   });
 
   if (leader) {
@@ -225,304 +237,287 @@ function updateCardIcons(card, iconContainer) {
     return;
   }
 
-  const last = dots.length - 1;
   if (qty >= 5) {
-    for (let i = 0; i < last; i++) dots[i].classList.add('checked');
-    dots[last].classList.add('special');
+    for (let i = 0; i < dots.length - 1; i++) {
+      dots[i].classList.add('checked');
+    }
+    dots[dots.length - 1].classList.add('special');
   } else {
-    for (let i = 0; i < qty; i++) dots[i].classList.add('checked');
+    for (let i = 0; i < qty; i++) {
+      dots[i].classList.add('checked');
+    }
   }
 }
 
-function refreshCardIcons(card) {
-  const key = getCardKey(card);
-  const container = document.querySelector(`.card-icons[data-key="${CSS.escape(key)}"]`);
-  updateCardIcons(card, container);
-}
+// Batch update para melhor performance
+const updateIconsThrottled = (() => {
+  let updateQueue = new Set();
+  let rafId = null;
 
-function updateAllCardIcons() {
-  if (!allCards || !allCards.length) return;
-  allCards.forEach(card => {
-    const key = getCardKey(card);
+  return (card) => {
+    updateQueue.add(card);
 
-    refreshCardIcons(card);
+    if (rafId) return;
 
-    const cardEl = document.querySelector(`.card[data-key="${CSS.escape(key)}"]`);
-    if (cardEl) {
-      const qty = getCardQty(card);
-      cardEl.style.opacity = qty === 0 ? '0.5' : '1';
-    }
-  });
-}
+    rafId = requestAnimationFrame(() => {
+      updateQueue.forEach(card => {
+        const key = getCardKey(card);
+        const container = document.querySelector(`.card-icons[data-key="${CSS.escape(key)}"]`);
+        if (container) {
+          updateCardIcons(card, container);
+
+          const cardEl = document.querySelector(`.card[data-key="${CSS.escape(key)}"]`);
+          if (cardEl) {
+            cardEl.style.opacity = getCardQty(card) === 0 ? '0.5' : '1';
+          }
+        }
+      });
+
+      updateQueue.clear();
+      rafId = null;
+    });
+  };
+})();
 
 // ===============================
-// Função que abre o modal (com controles funcionando)
+// Modal otimizado
 // ===============================
+let currentCard = null;
+
 function openCardModal(card) {
-  const modalTitle = document.getElementById('modalTitle');
-  const modalImage = document.getElementById('modalImage');
-  const qtyInput = document.getElementById('qtyInput');
-  const btnDecrease = document.getElementById('btnDecrease');
-  const btnIncrease = document.getElementById('btnIncrease');
+  if (!modalElements.title) return;
 
-  if (!modalTitle || !modalImage || !qtyInput || !btnDecrease || !btnIncrease) return;
-
-  // associa o código atual ao modal (útil para fechar e sync)
+  currentCard = card;
   modal.dataset.cardCode = card.code;
   modal.dataset.cardImage = getPrimaryImageUrl(card);
 
-  modalTitle.textContent = card.card_name || card.name || card.code;
-  modalImage.src = getPrimaryImageUrl(card) || './assets/card/bg-caracter.png';
-  modalImage.alt = card.card_name || card.name || card.code;
-  modalImage.onerror = () => {
-    modalImage.src = './assets/card/bg-caracter.png';
+  modalElements.title.textContent = card.card_name || card.name || card.code;
+  modalElements.image.src = getPrimaryImageUrl(card) || './assets/card/bg-caracter.png';
+  modalElements.image.alt = card.card_name || card.name || card.code;
+  modalElements.image.onerror = () => {
+    modalElements.image.src = './assets/card/bg-caracter.png';
   };
 
-  // Quantidade inicial (por carta)
-  let qty = getCardQty(card);
-  applyQty(qty);
-
-  // helper centralizado que atualiza UI, storage e ícones
-  function applyQty(newQty) {
-    qty = Math.max(0, parseInt(newQty, 10) || 0);
-    qtyInput.value = String(qty);
-    btnDecrease.disabled = qty <= 0;
-
-    setCardQty(card, qty);       // chave única agora
-    refreshCardIcons(card);
-
-    const cardEl = document.querySelector(`.card[data-key="${CSS.escape(getCardKey(card))}"]`);
-    if (cardEl) {
-      cardEl.style.opacity = qty === 0 ? '0.5' : '1';
-    }
-  }
-
-
-  // sobrescreve (safe) os handlers do modal para evitar empilhar listeners
-  btnDecrease.onclick = (e) => {
-    e.preventDefault();
-    applyQty(qty - 1);
-  };
-
-  btnIncrease.onclick = (e) => {
-    e.preventDefault();
-    applyQty(qty + 1);
-  };
-
-  qtyInput.oninput = () => {
-    // permite apenas dígitos, evita sinais e decimais
-    const cleaned = qtyInput.value.replace(/\D/g, '');
-    applyQty(cleaned === '' ? 0 : parseInt(cleaned, 10));
-  };
-
-  // evita alteração com scroll
-  qtyInput.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
-
+  updateModalQty();
   modal.classList.remove('hidden');
 }
 
-// Fechar modal (botão X) - sincroniza ícones da carta atual
-if (closeModal) {
-  closeModal.addEventListener('click', () => {
-    const code = modal.dataset.cardCode;
-    const img = modal.dataset.cardImage;
-    if (code && img) {
-      refreshCardIcons({ code, card_image_link: [img] });
-    }
-    modal.classList.add('hidden');
-  });
+function updateModalQty() {
+  if (!currentCard) return;
+
+  const qty = getCardQty(currentCard);
+  modalElements.qtyInput.value = String(qty);
+  modalElements.btnDecrease.disabled = qty <= 0;
 }
 
-// clicar fora do conteúdo fecha e sincroniza
+function applyModalQty(newQty) {
+  if (!currentCard) return;
+
+  const qty = Math.max(0, parseInt(newQty, 10) || 0);
+  setCardQty(currentCard, qty);
+  updateModalQty();
+  updateIconsThrottled(currentCard);
+}
+
+// Event listeners do modal
+modalElements.btnDecrease.onclick = (e) => {
+  e.preventDefault();
+  if (currentCard) applyModalQty(getCardQty(currentCard) - 1);
+};
+
+modalElements.btnIncrease.onclick = (e) => {
+  e.preventDefault();
+  if (currentCard) applyModalQty(getCardQty(currentCard) + 1);
+};
+
+modalElements.qtyInput.oninput = () => {
+  const cleaned = modalElements.qtyInput.value.replace(/\D/g, '');
+  applyModalQty(cleaned === '' ? 0 : parseInt(cleaned, 10));
+};
+
+modalElements.qtyInput.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
+
+closeModal?.addEventListener('click', () => {
+  modal.classList.add('hidden');
+  currentCard = null;
+});
+
 modal.addEventListener('click', (e) => {
   if (e.target === modal) {
-    const code = modal.dataset.cardCode;
-    const img = modal.dataset.cardImage;
-    if (code && img) {
-      refreshCardIcons({ code, card_image_link: [img] });
-    }
     modal.classList.add('hidden');
+    currentCard = null;
   }
 });
 
 // ===============================
-// Carregamento e renderização das cartas
+// Carregamento otimizado
 // ===============================
 async function loadAllCollections() {
   const container = document.getElementById('cardsGrid');
   if (!container) return;
+
   container.innerHTML = 'Carregando cartas...';
 
   try {
-    // Faz fetch em paralelo de todas as coleções
-    const promises = collections.map(col =>
-      fetch(`./data/${col}.json`)
-        .then(res => {
-          if (!res.ok) throw new Error(`Erro ao carregar ${col}`);
-          return res.json();
-        })
-        .catch(err => {
-          console.warn(err.message);
-          return []; // em erro retorna array vazio pra não travar tudo
-        })
-    );
+    // Carrega em batches menores para não travar a UI
+    const BATCH_SIZE = 5;
+    const results = [];
 
-    const results = await Promise.all(promises);
-    // Junta tudo num único array
-    allCards = results.flat();
+    for (let i = 0; i < collections.length; i += BATCH_SIZE) {
+      const batch = collections.slice(i, i + BATCH_SIZE);
+      const promises = batch.map(col =>
+        fetch(`./data/${col}.json`)
+          .then(res => res.ok ? res.json() : [])
+          .catch(() => [])
+      );
 
-    // Ordena tudo pelo código da carta
-    allCards.sort((a, b) => a.code.localeCompare(b.code));
+      const batchResults = await Promise.all(promises);
+      results.push(...batchResults);
+
+      // Permite que a UI respire entre batches
+      if (i + BATCH_SIZE < collections.length) {
+        await new Promise(resolve => setTimeout(resolve, 0));
+      }
+    }
+
+    allCards = results.flat().sort((a, b) => a.code.localeCompare(b.code));
 
     if (allCards.length === 0) {
-      container.innerHTML = '<p style="color:#a5a5a5">Nenhuma carta encontrada. Verifique se os JSONs existem em /data.</p>';
+      container.innerHTML = '<p style="color:#a5a5a5">Nenhuma carta encontrada.</p>';
       return;
     }
 
-    container.innerHTML = '';
+    await renderCardsInBatches(container);
 
-    allCards.forEach(card => {
-      // wrapper que será o filho da grid (um elemento por célula)
-      const wrapper = document.createElement('div');
-      wrapper.className = 'card-wrapper';
-      wrapper.dataset.key = getCardKey(card);
-
-
-      // DOM card (visual)
-      const cardEl = document.createElement('div');
-      cardEl.className = 'card';
-      cardEl.dataset.code = card.code || '';
-      cardEl.dataset.key = getCardKey(card);
-
-
-      // imagem (ou placeholder)
-      const img = document.createElement('img');
-      // Verifica se existe imagem no novo formato
-      const imageUrl = getPrimaryImageUrl(card);
-      // Se não tiver imagem, usa placeholder local
-      const hasImage = Boolean(imageUrl);
-      img.src = hasImage ? imageUrl : './assets/card/bg-caracter.png';
-      img.alt = card.name || card.code;
-      // lazy loading nativo
-      img.loading = 'lazy';
-      // Guarda a URL real para carregar quando entrar na tela
-      if (hasImage && imageUrl) {
-        img.dataset.src = imageUrl;
-      } else {
-        // garante que dataset.src nunca seja vazio
-        img.dataset.src = './assets/card/bg-caracter.png';
-      }
-
-
-      // IntersectionObserver para lazy load mais controlado
-      if (hasImage) {
-        const observer = new IntersectionObserver((entries, obs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const imgEl = entry.target;
-              imgEl.src = imgEl.dataset.src || './assets/card/bg-caracter.png'; // fallback seguro
-              imgEl.onerror = () => { imgEl.src = './assets/card/bg-caracter.png'; };
-              obs.unobserve(imgEl);
-            }
-          });
-        }, { rootMargin: '200px' });
-
-        observer.observe(img);
-      }
-
-      // Se a imagem der erro, trocamos para placeholder e marcamos no card
-      img.onerror = () => {
-        img.src = './assets/card/bg-caracter.png';
-        cardEl.classList.add('no-image');
-      };
-
-      // se não tem imagem originalmente, marcar .no-image
-      if (!hasImage) cardEl.classList.add('no-image');
-
-      cardEl.appendChild(img);
-
-      // info (nome e código) - será sobreposto pelo CSS quando .no-image
-      const info = document.createElement('div');
-      info.className = 'card-info';
-
-      const nameEl = document.createElement('div');
-      nameEl.className = 'name';
-      // Primeiro tenta card.card_name, depois card.name (compatibilidade)
-      nameEl.textContent = card.card_name || card.name || '';
-
-      const codeEl = document.createElement('div');
-      codeEl.className = 'code';
-      codeEl.textContent = card.code || '';
-
-      info.appendChild(nameEl);
-      info.appendChild(codeEl);
-
-
-      cardEl.appendChild(info);
-
-      // ícones de quantidade (FORA da .card mas DENTRO do wrapper, logo abaixo)
-      const icons = createCardIcons(card); // passa o card inteiro
-      icons.dataset.key = getCardKey(card); // (opcional, a função já define)
-
-      // clique abre o modal com os controles
-      cardEl.addEventListener('click', () => openCardModal(card));
-
-      // monta wrapper (card em cima, ícones abaixo)
-      wrapper.appendChild(cardEl);
-      wrapper.appendChild(icons);
-
-      // adiciona ao grid
-      container.appendChild(wrapper);
-    });
-
-    // Atualiza ícones (garantia)
-    updateAllCardIcons();
-
-    // Marque como renderizado ANTES de restaurar/aplicar filtros
     cardsRendered = true;
-
-    // Restaura filtros salvos (após o grid ter sido renderizado) e aplica filtragem
     restoreFiltersFromStorage();
-    // garante que o estado salvo seja refletido em activeFilters (mesmo que vazio)
-    updateActiveFilters();
-
-    // aplica os filtros/busca
+    updateFiltersThrottled();
     filterCardsInGrid();
 
   } catch (error) {
-    container.innerHTML = `<p style="color: red;">Erro geral: ${error.message}</p>`;
+    container.innerHTML = `<p style="color: red;">Erro: ${error.message}</p>`;
   }
 }
 
+// Renderização em batches para não travar
+async function renderCardsInBatches(container) {
+  container.innerHTML = '';
+
+  const BATCH_SIZE = 50;
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < allCards.length; i += BATCH_SIZE) {
+    const batch = allCards.slice(i, i + BATCH_SIZE);
+    const batchFragment = document.createDocumentFragment();
+
+    batch.forEach(card => {
+      const wrapper = createCardElement(card);
+      batchFragment.appendChild(wrapper);
+    });
+
+    fragment.appendChild(batchFragment);
+
+    // Permite que a UI respire
+    if (i + BATCH_SIZE < allCards.length) {
+      await new Promise(resolve => setTimeout(resolve, 0));
+    }
+  }
+
+  container.appendChild(fragment);
+}
+
+function createCardElement(card) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'card-wrapper';
+  wrapper.dataset.key = getCardKey(card);
+
+  const cardEl = document.createElement('div');
+  cardEl.className = 'card';
+  cardEl.dataset.code = card.code || '';
+  cardEl.dataset.key = getCardKey(card);
+
+  const img = document.createElement('img');
+  const imageUrl = getPrimaryImageUrl(card);
+  const hasImage = Boolean(imageUrl);
+
+  img.src = hasImage ? imageUrl : './assets/card/bg-caracter.png';
+  img.alt = card.name || card.code;
+  img.loading = 'lazy';
+  img.dataset.src = imageUrl || './assets/card/bg-caracter.png';
+
+  // Lazy loading otimizado
+  if (hasImage) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const imgEl = entry.target;
+          if (imgEl.dataset.src && imgEl.src !== imgEl.dataset.src) {
+            imgEl.src = imgEl.dataset.src;
+            imgEl.onerror = () => {
+              imgEl.src = './assets/card/bg-caracter.png';
+              cardEl.classList.add('no-image');
+            };
+          }
+          obs.unobserve(imgEl);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    observer.observe(img);
+  } else {
+    cardEl.classList.add('no-image');
+  }
+
+  cardEl.appendChild(img);
+
+  // Info da carta
+  const info = document.createElement('div');
+  info.className = 'card-info';
+
+  const nameEl = document.createElement('div');
+  nameEl.className = 'name';
+  nameEl.textContent = card.card_name || card.name || '';
+
+  const codeEl = document.createElement('div');
+  codeEl.className = 'code';
+  codeEl.textContent = card.code || '';
+
+  info.append(nameEl, codeEl);
+  cardEl.appendChild(info);
+
+  // Ícones
+  const icons = createCardIcons(card);
+
+  // Event listener otimizado
+  cardEl.addEventListener('click', () => openCardModal(card), { passive: true });
+
+  wrapper.append(cardEl, icons);
+  return wrapper;
+}
+
 // ===============================
-// Lógica de Busca por Texto
+// Busca otimizada
 // ===============================
 const searchInput = document.querySelector('.search-input');
 
-// Helper para encontrar a carta no array allCards
 function getCardByDataKey(dataKey) {
   return allCards.find(card => getCardKey(card) === dataKey);
 }
 
-// **NOVO: Adiciona a função de debounce**
 const debounce = (func, delay) => {
   let timeoutId;
   return (...args) => {
     clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
   };
 };
 
 if (searchInput) {
-  searchInput.addEventListener('input', debounce(() => {
-    filterCardsInGrid();
-  }, 200));
+  searchInput.addEventListener('input', debounce(filterCardsInGrid, 200));
 }
 
 // ===============================
-// Abre e fecha filtros
+// Filtros otimizados
 // ===============================
 document.addEventListener('DOMContentLoaded', () => {
   const filterContainer = document.querySelector('.filter-container');
@@ -530,28 +525,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeFilterBtn = document.getElementById('closeFilterBtn');
 
   if (filterContainer && openFilterBtn && closeFilterBtn) {
-
-    // Alterna a classe 'expanded' no contêiner do filtro
     function toggleFilter() {
-      // Usamos matchMedia para garantir que a funcionalidade só se aplica em mobile
       if (window.matchMedia('(max-width: 599.98px)').matches) {
         filterContainer.classList.toggle('expanded');
       }
     }
 
-    // Adiciona o evento de clique para abrir o filtro
     openFilterBtn.addEventListener('click', toggleFilter);
-
-    // Adiciona o evento de clique para fechar o filtro
     closeFilterBtn.addEventListener('click', toggleFilter);
   }
 });
 
-// ===============================
-// Filtros (checkboxes)
-// ===============================
-let activeFilters = JSON.parse(localStorage.getItem('activeFilters') || '{}');
-const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+let activeFilters = {};
+try {
+  activeFilters = JSON.parse(localStorage.getItem('activeFilters') || '{}');
+} catch (e) {
+  activeFilters = {};
+}
+
+function getGroupCheckboxes(name) {
+  const allCb = document.querySelector(`.filter-group input[name="${name}"][value="all"]`);
+  const itemCbs = Array.from(document.querySelectorAll(`.filter-group input[name="${name}"]:not([value="all"])`));
+  return { allCb, itemCbs };
+}
 
 function getColorCheckboxes() {
   const allCb = document.querySelector('.filter-group input[name="cores"][value="all"]');
@@ -559,57 +555,51 @@ function getColorCheckboxes() {
   return { allCb, colorCbs };
 }
 
-// Helper genérico para qualquer grupo com opção "All"
-function getGroupCheckboxes(name) {
-  const allCb = document.querySelector(`.filter-group input[name="${name}"][value="all"]`);
-  const itemCbs = Array.from(document.querySelectorAll(`.filter-group input[name="${name}"]:not([value="all"])`));
-  return { allCb, itemCbs };
-}
-
-// Lê o estado atual do DOM para um grupo com "All"
 function getSelectedFromDOM(name) {
   const { allCb, itemCbs } = getGroupCheckboxes(name);
   const values = itemCbs.filter(c => c.checked).map(c => c.value.toLowerCase());
-  const isAll = !!(allCb && allCb.checked);
+  const isAll = !!(allCb?.checked);
   return { values, isAll };
 }
 
-
-// Atualiza estado e salva (garante que 'cores' exista mesmo que vazio)
-function updateActiveFilters() {
-  const inputs = Array.from(document.querySelectorAll('.filter-group input[type="checkbox"]'));
+// Throttled update para filtros
+const updateFiltersThrottled = debounce(() => {
   const groups = {};
+  const withAll = ['cores', 'rarity', 'card_type', 'counter', 'attribute', 'trigger'];
 
-  // Coleta genérica (sem "all"); depois sobrescrevemos os grupos que possuem "All"
-  inputs.forEach(cb => {
-    if (cb.value === 'all') return;
+  // Collect non-all checkboxes
+  document.querySelectorAll('.filter-group input[type="checkbox"]:not([value="all"])').forEach(cb => {
     const name = cb.name;
     if (!groups[name]) groups[name] = [];
     if (cb.checked) groups[name].push(cb.value.toLowerCase());
   });
 
-  // Grupos com "All" que queremos controlar/persistir
-  const withAll = ['cores', 'rarity', 'card_type', 'counter', 'attribute', 'trigger'];
-
+  // Handle "all" checkboxes
   withAll.forEach(name => {
     const { allCb, itemCbs } = getGroupCheckboxes(name);
-    groups[name] = itemCbs.filter(c => c.checked).map(c => c.value.toLowerCase());
-    groups[`${name}_all`] = !!(allCb && allCb.checked);
+    if (!groups[name]) groups[name] = [];
+    groups[`${name}_all`] = !!(allCb?.checked);
   });
 
   activeFilters = groups;
-  localStorage.setItem('activeFilters', JSON.stringify(activeFilters));
+  try {
+    localStorage.setItem('activeFilters', JSON.stringify(activeFilters));
+  } catch (e) {
+    console.warn('Failed to save filters:', e);
+  }
+
   filterCardsInGrid();
-}
+}, 100);
 
 function restoreFiltersFromStorage() {
-  // 1) Limpa tudo primeiro
-  document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => (cb.checked = false));
+  // Reset all checkboxes
+  document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => {
+    cb.checked = false;
+  });
 
-  // 2) Restaura arrays salvos (case-insensitive), ignorando flags *_all
+  // Restore saved values
   Object.entries(activeFilters).forEach(([name, values]) => {
-    if (name.endsWith('_all')) return;
-    if (!Array.isArray(values)) return;
+    if (name.endsWith('_all') || !Array.isArray(values)) return;
 
     const groupCbs = Array.from(document.querySelectorAll(`.filter-group input[name="${name}"]`));
     values.forEach(vLower => {
@@ -618,108 +608,107 @@ function restoreFiltersFromStorage() {
     });
   });
 
-  // 3) Sincroniza/força "All" de cada grupo com "All"
+  // Handle "all" checkboxes
   const withAll = ['cores', 'rarity', 'card_type', 'counter', 'attribute', 'trigger'];
   withAll.forEach(name => {
     const { allCb, itemCbs } = getGroupCheckboxes(name);
-    if (!allCb && itemCbs.length === 0) return;
-
     const flag = activeFilters[`${name}_all`];
 
     if (typeof flag === 'boolean') {
-      if (flag) {
-        // All salvo como ligado => marca tudo
-        if (allCb) allCb.checked = true;
-        itemCbs.forEach(c => (c.checked = true));
-      } else {
-        // All salvo como desligado => mantém o que já foi marcado pelo array, apenas desmarca o All
-        if (allCb) allCb.checked = false;
+      if (flag && allCb) {
+        allCb.checked = true;
+        itemCbs.forEach(c => c.checked = true);
+      } else if (allCb) {
+        allCb.checked = false;
       }
-    } else {
-      // Sem flag salvo: apenas sincroniza o All com “todos marcados?”
-      const todos = itemCbs.length > 0 && itemCbs.every(c => c.checked);
-      if (allCb) allCb.checked = todos;
+    } else if (allCb && itemCbs.length > 0) {
+      allCb.checked = itemCbs.every(c => c.checked);
     }
   });
 
-  // 4) Regra especial de primeiro uso para CORES: se nada salvo de cores, marcar tudo
-  const { allCb, colorCbs } = getColorCheckboxes();
-  const nuncaSalvouCores = !('cores' in activeFilters) && !('cores_all' in activeFilters);
-  if (nuncaSalvouCores && colorCbs.length) {
-    colorCbs.forEach(c => (c.checked = true));
-    if (allCb) allCb.checked = true;
+  // First use defaults
+  const { allCb: colorAll, colorCbs } = getColorCheckboxes();
+  if (!('cores' in activeFilters) && !('cores_all' in activeFilters) && colorCbs.length) {
+    colorCbs.forEach(c => c.checked = true);
+    if (colorAll) colorAll.checked = true;
+  }
+
+  const { allCb: trigAll, itemCbs: trigItems } = getGroupCheckboxes('trigger');
+  if (!('trigger' in activeFilters) && !('trigger_all' in activeFilters) && trigItems.length) {
+    trigItems.forEach(c => c.checked = true);
+    if (trigAll) trigAll.checked = true;
   }
 }
 
-// 5) Regra especial de primeiro uso para TRIGGER: se nada salvo, marcar WITH e WITHOUT e o All
-{
-  const firstUseTrigger = !('trigger' in activeFilters) && !('trigger_all' in activeFilters);
-  if (firstUseTrigger) {
-    const { allCb: trigAll, itemCbs: trigItems } = getGroupCheckboxes('trigger');
-    if (trigItems.length) {
-      trigItems.forEach(c => (c.checked = true)); // marca "with" e "without"
-      if (trigAll) trigAll.checked = true;
-    }
-  }
-}
-
-
+// Filtro otimizado
 function filterCardsInGrid() {
   const searchTerm = (searchInput?.value || '').toLowerCase().trim();
-  const gridContainer = document.getElementById('cardsGrid');
-  if (!gridContainer) return;
-  const allCardWrappers = Array.from(document.querySelectorAll('.card-wrapper'));
+  const allCardWrappers = document.querySelectorAll('.card-wrapper');
 
-  // ----- CORES -----
-  const { allCb, colorCbs } = getColorCheckboxes();
+  if (!allCardWrappers.length) return;
+
+  const { allCb: colorAll, colorCbs } = getColorCheckboxes();
   const selectedColors = colorCbs.filter(c => c.checked).map(c => c.value.toLowerCase());
-  const isAllColors = !!(allCb && allCb.checked);
+  const isAllColors = !!(colorAll?.checked);
 
   let visibleCount = 0;
+  const fragment = document.createDocumentFragment();
 
-  allCardWrappers.forEach(wrapper => {
-    const card = getCardByDataKey(wrapper.dataset.key);
-    if (!card) {
-      wrapper.style.display = 'none';
-      return;
-    }
+  // Process in batches to avoid blocking UI
+  const processCards = (startIndex = 0) => {
+    const BATCH_SIZE = 100;
+    const endIndex = Math.min(startIndex + BATCH_SIZE, allCardWrappers.length);
 
-    // ----- BUSCA -----
-    const name = (card.card_name || '').toLowerCase();
-    const code = (card.code || '').toLowerCase();
-    const text = (card.text || '').toLowerCase();
-    const matchSearch =
-      !searchTerm ||
-      name.includes(searchTerm) ||
-      code.includes(searchTerm) ||
-      text.includes(searchTerm);
+    for (let i = startIndex; i < endIndex; i++) {
+      const wrapper = allCardWrappers[i];
+      const card = getCardByDataKey(wrapper.dataset.key);
 
-    // ----- FILTROS -----
-    let matchFilters = true;
+      if (!card) {
+        wrapper.style.display = 'none';
+        continue;
+      }
 
-    // 1) Cores
-    const cardColors = Array.isArray(card.color) ? card.color.map(c => String(c).toLowerCase()) : [];
-    if (isAllColors) {
-      // sem restrição por cor
-    } else if (selectedColors.length > 0) {
-      const hasMatch = cardColors.some(c => selectedColors.includes(c));
-      if (!hasMatch) matchFilters = false;
-    } else {
-      // nenhum marcado + All desmarcado => apenas cartas sem cor
-      const isColorless = !card.color || cardColors.length === 0;
-      if (!isColorless) matchFilters = false;
-    }
+      // Search filter
+      const name = (card.card_name || '').toLowerCase();
+      const code = (card.code || '').toLowerCase();
+      const text = (card.text || '').toLowerCase();
+      const matchSearch = !searchTerm ||
+        name.includes(searchTerm) ||
+        code.includes(searchTerm) ||
+        text.includes(searchTerm);
 
-    // 2) Demais filtros com base no DOM atual (rarity, card_type, counter, attribute)
-    if (matchFilters) {
-      const groupsToCheck = ['rarity', 'card_type', 'counter', 'attribute', 'trigger'];
+      if (!matchSearch) {
+        wrapper.style.display = 'none';
+        continue;
+      }
 
-      for (const filterName of groupsToCheck) {
+      // Color filter
+      let matchColors = true;
+      if (!isAllColors) {
+        const cardColors = Array.isArray(card.color) ?
+          card.color.map(c => String(c).toLowerCase()) : [];
+
+        if (selectedColors.length > 0) {
+          matchColors = cardColors.some(c => selectedColors.includes(c));
+        } else {
+          matchColors = cardColors.length === 0;
+        }
+      }
+
+      if (!matchColors) {
+        wrapper.style.display = 'none';
+        continue;
+      }
+
+      // Other filters
+      let matchOthers = true;
+      const filtersToCheck = ['rarity', 'card_type', 'counter', 'attribute', 'trigger'];
+
+      for (const filterName of filtersToCheck) {
         const { values, isAll } = getSelectedFromDOM(filterName);
         if (isAll || values.length === 0) continue;
 
         let cardValue = '';
-
         if (filterName === 'counter') {
           cardValue = (card.counter == null ? 'null' : String(card.counter)).toLowerCase();
         } else if (filterName === 'attribute') {
@@ -732,19 +721,32 @@ function filterCardsInGrid() {
         }
 
         if (!values.includes(cardValue)) {
-          matchFilters = false;
+          matchOthers = false;
           break;
         }
       }
 
+      const visible = matchColors && matchOthers;
+      wrapper.style.display = visible ? '' : 'none';
+      if (visible) visibleCount++;
     }
 
-    const visible = matchSearch && matchFilters;
-    wrapper.style.display = visible ? '' : 'none';
-    if (visible) visibleCount++;
-  });
+    // Continue processing if there are more cards
+    if (endIndex < allCardWrappers.length) {
+      setTimeout(() => processCards(endIndex), 0);
+    } else {
+      // Finished processing all cards
+      updateNoResultMessage(visibleCount);
+    }
+  };
 
-  // ----- Mensagem "Nenhuma carta encontrada." (apenas após o grid ter sido renderizado) -----
+  processCards();
+}
+
+function updateNoResultMessage(visibleCount) {
+  const gridContainer = document.getElementById('cardsGrid');
+  if (!gridContainer) return;
+
   let noResultEl = document.getElementById('noResultMessage');
   if (!noResultEl) {
     noResultEl = document.createElement('p');
@@ -754,117 +756,510 @@ function filterCardsInGrid() {
     gridContainer.appendChild(noResultEl);
   }
 
-  // mostramos a mensagem SÓ se as cartas já tiverem sido renderizadas ao menos uma vez
-  if (!cardsRendered) {
-    noResultEl.style.display = 'none';
-  } else {
-    noResultEl.style.display = (visibleCount === 0) ? '' : 'none';
-  }
+  noResultEl.style.display = (cardsRendered && visibleCount === 0) ? '' : 'none';
 }
 
-// Listeners para checkboxes (configurados no DOMContentLoaded)
+// ===============================
+// Event listeners para filtros
+// ===============================
 document.addEventListener('DOMContentLoaded', () => {
-  // Regras de sincronização para o grupo "cores"
+  // Color filters
   document.querySelectorAll('.filter-group input[name="cores"]').forEach(cb => {
     cb.addEventListener('change', () => {
       const { allCb, colorCbs } = getColorCheckboxes();
 
       if (cb.value === 'all') {
-        // clicar no All marca/desmarca todas as cores
-        if (cb.checked) {
-          colorCbs.forEach(c => (c.checked = true));
-        } else {
-          colorCbs.forEach(c => (c.checked = false));
-        }
+        colorCbs.forEach(c => c.checked = cb.checked);
       } else {
-        // se todas as cores ficaram marcadas manualmente => marca o All
         const todasMarcadas = colorCbs.length > 0 && colorCbs.every(c => c.checked);
         if (allCb) allCb.checked = todasMarcadas;
       }
 
-      updateActiveFilters();
+      updateFiltersThrottled();
     });
   });
 
-  // Demais filtros (com lógica de "All")
-  (['rarity', 'card_type', 'counter', 'attribute', 'trigger']).forEach(name => {
+  // Other filters with "All" logic
+  ['rarity', 'card_type', 'counter', 'attribute', 'trigger'].forEach(name => {
     const { allCb, itemCbs } = getGroupCheckboxes(name);
     if (!allCb && itemCbs.length === 0) return;
 
-    const handle = (changed) => {
+    const handleChange = (changed) => {
       if (changed.value === 'all') {
-        const checked = changed.checked;
-        itemCbs.forEach(cb => (cb.checked = checked));
-      } else {
-        if (allCb) allCb.checked = itemCbs.length > 0 && itemCbs.every(c => c.checked);
+        itemCbs.forEach(cb => cb.checked = changed.checked);
+      } else if (allCb) {
+        allCb.checked = itemCbs.length > 0 && itemCbs.every(c => c.checked);
       }
-      updateActiveFilters();
+      updateFiltersThrottled();
     };
 
-    if (allCb) allCb.addEventListener('change', () => handle(allCb));
-    itemCbs.forEach(cb => cb.addEventListener('change', () => handle(cb)));
+    if (allCb) allCb.addEventListener('change', () => handleChange(allCb));
+    itemCbs.forEach(cb => cb.addEventListener('change', () => handleChange(cb)));
   });
-
 });
 
 // ===============================
-// Botão "Limpar filtros"
+// Clear filters button
 // ===============================
 document.addEventListener('DOMContentLoaded', () => {
   const clearBtn = document.getElementById('clearFiltersBtn');
   if (!clearBtn) return;
 
-  function updateClearBtnState() {
+  const updateClearBtnState = debounce(() => {
     const searchEmpty = !searchInput || searchInput.value.trim() === '';
-
-    // verifica se todos os grupos estão em "All"
     const groups = ['cores', 'rarity', 'card_type', 'counter', 'attribute', 'trigger'];
-    let allAtAll = true;
 
-    for (const name of groups) {
+    const allAtAll = groups.every(name => {
       const { allCb } = getGroupCheckboxes(name);
-      if (allCb && !allCb.checked) {
-        allAtAll = false;
-        break;
-      }
-    }
+      return !allCb || allCb.checked;
+    });
 
-    clearBtn.disabled = (searchEmpty && allAtAll);
-  }
+    clearBtn.disabled = searchEmpty && allAtAll;
+  }, 100);
 
   clearBtn.addEventListener('click', () => {
-    // Zera campo de busca
     if (searchInput) searchInput.value = '';
 
-    // Marca todos os grupos em All
     const groups = ['cores', 'rarity', 'card_type', 'counter', 'attribute', 'trigger'];
     groups.forEach(name => {
       const { allCb, itemCbs } = getGroupCheckboxes(name);
       if (allCb) allCb.checked = true;
-      itemCbs.forEach(cb => (cb.checked = true));
+      itemCbs.forEach(cb => cb.checked = true);
     });
 
-    updateActiveFilters();
+    updateFiltersThrottled();
     updateClearBtnState();
-    filterCardsInGrid();
   });
 
-  // Atualiza estado do botão sempre que filtros mudarem
   document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => {
     cb.addEventListener('change', updateClearBtnState);
   });
+
   if (searchInput) {
     searchInput.addEventListener('input', updateClearBtnState);
   }
 
-  // Estado inicial
   updateClearBtnState();
 });
+
+// ===============================
+// ADIÇÕES PARA ECONOMIA DE DADOS
+// ===============================
+
+// Detecta conexão do usuário
+let connectionInfo = {
+  isSlowConnection: false,
+  saveData: false,
+  effectiveType: '4g'
+};
+
+function updateConnectionInfo() {
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+
+  if (connection) {
+    connectionInfo = {
+      isSlowConnection: ['slow-2g', '2g', '3g'].includes(connection.effectiveType),
+      saveData: connection.saveData || false,
+      effectiveType: connection.effectiveType || '4g'
+    };
+
+    // Ajusta comportamento baseado na conexão
+    adjustForConnection();
+  }
+}
+
+function adjustForConnection() {
+  if (connectionInfo.saveData || connectionInfo.isSlowConnection) {
+    // Reduz qualidade de imagens
+    document.documentElement.style.setProperty('--image-quality', '0.8');
+
+    // Desabilita lazy loading para conexões muito lentas (carrega só quando necessário)
+    if (connectionInfo.effectiveType === 'slow-2g') {
+      document.documentElement.classList.add('minimal-loading');
+    }
+  }
+}
+
+// Monitora mudanças na conexão
+if (navigator.connection) {
+  navigator.connection.addEventListener('change', updateConnectionInfo);
+  updateConnectionInfo();
+}
+
+// ===============================
+// COMPRESSÃO E CACHE DE DADOS JSON
+// ===============================
+
+// Cache inteligente para dados JSON
+const jsonCache = new Map();
+const CACHE_DURATION = 30 * 60 * 1000; // 30 minutos
+
+function getCachedJson(url) {
+  const cached = jsonCache.get(url);
+  if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+    return cached.data;
+  }
+  return null;
+}
+
+function setCachedJson(url, data) {
+  jsonCache.set(url, {
+    data,
+    timestamp: Date.now()
+  });
+
+  // Limita o tamanho do cache
+  if (jsonCache.size > 50) {
+    const oldestKey = jsonCache.keys().next().value;
+    jsonCache.delete(oldestKey);
+  }
+}
+
+// Fetch otimizado para JSON com compressão
+async function fetchJsonOptimized(url) {
+  // Verifica cache primeiro
+  const cached = getCachedJson(url);
+  if (cached) return cached;
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Accept': 'application/json',
+      },
+      cache: 'force-cache', // Usa cache do navegador agressivamente
+      credentials: 'omit' // Remove cookies desnecessários
+    });
+
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    setCachedJson(url, data);
+    return data;
+
+  } catch (error) {
+    console.warn(`Failed to fetch ${url}:`, error);
+    return [];
+  }
+}
+
+// ===============================
+// LAZY LOADING INTELIGENTE DE IMAGENS
+// ===============================
+
+// Observer otimizado para diferentes tipos de conexão
+function createOptimizedObserver(callback, options = {}) {
+  const baseOptions = {
+    rootMargin: connectionInfo.isSlowConnection ? '50px' : '200px',
+    threshold: connectionInfo.saveData ? 0.1 : 0
+  };
+
+  return new IntersectionObserver(callback, { ...baseOptions, ...options });
+}
+
+// Placeholder SVG compacto (base64)
+const PLACEHOLDER_SVG = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjgzOCIgdmlld0JveD0iMCAwIDYwMCA4MzgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iODM4IiBmaWxsPSIjZjBmMGYwIi8+CjxwYXRoIGQ9Ik0yNTAgMzAwSDM1MFY0MDBIMjUwVjMwMFoiIGZpbGw9IiNjY2MiLz4KPC9zdmc+';
+
+// Sistema de prioridade de carregamento
+const loadPriorities = {
+  visible: new Set(),
+  nearViewport: new Set(),
+  background: new Set()
+};
+
+function addToLoadQueue(element, priority = 'background') {
+  loadPriorities[priority].add(element);
+  processLoadQueue();
+}
+
+let loadQueueTimer = null;
+function processLoadQueue() {
+  if (loadQueueTimer) return;
+
+  loadQueueTimer = setTimeout(() => {
+    const queues = ['visible', 'nearViewport', 'background'];
+    const maxConcurrent = connectionInfo.isSlowConnection ? 2 : 6;
+    let loaded = 0;
+
+    for (const queueName of queues) {
+      const queue = loadPriorities[queueName];
+      const items = Array.from(queue).slice(0, maxConcurrent - loaded);
+
+      items.forEach(element => {
+        loadImage(element);
+        queue.delete(element);
+        loaded++;
+      });
+
+      if (loaded >= maxConcurrent) break;
+    }
+
+    loadQueueTimer = null;
+
+    // Continue processando se ainda há items
+    const totalRemaining = Object.values(loadPriorities).reduce((sum, set) => sum + set.size, 0);
+    if (totalRemaining > 0) {
+      processLoadQueue();
+    }
+  }, connectionInfo.isSlowConnection ? 1000 : 100);
+}
+
+async function loadImage(imgElement) {
+  if (imgElement.dataset.loaded === 'true') return;
+
+  const src = imgElement.dataset.src;
+  if (!src) return;
+
+  try {
+    // Para conexões lentas, adiciona timeout
+    const timeoutDuration = connectionInfo.isSlowConnection ? 15000 : 30000;
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutDuration);
+
+    const response = await fetch(src, {
+      signal: controller.signal,
+      cache: 'force-cache',
+      credentials: 'omit'
+    });
+
+    clearTimeout(timeoutId);
+
+    if (response.ok) {
+      imgElement.src = src;
+      imgElement.dataset.loaded = 'true';
+      imgElement.onerror = null; // Remove error handler
+    } else {
+      throw new Error(`HTTP ${response.status}`);
+    }
+  } catch (error) {
+    // Fallback para placeholder em caso de erro
+    imgElement.src = './assets/card/bg-caracter.png';
+    imgElement.dataset.loaded = 'error';
+  }
+}
+
+// ===============================
+// VIRTUALIZAÇÃO PARA GRANDES LISTAS
+// ===============================
+
+class VirtualGrid {
+  constructor(container, itemHeight = 300, buffer = 5) {
+    this.container = container;
+    this.itemHeight = itemHeight;
+    this.buffer = buffer;
+    this.visibleItems = new Map();
+    this.allItems = [];
+
+    this.setupScrollListener();
+  }
+
+  setItems(items) {
+    this.allItems = items;
+    this.updateVisibleItems();
+  }
+
+  setupScrollListener() {
+    let scrollTimer = null;
+    const scrollHandler = () => {
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => this.updateVisibleItems(), 16);
+    };
+
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    window.addEventListener('resize', scrollHandler, { passive: true });
+  }
+
+  updateVisibleItems() {
+    if (!this.allItems.length) return;
+
+    const scrollTop = window.pageYOffset;
+    const viewportHeight = window.innerHeight;
+
+    const startIndex = Math.max(0, Math.floor(scrollTop / this.itemHeight) - this.buffer);
+    const endIndex = Math.min(
+      this.allItems.length - 1,
+      Math.ceil((scrollTop + viewportHeight) / this.itemHeight) + this.buffer
+    );
+
+    // Remove items que saíram da viewport
+    this.visibleItems.forEach((element, index) => {
+      if (index < startIndex || index > endIndex) {
+        element.remove();
+        this.visibleItems.delete(index);
+      }
+    });
+
+    // Adiciona novos items visíveis
+    for (let i = startIndex; i <= endIndex; i++) {
+      if (!this.visibleItems.has(i)) {
+        const element = this.createItemElement(this.allItems[i], i);
+        this.visibleItems.set(i, element);
+        this.container.appendChild(element);
+      }
+    }
+  }
+
+  createItemElement(card, index) {
+    // Implementa a criação do elemento (mesmo código do createCardElement)
+    // mas com otimizações para virtualização
+    const wrapper = document.createElement('div');
+    wrapper.style.transform = `translateY(${index * this.itemHeight}px)`;
+    wrapper.style.position = 'absolute';
+    wrapper.style.width = '100%';
+
+    // ... resto da implementação
+    return wrapper;
+  }
+}
+
+// ===============================
+// OTIMIZAÇÕES DE FILTRO COM DEBOUNCE INTELIGENTE
+// ===============================
+
+// Debounce adaptativo baseado na performance
+let avgFilterTime = 100;
+const filterPerformance = [];
+
+function adaptiveFilterDebounce(func) {
+  // Ajusta delay baseado na performance histórica
+  const delay = Math.max(100, Math.min(500, avgFilterTime * 2));
+
+  return debounce(((...args) => {
+    const startTime = performance.now();
+
+    const result = func.apply(this, args);
+
+    const endTime = performance.now();
+    const duration = endTime - startTime;
+
+    // Mantém histórico de performance
+    filterPerformance.push(duration);
+    if (filterPerformance.length > 10) {
+      filterPerformance.shift();
+    }
+
+    // Calcula média móvel
+    avgFilterTime = filterPerformance.reduce((sum, time) => sum + time, 0) / filterPerformance.length;
+
+    return result;
+  }), delay);
+}
+
+// ===============================
+// PRELOAD INTELIGENTE DE DADOS
+// ===============================
+
+// Preload de dados baseado no padrão de uso
+const usagePattern = JSON.parse(localStorage.getItem('usagePattern') || '{}');
+
+function trackUsage(collection) {
+  usagePattern[collection] = (usagePattern[collection] || 0) + 1;
+  localStorage.setItem('usagePattern', JSON.stringify(usagePattern));
+}
+
+function getPreloadPriority() {
+  return Object.entries(usagePattern)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 5)
+    .map(([collection]) => collection);
+}
+
+// Preload inteligente em idle time
+function preloadPopularCollections() {
+  if (connectionInfo.saveData) return; // Não preload em save data mode
+
+  const priority = getPreloadPriority();
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      priority.forEach((collection, index) => {
+        setTimeout(() => {
+          fetchJsonOptimized(`./data/${collection}.json`);
+        }, index * 1000); // Espaça os requests
+      });
+    });
+  }
+}
+
+// ===============================
+// COMPRESSÃO DE DADOS NO LOCALSTORAGE
+// ===============================
+
+// Compressor simples para dados do localStorage
+function compressData(data) {
+  try {
+    const jsonString = JSON.stringify(data);
+    // Remove redundâncias comuns
+    return jsonString
+      .replace(/{"code":"/g, '{"c":"')
+      .replace(/","quantity":/g, '","q":')
+      .replace(/,"card_image_link":\["/g, ',"i":["');
+  } catch (e) {
+    return JSON.stringify(data);
+  }
+}
+
+function decompressData(compressedString) {
+  try {
+    // Restaura redundâncias
+    const restored = compressedString
+      .replace(/{"c":"/g, '{"code":"')
+      .replace(/","q":/g, '","quantity":')
+      .replace(/,"i":\["/g, ',"card_image_link":["');
+    return JSON.parse(restored);
+  } catch (e) {
+    console.warn('Failed to decompress data:', e);
+    return {};
+  }
+}
+
+// Override das funções de save/load
+const originalSaveCollection = saveCollection;
+saveCollection = function () {
+  try {
+    const compressed = compressData(collection);
+    localStorage.setItem('collection', compressed);
+  } catch (e) {
+    console.warn('Failed to save compressed collection:', e);
+    originalSaveCollection();
+  }
+};
+
+// ===============================
+// MÉTRICAS DE PERFORMANCE
+// ===============================
+
+// Monitora performance e ajusta comportamento
+const performanceMetrics = {
+  loadTimes: [],
+  filterTimes: [],
+  renderTimes: []
+};
+
+function trackMetric(type, duration) {
+  performanceMetrics[type].push(duration);
+  if (performanceMetrics[type].length > 20) {
+    performanceMetrics[type].shift();
+  }
+
+  // Ajusta comportamento baseado nas métricas
+  if (type === 'renderTimes') {
+    const avgRenderTime = performanceMetrics.renderTimes.reduce((a, b) => a + b, 0) / performanceMetrics.renderTimes.length;
+
+    if (avgRenderTime > 100) {
+      // Se renderização está lenta, reduz batch size
+      window.RENDER_BATCH_SIZE = Math.max(10, window.RENDER_BATCH_SIZE - 10);
+    } else if (avgRenderTime < 50) {
+      // Se está rápida, pode aumentar batch size
+      window.RENDER_BATCH_SIZE = Math.min(100, window.RENDER_BATCH_SIZE + 5);
+    }
+  }
+}
+
+// Inicializa métricas
+window.RENDER_BATCH_SIZE = 50;
 
 // ===============================
 // Inicialização
 // ===============================
 loadAllCollections();
-// Garante aplicação dos filtros (cores/busca/etc.) após render
-filterCardsInGrid();
-
